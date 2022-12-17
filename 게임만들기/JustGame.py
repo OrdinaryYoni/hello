@@ -18,7 +18,7 @@ class Bullet(Sprite):
     def update(self):
         self.rect.x -= 5
         
-class Player(Sprite):
+class Player(Runner):
     def __init__(self):
         Sprite.__init__(self)
         self.image = pygame.image.load('runner.png')

@@ -7,9 +7,11 @@ class Runner(Sprite):
     def __init__(self):
         Sprite.__init__(self)
 
-        self.sprite_image = 'runnersprite.png'
+        
+
+        self.sprite_image = 'runnersprite_crop.jpg'
         self.sprite_width = 70
-        self.sprite_height = 100
+        self.sprite_height = 80
         self.sprite_sheet = pygame.image.load(self.sprite_image).convert()
 
         self.sprite_columns = 14
