@@ -8,8 +8,16 @@ GAME_WINDOW_WIDTH = 1200
 GAME_WINDOW_HEIGHT = 300
 FPS = 28
 velocity = 7
-mass = 2
+mass = 2.4
 
+#넴모
+class BLOCK(Sprite):
+    def __init__(self):
+        Sprite.__init__(self)
+        self.image = pygame.image.load('네모모.png')
+        self. image = pygame.transform.scale(self.image, (50,50))
+        self.rect = self.image.get_rect()
+    
 #쿠키
 class BULLET(Sprite):
     def __init__(self):
@@ -18,7 +26,7 @@ class BULLET(Sprite):
         self.image = pygame.transform.scale(self.image,(34,34))
         self.rect = self.image.get_rect()
     def update(self):
-        self.rect.x -= 5
+        self.rect.x -= 10
 #------------------------------------------------------------------
 #플레이어
 class RUNNER(Sprite):
@@ -41,14 +49,20 @@ class RUNNER(Sprite):
         self.image.set_colorkey(Color(255,0,255))
 
         self.rect = self.image.get_rect()
+        self.go = 0
         self.isJump = 0
         self.v = velocity #속도
         self.m = mass #질량
 #======================================#
     def jump(self, j):
         self.isJump = j
+    def fbward(self, fb):
+        self.go = fb
 #======================================#
     def update(self):
+        self.rect.y += 10
+        if self.rect.bottom > 290:
+            self.rect.bottom = 290
         #스프라이트
         if self.current_frame == self.sprite_columns - 1:
             self.current_frame = 0
@@ -82,8 +96,12 @@ class RUNNER(Sprite):
             if self.rect.bottom > GAME_WINDOW_HEIGHT:
                 self.rect.bottom = 290
                 self.isJump = 0
-                self.v = velocity 
- 
+                self.v = velocity
+
+    def OnTheBlock(self,nemo):
+        if self.go == 1 and self.isJump == 1:
+            self.rect.bottom = nemo
+            
 if __name__ == '__main__':
 
     #게임요소들
@@ -128,6 +146,11 @@ if __name__ == '__main__':
     bullet_group.add(bullet4)
     bullet_group.add(bullet5)
 
+    nemo = BLOCK()
+    nemo.rect.x = 300
+    nemo.rect.y = 210
+    nemo_group = pygame.sprite.Group()
+    nemo_group.add(nemo)
     #------------------------------------------------------------------
     while run:
         #사용자 입력 처리
@@ -139,21 +162,18 @@ if __name__ == '__main__':
         keys = pygame.key.get_pressed()
 
         #점프키
-        #스페이스키가 눌려있고, jump가 2라면 1로 변경한다.
+        #스페이스키가 눌려있고, jump가 1이라면 0으로 변경한다.
         #이 작업을 해주지 않으면 스페이스가 눌려있는 상태면 플레이어가 계속 위로 올라가게 된다.
         if keys[pygame.K_SPACE]:
-            if runner.isJump == 2:
-                runner.jump(1)
+            if runner.isJump == 1:
+                runner.jump(0)
 
         #스페이스키를 눌렀을 때,
         #0이면 바닥인 상태:1로 변경
-        #1이면 점프를 한상태 : 2로 변경, 점프한 위치에서 다시 점프를 하게 된다. 즉, 이중점프
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE:
                 if runner.isJump ==0:
                     runner.jump(1)
-                elif runner.isJump == 1:
-                    runner.jump(2)
 
         #이동키
         if keys[pygame.K_LEFT]:
@@ -169,9 +189,14 @@ if __name__ == '__main__':
         #게임 상태 업데이트
         runner_group.update()
         bullet_group.update()
+        nemo_group.update()
 
         collided = pygame.sprite.groupcollide(bullet_group,runner_group,False,False)
+
+        nemo_collided = pygame.sprite.groupcollide(nemo_group, runner_group,False,False)
+
         
+            
         if len(collided.items()) > 0:
             list(collided.keys())[0].rect.x = screen.get_width()+ 100
             CoinCount += 1
@@ -182,6 +207,7 @@ if __name__ == '__main__':
         screen.blit(background, screen.get_rect())
         runner_group.draw(screen)
         bullet_group.draw(screen)
+        nemo_group.draw(screen)
         pygame.display.flip()
 
         clock.tick(FPS)
