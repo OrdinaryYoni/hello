@@ -22,9 +22,10 @@ class BULLET(Sprite):
 #------------------------------------------------------------------
 #플레이어
 class RUNNER(Sprite):
+
     def __init__(self):
         Sprite.__init__(self)
-        #러너 스프라이트 설정
+        #러너 설정
         self.sprite_image = 'runnersprite_crop.png'
         self.sprite_width = 70
         self.sprite_height = 77
@@ -38,13 +39,15 @@ class RUNNER(Sprite):
                 self.sprite_width, self.sprite_height)
         self.image.blit(self.sprite_sheet,(0,0),rect)
         self.image.set_colorkey(Color(255,0,255))
+
         self.rect = self.image.get_rect()
-#======================================#
-        #러너 기능
-        self.jump = 0
+        self.isJump = 0
         self.v = velocity #속도
         self.m = mass #질량
-        
+#======================================#
+    def jump(self, j):
+        self.isJump = j
+#======================================#
     def update(self):
         #스프라이트
         if self.current_frame == self.sprite_columns - 1:
@@ -56,30 +59,34 @@ class RUNNER(Sprite):
                 self.sprite_width, self.sprite_height)
         self.image.blit(self.sprite_sheet,(0,0),rect)
 #======================================#
-        if self.jump > 0:
-            #jump 값이 0보다 큰지 확인
+        # isJump 값이 0보다 큰지 확인
+        if self.isJump > 0:
+            # isJump 값이 2일 경우 속도를 리셋
+            # 점프 한 상태에서 다시 점프를 위한 값
 
-            #역학공식 계산 (F). F = 0.5 * mass * velocity^2.
+            # 역학공식 계산 (F). F = 0.5 * mass * velocity^2.
             if self.v > 0:
                 # 속도가 0보다 클때는 위로 올라감
-                F = (0.5*self.m*(self.v*self.v))
+                F = (0.5 * self.m * (self.v * self.v))
             else:
-                #속도가 0보다 작을때는 아래로 내려감
-                F = -(0.5*self.m*(self.v*self.v))
+                # 속도가 0보다 작을때는 아래로 내려감
+                F = -(0.5 * self.m * (self.v * self.v))
 
-            #좌표수정: 위로 올라가기 위해서는 y좌표를 줄여준다.
+            # 좌표 수정 : 위로 올라가기 위해서는 y 좌표를 줄여준다.
             self.rect.y -= round(F)
 
-            #속도 줄여줌>210:
-            self.rect.bottom = 210
-            self.jump = 0
-            self.v = velocity
-    
-    def jumping(self,j):
-        self.jump = j
-        
+            # 속도 줄여줌
+            self.v -= 1
+
+            # 바닥에 닿았을때, 변수 리셋
+            if self.rect.bottom > GAME_WINDOW_HEIGHT:
+                self.rect.bottom = 290
+                self.isJump = 0
+                self.v = velocity 
+
+
 if __name__ == '__main__':
-    
+
     #게임요소들
     pygame.init()
     screen = pygame.display.set_mode((GAME_WINDOW_WIDTH,GAME_WINDOW_HEIGHT))
@@ -94,15 +101,15 @@ if __name__ == '__main__':
     runner.rect.y = 210
     runner_group = pygame.sprite.Group()
     runner_group.add(runner)
-    
+
     bullet1 = BULLET()
     bullet1.rect.x = screen.get_width()
     bullet1.rect.y = 250
-    
+
     bullet2 = BULLET()
     bullet2.rect.x = screen.get_width()+100
     bullet2.rect.y = 150
-    
+
     bullet3 = BULLET()
     bullet3.rect.x = screen.get_width()+200
     bullet3.rect.y = 250
@@ -127,39 +134,37 @@ if __name__ == '__main__':
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
+
+        #키가 눌린 상태 체크
         keys = pygame.key.get_pressed()
 
         #점프키
         #스페이스키가 눌려있고, jump가 2라면 1로 변경한다.
         #이 작업을 해주지 않으면 스페이스가 눌려있는 상태면 플레이어가 계속 위로 올라가게 된다.
         if keys[pygame.K_SPACE]:
-            if runner.jump == 2:
-                runner.jumping(1)
-                
+            if runner.isJump == 2:
+                runner.jump(1)
+
         #스페이스키를 눌렀을 때,
         #0이면 바닥인 상태:1로 변경
         #1이면 점프를 한상태 : 2로 변경, 점프한 위치에서 다시 점프를 하게 된다. 즉, 이중점프
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE:
-                if runner.jump ==0:
-                    runner.jumping(1)
-                elif runner.jump == 1:
-                    runner.jumping(2)
-                    
+                if runner.isJump ==0:
+                    runner.jump(1)
+                elif runner.isJump == 1:
+                    runner.jump(2)
+
         #이동키
         if keys[pygame.K_LEFT]:
-            runner.rect.x -= 10
+            runner.rect.x -= 5
         elif keys[pygame.K_RIGHT]:
-            runner.rect.x += 10
-        elif keys[pygame.K_UP]:
-            runner.rect.y -= 5
-        elif keys[pygame.K_DOWN]:
-            runner.rect.y += 5
+            runner.rect.x += 5
 
         if runner.rect.right >= GAME_WINDOW_WIDTH:
-            runner.rect.x -= 10
+            runner.rect.x -= 5
         elif runner.rect.x <= 0:
-            runner.rect.left += 10
+            runner.rect.left += 5
 #============================================#
         #게임 상태 업데이트
         runner_group.update()
@@ -170,15 +175,15 @@ if __name__ == '__main__':
         if len(collided.items()) > 0:
             list(collided.keys())[0].rect.x = screen.get_width()+ 100
             CoinCount += 1
-            print('먹은 동전 수 :',CoinCount)
+            print('먹은 쿠키 수 :',CoinCount)
             print(collided.keys())
-            
+
         #게임 상태 그리기
-        screen.blit(background,screen.get_rect())
+        screen.blit(background, screen.get_rect())
         runner_group.draw(screen)
         bullet_group.draw(screen)
         pygame.display.flip()
 
         clock.tick(FPS)
-        
-    pygame.quit()
+
+pygame.quit()
