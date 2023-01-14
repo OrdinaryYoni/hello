@@ -15,17 +15,11 @@ class BLOCK(Sprite):
         Sprite.__init__(self)
         self.image = pygame.image.load('네모모.png')
         self.image = pygame.transform.scale(self.image,(50,50))
-        self.rect = self.image.get_rect()    
-        
-#쿠키
-class BULLET(Sprite):
-    def __init__(self):
-        Sprite.__init__(self)
-        self.image = pygame.image.load('cookie.png')
-        self.image = pygame.transform.scale(self.image,(34,34))
         self.rect = self.image.get_rect()
-    def update(self):
-        self.rect.x -= 5
+
+    def OnTheBlock():
+        pass
+        
 #------------------------------------------------------------------
 #플레이어
 class RUNNER(Sprite):
@@ -50,16 +44,12 @@ class RUNNER(Sprite):
         self.rect = self.image.get_rect()
         self.isJump = 0
         self.on = 0
-        self.left_going = 0
-        self.right_going = 0
+        self.go = 0
         self.v = velocity #속도
         self.m = mass #질량
 #======================================#
     def jump(self, j):
         self.isJump = j
-    def On(self, o):
-        self.on = o
-        print(o)
 #======================================#
     def update(self):
         #스프라이트
@@ -74,7 +64,7 @@ class RUNNER(Sprite):
 #======================================#
         # isJump 값이 0보다 큰지 확인
         if self.isJump > 0:
-    
+
             # 역학공식 계산 (F). F = 0.5 * mass * velocity^2.
             if self.v > 0:
                 # 속도가 0보다 클때는 위로 올라감
@@ -95,17 +85,12 @@ class RUNNER(Sprite):
                 self.isJump = 0
                 self.v = velocity
 
-            elif self.on == 1 and self.v <= 0:
-                self.rect.bottom = block1.rect.top +1
-                self.isJump = 0
-                self.v = velocity
-
 if __name__ == '__main__':
 
     #게임요소들
     pygame.init()
     screen = pygame.display.set_mode((GAME_WINDOW_WIDTH,GAME_WINDOW_HEIGHT))
-    pygame.display.set_caption('TEST')
+    pygame.display.set_caption('Jumping')
     background = pygame.image.load('background.png')
     run = True
     clock = pygame.time.Clock()
@@ -116,33 +101,6 @@ if __name__ == '__main__':
     runner.rect.y = 210
     runner_group = pygame.sprite.Group()
     runner_group.add(runner)
-
-    bullet1 = BULLET()
-    bullet1.rect.x = screen.get_width()
-    bullet1.rect.y = 250
-
-    bullet2 = BULLET()
-    bullet2.rect.x = screen.get_width()+100
-    bullet2.rect.y = 150
-
-    bullet3 = BULLET()
-    bullet3.rect.x = screen.get_width()+200
-    bullet3.rect.y = 250
-
-    bullet4 = BULLET()
-    bullet4.rect.x = screen.get_width()+350
-    bullet4.rect.y = 250
-
-    bullet5 = BULLET()
-    bullet5.rect.x = screen.get_width()+450
-    bullet5.rect.y = 150
-
-    bullet_group = pygame.sprite.Group()
-    bullet_group.add(bullet1)
-    bullet_group.add(bullet2)
-    bullet_group.add(bullet3)
-    bullet_group.add(bullet4)
-    bullet_group.add(bullet5)
 
     block1 = BLOCK()
     block1.rect.x = 300
@@ -191,27 +149,11 @@ if __name__ == '__main__':
 #============================================#
         #게임 상태 업데이트
         runner_group.update()
-        bullet_group.update()
         block_group.update()
-
-        collided = pygame.sprite.groupcollide(bullet_group,runner_group,False,False)
-
-        block_collided = pygame.sprite.groupcollide(block_group,runner_group,False,False)
-
-        if len(block_collided.items()) > 0:
-            runner.On(1)
-        if len(block_collided.items()) == 0:
-            runner.On(0)
-            
-        if len(collided.items()) > 0:
-            list(collided.keys())[0].rect.x = screen.get_width()+ 100
-            CoinCount += 1
-            print('먹은 쿠키 수 :',CoinCount)
 
         #게임 상태 그리기
         screen.blit(background, screen.get_rect())
         runner_group.draw(screen)
-        bullet_group.draw(screen)
         block_group.draw(screen)
         pygame.display.flip()
 
