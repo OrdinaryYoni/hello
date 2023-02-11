@@ -20,6 +20,8 @@ class Game:
     def new(self):
         self.all_sprites = pg.sprite.Group()
         self.blocks = pg.sprite.Group()
+        self.items = pg.sprite.Group()
+        #self.clouds = pg.sprite.Group()
 
         self.runner = Runner(self)
         self.all_sprites.add(self.runner)
@@ -28,6 +30,16 @@ class Game:
             b = Block(*blox)
             self.all_sprites.add(b)
             self.blocks.add(b)
+
+        for item in JUMPBOOSTER_LIST:
+            i = Jumpbooster(*item)
+            self.all_sprites.add(i)
+            self.items.add(i)
+
+      #  for cloud in CLOUD_LIST:
+       #     c = Cloud(*cloud)
+        #    self.all_sprites.add(c)
+         #   self.clouds.add(c)
 
         self.run()
 
@@ -41,14 +53,29 @@ class Game:
             self.draw()
 
     def update(self):
-        #게임루프 - 업데이트\
+        #게임루프 - 업데이트
         self.all_sprites.update()
+        
         #블록을 밟았는지 확인하는 코드
         if self.runner.vel.y > 0:
             hits =pg.sprite.spritecollide(self.runner, self.blocks, False)
             if hits:
                 self.runner.pos.y = hits[0].rect.top + 0.1
                 self.runner.vel.y = 0
+                
+        #아이템을 먹었는지 확인하는 코드
+        print(self.runner.vel.y)
+        if self.runner.vel.y > 5:
+            hits = pg.sprite.spritecollide(self.runner, self.items, False)
+            if hits:
+                self.runner.vel.y = -50
+                
+        #구름에 닿았는지 확인하는 코드
+       # if self.runner.vel.y > 5:
+        #    hits = pg.sprite.spritecollide(self.runner, self.clouds, True)
+         #   if hits:
+          #      self.runner.pos.y = hits[0].rect.top + 0.1
+           #     self.runner.vel.y = -23
 
         if self.runner.rect.top <= GAME_WINDOW_HEIGHT/4:
             self.runner.pos.y += abs(self.runner.vel.y)
@@ -57,6 +84,18 @@ class Game:
                 if blox.rect.top >= GAME_WINDOW_HEIGHT:
                     blox.kill()
                     self.score += 10
+                    print(self.score)
+            for item in self.items:
+                item.rect.y += abs(self.runner.vel.y)
+                if item.rect.top >= GAME_WINDOW_HEIGHT:
+                    item.kill()
+                    self.score += 10
+         #   for clod in self.clouds:
+          #      clod.rect.y += abs(self.runner.vel.y)
+           #     if clod.rect.top >= GAME_WINDOW_HEIGHT:
+            #        clod.kill()
+             #       self.score += 10
+
 
         #죽음
         if self.runner.rect.bottom > GAME_WINDOW_HEIGHT:
@@ -64,23 +103,36 @@ class Game:
                 sprite.rect.y -= max(self.runner.vel.y, 10)
                 if sprite.rect.bottom <0:
                     sprite.kill()
+                    self.score = 0
         if len(self.blocks) == 0:
             self.playing = False
             
         #블록 설치
-        while len(self.blocks) < 7:
-            width = random.randrange(10, 200)
+        while len(self.blocks) < 5:
+            width = random.randrange(1, 200)
             b = Block(random.randrange(0,GAME_WINDOW_WIDTH - width),
                          random.randrange(-75,-30), 80, 80)
             self.blocks.add(b)
             self.all_sprites.add(b)
+        #아이템 설치
+        while len(self.items) < 1:
+            width = random.randrange(10, 300)
+            i = Jumpbooster(random.randrange(0, GAME_WINDOW_WIDTH - width),
+                            random.randrange(-75, -30), 80, 80)
+            self.items.add(i)
+            self.all_sprites.add(i)
+        #구름 설치
+     #   while len(self.clouds) < 1:
+      #      width = random.randrange(10, 300)
+       #     c = Cloud(random.randrange(0, GAME_WINDOW_WIDTH - width),
+        #               random.randrange(-75, -30), 80, 80)
 
     def draw_text(self, text, size, color, x, y):
-        font = pg.font.Font(self.font_name, size)
+        font = pg.font.Font(self.font_name, size, bold=True)
         text_surface = font.render(text, True, color)
         text_rect = text_surface.get_rect()
         text_rect.midtop = (x, y)
-        self.screen.blit(text_surface, text_rect)
+        self.screen.blit(text_surface, text_rect.midtop)
         
         
     def wait_for_key(self):
@@ -109,33 +161,14 @@ class Game:
         #게임루프 - 그리기
         self.screen.fill(BGCOLOR)
         self.all_sprites.draw(self.screen)
+        self.draw_text(str(self.score), 50, WHITE, 228, 15)
         pg.display.flip()
-        self.draw_text(str(self.score), 22, BLACK, 250, 15)
 
     def show_start_screen(self):
-        # game splash/start screen
-        self.screen.fill(BGCOLOR)
-        self.draw_text(TITLE, 48, WHITE, GAME_WINDOW_WIDTH/2, GAME_WINDOW_HEIGHT/4)
-        self.draw_text("Arrows to move, Space to jump",
-                       22, WHITE, GAME_WINDOW_WIDTH/2, GAME_WINDOW_HEIGHT/2)
-        self.draw_text("Press a key to play",
-                       22, WHITE, GAME_WINDOW_WIDTH/2, GAME_WINDOW_HEIGHT*3/4)
-        pg.display.flip()
-        self.wait_for_key()
+        pass
 
     def show_go_screen(self):
-        # game over/continue
-        if not self.running:
-            return
-        self.screen.fill(BGCOLOR)
-        self.draw_text("GAME OVER", 48, WHITE, GAME_WINDOW_WIDTH/2, GAME_WINDOW_HEIGHT/4)
-        self.draw_text("Score : " + str(self.score),
-                       22, WHITE, GAME_WINDOW_WIDTH/2, GAME_WINDOW_HEIGHT/2)
-        self.draw_text("Press a key to play again",
-                       22, WHITE, GAME_WINDOW_WIDTH/2, GAME_WINDOW_HEIGHT*3/4)
-        pg.display.flip()
-        self.wait_for_key()
-
+        pass
 g = Game()
 g.show_start_screen()
 while g.running:

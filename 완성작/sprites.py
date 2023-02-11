@@ -10,13 +10,13 @@ class Runner(Sprite):
     def __init__(self, game):
         Sprite.__init__(self)
         #러너 설정
-        self.image = pg.image.load('세모모.png')
+        self.image = pg.image.load('네모모.png')
         self.image = pg.transform.scale(self.image,(70,70))
         self.game = game
         self.rect = self.image.get_rect()
         self.rect.center = (0, 240)
 
-        self.pos = vec(0, 240) #위치
+        self.pos = vec(230,780) #위치
         self.vel = vec(0,0) #속도
         self.acc = vec(0,0) #가속도
 
@@ -26,7 +26,7 @@ class Runner(Sprite):
         hits = pg.sprite.spritecollide(self,self.game.blocks,False)
         self.rect.y -= 0.1
         if hits:
-            self.vel.y = -20
+            self.vel.y = -23
 
     def update(self):
         self.acc = vec(0, PLAYER_GRAVITY) #초기 가속도 줌
@@ -57,8 +57,24 @@ class Block(Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
-        
-        
+
+class Jumpbooster(Sprite):
+    def __init__(self, x, y, w, h):
+        Sprite.__init__(self)
+        self.image = pg.image.load('스프링잔디.png')
+        self.image = pg.transform.scale(self.image,(w,h))
+        self.rect = self.image.get_rect()
+        self.rect.x = x
+        self.rect.y = y
+
+#class Cloud(Sprite):
+#    def __init__(self, x, y, w, h):
+ #       Sprite.__init__(self)
+  #      self.image = pg.image.load('구름.png')
+   #     self.image = pg.transform.scale(self.image,(w,h))
+    #    self.rect = self.image.get_rect()
+     #   self.rect.x = x
+      #  self.rect.y = y
 
         
     
