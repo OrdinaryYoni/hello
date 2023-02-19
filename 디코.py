@@ -9,8 +9,8 @@ chrome_options = webdriver.ChromeOptions() #자동으로 다운받은 후 실행
 driver = webdriver.Chrome(service=Service(
     ChromeDriverManager().install()),
     options=chrome_options)
-ID = ''
-PW = ''
+ID = '이메일'
+PW = '비밀번호'
 CHAT = '연습~'
 #\지우고 한줄로 써도 사용가능
 url = 'https://discord.com/channels/758909732697276457/983046700216221826'
