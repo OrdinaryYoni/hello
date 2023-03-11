@@ -7,6 +7,7 @@ import time
 name = []
 answer = []
 link = []
+cmt = {}
 chrome_options = webdriver.ChromeOptions()
 driver = webdriver.Chrome(service=Service(
     ChromeDriverManager().install()),
@@ -17,7 +18,7 @@ driver.get(url)
 driver.implicitly_wait(3)
 
 #스크롤 내리기
-for i in range(10):
+for i in range(1):
     driver.find_element(By.TAG_NAME,'body').send_keys(Keys.PAGE_DOWN)
     time.sleep(1)
     
@@ -33,21 +34,22 @@ for v in videos[1:]:
     
 #댓글 가져오기
 for j in link:
+    if j == None:
+        break
     driver.get(j)
     driver.implicitly_wait(3)
 
-    for i in range(10):
+    for i in range(5):
         driver.find_element(By.TAG_NAME,'body').send_keys(Keys.PAGE_DOWN)
         time.sleep(1)
 
     driver.implicitly_wait(3)
-    e = driver.find_elements(By.CLASS_NAME, 'style-scope.ytd-comment-renderer')
+    e = driver.find_elements(By.CLASS_NAME, 'style-scope ytd-comment-renderer')
 
     for i in e:
-        driver.implicitly_wait(3)
-        a=i.text
-        b = a.split('/n')
-        name.append(b[0])
-        answer.append(b[2])
-    for k in answer:
-        print(k)
+        a = i.text
+        b = a.split('\n')
+        cmt[b[0]] = b[2]
+
+    for j in cmt.items():
+        print(j[0]+' : '+j[1])
