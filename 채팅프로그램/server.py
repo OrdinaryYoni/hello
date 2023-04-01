@@ -26,7 +26,8 @@ def Recv(conn,count,send_queue):
     print('Thread Recv' + str(count) + 'Start')
     while True:
         data = conn.recv(1024).decode()
-        send_queue.put([data,conn,count]) #각각의 클라이언트의 메세지, 소켓정보, 쓰레드 번호를 send로 보냄
+        send_queue.put([data,conn,count]) #각각의 클라이언트의 메세지, 소켓정보, 쓰레드 번호를
+                                          #send로 보냄
 
 #TCP Echo Server
 if __name__ == '__main__':

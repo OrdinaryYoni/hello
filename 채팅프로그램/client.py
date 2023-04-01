@@ -1,10 +1,11 @@
 import socket
 import threading
+import os
 
 def Send(client_sock):
     while True:
         send_data = bytes(input().encode()) #사용자 입력
-        client_sock.send(send_data) #Client -> Server 데이터 송신
+        client_sock.sendall(send_data) #Client -> Server 데이터 송신
 
 def Recv(client_sock):
     while True:
