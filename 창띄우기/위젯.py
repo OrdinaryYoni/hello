@@ -1,4 +1,107 @@
 import sys
+from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QPushButton
+
+
+class MyApp(QWidget):
+
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+
+    def initUI(self):
+        label1 = QLabel('Label1', self)
+        label1.move(20, 20)
+        label2 = QLabel('Label2', self)
+        label2.move(20, 60)
+
+        btn1 = QPushButton('Button1', self)
+        btn1.move(80, 13)
+        btn2 = QPushButton('Button2', self)
+        btn2.move(80, 53)
+
+        self.setWindowTitle('Absolute Positioning')
+        self.setGeometry(300, 300, 400, 200)
+        self.show()
+
+
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    ex = MyApp()
+    sys.exit(app.exec_())
+
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    ex = MyApp()
+    sys.exit(app.exec_())
+
+'''import sys
+from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QLineEdit
+
+class MyApp(QWidget):
+
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+
+    def initUI(self):
+        self.lbl = QLabel(self)
+        self.lbl.move(60,40)
+
+        qle = QLineEdit(self)
+        qle.move(60, 300)
+        qle.textChanged[str].connect(self.onChanged)
+
+        self.setWindowTitle('QLineEdit')
+        self.setGeometry(500,100,600,900)
+        self.show()
+
+    def onChanged(self,text):
+        self.lbl.setText(text)
+        self.lbl.adjustSize()
+
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    ex = MyApp()
+    sys.exit(app.exec_())'''
+
+
+'''import sys
+from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QComboBox
+
+class MyApp(QWidget):
+
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+
+    def initUI(self):
+        self.lbl = QLabel('Option1', self)
+        self.lbl.move(50,150)
+        
+        cb = QComboBox(self)
+        cb.addItem('Option1')
+        cb.addItem('Option2')
+        cb.addItem('Option3')
+        cb.addItem('Option4')
+        cb.move(50,50)
+
+        cb.activated[str].connect(self.OnActivated)
+
+        self.setWindowTitle('QComboBox')
+        self.setGeometry(300,300,300,200)
+        self.show()
+
+    def OnActivated(self, text):
+        self.lbl.setText(text)
+        self.lbl.adjustSize()
+
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    ex = MyApp()
+    sys.exit(app.exec_())'''
+    
+
+'''import sys
 from PyQt5.QtWidgets import QApplication, QWidget, QRadioButton
 
 class MyApp(QWidget):
@@ -22,15 +125,7 @@ class MyApp(QWidget):
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     ex = MyApp()
-    sys.exit(app.exec_())
-
-
-
-
-
-
-
-
+    sys.exit(app.exec_())'''
 
 
 '''import sys
@@ -62,11 +157,11 @@ class MyApp(QWidget):
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     ex = MyApp()
-    sys.exit(app.exec_())
+    sys.exit(app.exec_())'''
 
 
 
-import sys
+'''import sys
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout
 from PyQt5.QtCore import Qt
 
@@ -106,12 +201,12 @@ class MyApp(QWidget):
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     ex = MyApp()
-    sys.exit(app.exec_())
+    sys.exit(app.exec_())'''
 
 
 
 
-import sys
+'''import sys
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QVBoxLayout
 
 class MyApp(QWidget):
