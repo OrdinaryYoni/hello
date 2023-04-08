@@ -1,0 +1,15 @@
+import pygame
+
+pygame.init()
+
+screen = pygame.display.set_mode((400, 300))
+
+clock = pygame.time.Clock()
+
+while True:
+    #1) 사용자 입력 처리
+    #2) 게임 상태 업데이트
+    #3) 게임 상태 그리기
+    clock.tick(30)
+
+    pygame.quit()
