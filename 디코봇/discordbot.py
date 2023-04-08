@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
  
 
-token ='MTA4NjUzMDk2Mjk0MDI0NDA1MA.G74ha4.EFfpyULSVhfUSXWIh6i6tF9UIa-rI9tRYOODN8'
+token =''
 @app.event
 async def on_ready():
     print('Done')
