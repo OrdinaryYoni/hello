@@ -70,11 +70,14 @@ class ServerSocket(QObject):
                 print('Recv() Error :', e)
                 break
             else:
-                msg = str(recv, encoding='utf-8')
-                if msg:
-                    self.send(msg)
-                    self.recv_signal.emit(msg)
-                    print('[RECV]:', addr, msg)
+                if recv[:3] == b'^-^':
+                    print(recv.decode())
+                else:
+                    msg = str(recv, encoding='utf-8')
+                    if msg:
+                        self.send(msg)
+                        self.recv_signal.emit(msg)
+                        print('[RECV]:', addr, msg)
 
         self.removeClient(addr,client)
 
