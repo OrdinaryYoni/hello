@@ -74,10 +74,15 @@ class CWidget(QWidget):
         self.sendbtn.setAutoDefault(True)
         self.sendbtn.clicked.connect(self.sendMsg)
 
+        self.sendfilebtn = QPushButton('파일 보내기')
+        self.sendfilebtn.setAutoDefault(True)
+        self.sendfilebtn.clicked.connect(self.sendFile)
+
         self.clearbtn = QPushButton('채팅창 지움')
         self.clearbtn.clicked.connect(self.clearMsg)
 
         hbox.addWidget(self.sendbtn)
+        hbox.addWidget(self.sendfilebtn)
         hbox.addWidget(self.clearbtn)
         gb.setLayout(box)
 
@@ -116,6 +121,11 @@ class CWidget(QWidget):
     def sendMsg(self):
         sendmsg = self.sendmsg.toPlainText()
         self.c.send(sendmsg)
+        self.sendmsg.clear()
+
+    def sendFile(self):
+        file = self.sendmsg.toPlainText()
+        self.c.sendfile(file)
         self.sendmsg.clear()
 
     def clearMsg(self):

@@ -1,7 +1,7 @@
 from threading import *
 from socket import *
 from PyQt5.QtCore import Qt, pyqtSignal, QObject
-
+import os
 class Signal(QObject):
     recv_signal =  pyqtSignal(str)
     disconn_signal = pyqtSignal()
@@ -49,14 +49,27 @@ class ClientSocket:
         while self.bConnect:
             try:
                 recv = client.recv(1024)
+                recv_transferred = 0
             except Exception as e:
                 print('Recv() Error :', e)
                 break
             else:
-                msg = str(recv, encoding = 'utf-8')
-                if msg:
-                    self.recv.recv_signal.emit(msg)
-                    print('[RECV]: ', msg)
+                if recv in '^-^':
+                    filename = str(recv, encoding = 'utf-8') - '^-^'
+                    nowdir = os.getcwd()
+                    with open(nowdir+'\\'+filename, 'wb') as f:
+                        try:
+                            while recv:
+                                f.write(recv)
+                                data_transferred += len(recv)
+                                recv = clientSock.recv(1024)
+                        except Exception as e:
+                            print(e)
+                else:
+                    msg = str(recv, encoding = 'utf-8')
+                    if msg:
+                        self.recv.recv_signal.emit(msg)
+                        print('[RECV]: ', msg)
 
         self.stop()
 
@@ -68,3 +81,13 @@ class ClientSocket:
             self.client.send(msg.encode())
         except Exception as e:
             print('Send() Error : ', e)
+
+    def sendfile(self, filename):
+        if not self.bConnect:
+            return
+
+        try:
+            file_name_data = '^-^' + filename
+            self.client.sendall(file_name_data.encode('utf-8'))
+        except Exception as e:
+            print('Sendall() Error : ', e)
