@@ -54,7 +54,7 @@ class ClientSocket:
                 print('Recv() Error :', e)
                 break
             else:
-                if recv in '^-^':
+                if recv[:3] == '^-^':
                     filename = str(recv, encoding = 'utf-8') - '^-^'
                     nowdir = os.getcwd()
                     with open(nowdir+'\\'+filename, 'wb') as f:
@@ -88,6 +88,15 @@ class ClientSocket:
 
         try:
             file_name_data = '^-^' + filename
-            self.client.sendall(file_name_data.encode('utf-8'))
+            f = file_name_data.encode('utf-8')
+            self.client.sendall(f)
+            with open(filename, 'r') as f:
+                while True:
+                    data = f.read(1024)
+                    if not data:
+                        break
+                    data = '^b^' + data
+                    self.client.sendall(data.encode('utf-8'))
+            
         except Exception as e:
             print('Sendall() Error : ', e)
