@@ -3,7 +3,7 @@ from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 import sys
 import socket
-import server_I
+import server_hong
 
 QApplication.setAttribute(Qt.AA_EnableHighDpiScaling, True)
 
@@ -13,7 +13,7 @@ class CWidget(QWidget):
     def __init__(self):
         super().__init__()
 
-        self.s = server_I.ServerSocket(self)
+        self.s = server_hong.ServerSocket(self)
 
         self.initUI()
 
