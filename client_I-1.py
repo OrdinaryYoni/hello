@@ -89,14 +89,17 @@ class ClientSocket:
         try:
             file_name_data = '^-^' + filename
             f = file_name_data.encode('utf-8')
-            self.client.sendall(f)
-            with open(filename, 'r') as f:
+            self.client.send(f)
+            with open(filename, 'rb') as f:
                 while True:
-                    data = f.read(1024)
+                    data = f.read(1021)
                     if not data:
+                        a = b'*-*'
+                        self.client.send(a)
                         break
-                    data = '^b^' + data
-                    self.client.sendall(data.encode('utf-8'))
+                    data = b'^b^' + data
+                    print(type(data))
+                    self.client.send(data)
             
         except Exception as e:
-            print('Sendall() Error : ', e)
+            print('Send() Error : ', e)

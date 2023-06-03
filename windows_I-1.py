@@ -20,7 +20,8 @@ class CWidget(QWidget):
         self.c.stop()
 
     def initUI(self):
-        self.setWindowTitle('클라이언트')
+        self.setWindowTitle('Yoni Talk')
+        self.setWindowIcon(QIcon('YONI.png'))
 
         #클라이언트 설정 부분
         ipbox = QHBoxLayout()
@@ -32,7 +33,7 @@ class CWidget(QWidget):
 
         label = QLabel('Server IP')
         self.ip = QLineEdit()
-        #self.ip.setInputMask('000.000.000.000;_')
+        self.ip.setInputMask('192.168.0.46;_')
         box.addWidget(label)
         box.addWidget(self.ip)
 
@@ -42,6 +43,7 @@ class CWidget(QWidget):
         box.addWidget(self.port)
 
         self.btn = QPushButton('접속')
+        self.btn.setStyleSheet('background-color: #81BEF7;')
         self.btn.clicked.connect(self.connectClicked)
         box.addWidget(self.btn)
 
@@ -71,14 +73,17 @@ class CWidget(QWidget):
 
         box.addLayout(hbox)
         self.sendbtn = QPushButton('보내기')
+        self.sendbtn.setStyleSheet('background-color: #87CEFA;')
         self.sendbtn.setAutoDefault(True)
         self.sendbtn.clicked.connect(self.sendMsg)
 
         self.sendfilebtn = QPushButton('파일 보내기')
+        self.sendfilebtn.setStyleSheet('background-color: #87CEFA;')
         self.sendfilebtn.setAutoDefault(True)
         self.sendfilebtn.clicked.connect(self.sendFile)
 
         self.clearbtn = QPushButton('채팅창 지움')
+        self.clearbtn.setStyleSheet('background-color: #87CEFA;')
         self.clearbtn.clicked.connect(self.clearMsg)
 
         hbox.addWidget(self.sendbtn)
@@ -124,9 +129,13 @@ class CWidget(QWidget):
         self.sendmsg.clear()
 
     def sendFile(self):
-        file = self.sendmsg.toPlainText()
-        self.c.sendfile(file)
-        self.sendmsg.clear()
+        f = QFileDialog.getOpenFileName(self, 'Open file', './')[0]
+        if f:
+            print(f)
+            #file = self.sendmsg.toPlainText()
+            file_name = f[f.rfind('/')+1:]
+            self.c.sendfile(file_name)
+            self.sendmsg.clear()
 
     def clearMsg(self):
         self.recvmsg.clear()
