@@ -1,0 +1,25 @@
+<style>
+    .container{
+       width: 100px;
+       height: 100px; 
+       margin: 200px;
+       background-color: black;
+       background-image: url("사과.png");
+       background-repeat: no-repeat;
+       background-size: cover;
+    }
+    .container:hover{
+        animation-name: move;
+        animation-duration: 5s;
+    }
+
+    @keyframes move{
+        0%{rotate: 0deg;}
+        50%{rotate: 360deg;}
+        100%{rotate: 0deg;}
+    }
+</style>
+</head>
+<body>
+    <div class="container"></div>
+</body>
