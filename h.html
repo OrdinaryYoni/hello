@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Create Node</title>
+    </head>
+    <body>
+        <script>
+            const aEl = document.createElement('a');
+            document.body.appendChild(aEl);
+            const txtEl = document.createTextNode('길벗');
+            document.querySelector('a').appendChild(txtEl);
+            const hrefAttr = document.createAttribute('href');
+            hrefAttr.value = 'https://www.gilbut.co.kr';
+            document.querySelector('a').setAttributeNode(hrefAttr);
+        </script>
+    </body>
+</html>
