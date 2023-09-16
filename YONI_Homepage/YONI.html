@@ -1,0 +1,203 @@
+<style>
+    @font-face {
+    font-family: 'S-CoreDream-3Light';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+    @font-face {
+    font-family: 'IAMAPLAYER';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/IAMAPLAYER.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GoryeongStrawberry';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/GoryeongStrawberry.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+    .grid-container{
+        display: grid;
+        grid-template-areas: 
+        "header header header"
+        "context context sidebar"
+        "footer footer sidebar";
+    }
+    #header{
+        grid-area: header;
+        background-color: rgb(0, 247, 255);
+        border: 3px solid rgb(0, 204, 255);
+        width: 1000px;
+        margin: 60px auto;
+        height: 100px;
+        font-size: 80px;
+        padding: 20px;
+        text-align: center;
+        position: relative;
+        font-family:'IAMAPLAYER';
+        font-weight: bold;
+        color: rgb(68, 68, 68);
+        text-shadow: -2px 0 rgb(0, 0, 0), 0 2px rgb(0, 0, 0), 2px 0 rgb(0, 0, 0), 0 -2px rgb(0, 0, 0);
+    }
+    #context{
+        grid-area: context;
+        border: 3px solid  rgb(27, 27, 27);
+        height: 300px;
+        width: 1300px;
+        margin-left: 100px;
+        font-family:'IAMAPLAYER';
+        background-color: rgb(68, 68, 68);
+        color: rgb(2, 255, 2);
+        padding-left: 10px;
+        font-size: x-large;
+        letter-spacing: 4px;
+        text-shadow: -2px 0 rgb(0, 87, 0), 0 2px rgb(0, 87, 0), 2px 0 rgb(0, 87, 0), 0 -2px rgb(0, 87, 0);
+        line-height: 60px;
+    }
+    #sidebar{
+        grid-area: sidebar;
+        background-color: rgb(203, 252, 255);
+        border: 3px solid  rgb(100, 240, 250);
+        width: 300px;
+        height: 500px;
+        text-align: center;
+        color: white;
+        font-size: xx-large;
+        position: relative;
+        padding: 10px;
+        font-family: 'GoryeongStrawberry';
+        text-shadow: -2px 0 rgb(100, 240, 250), 0 2px rgb(100, 240, 250), 2px 0 rgb(100, 240, 250), 0 -2px rgb(100, 240, 250);
+    }
+    #footer{
+        grid-area: footer;
+        margin: 20px;
+        text-align: center;
+        font-family: 'S-CoreDream-3Light';
+        font-weight: bold;
+    }
+    .sidebar-img{
+        background-image: url('아오리사과.jfif');
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        left: 50px;
+        top: 100px;
+        border: 5px solid rgb(100, 240, 250);
+        background-repeat: round;
+    }
+    .header-img{
+        background-image: url('YONI.png');
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        bottom: 15px;
+        left: 15px;
+    }
+    .purchase:hover{
+        color: rgb(105, 220, 255);
+        border: none;
+        box-shadow: 0px 0px 2px 2px rgb(133, 227, 255);
+        background-color: rgb(177, 250, 255);
+        font-size: 40px;
+        font-family: 'GoryeongStrawberry';
+        margin-top: 300px;
+        padding: 6px;
+        border-radius: 10px;
+        transition: 0.5s;
+    }
+    .purchase{
+        color: rgb(105, 220, 255);
+        border: none;
+        box-shadow: 0px 0px 2px 2px rgb(133, 227, 255);
+        background-color: rgb(177, 250, 255);
+        font-size: xx-large;
+        font-family: 'GoryeongStrawberry';
+        margin-top: 300px;
+        padding: 3px;
+        border-radius: 10px;
+        transition: 0.5s;
+    }
+    #text-style{
+        background-color: orange;
+        height: 40px;
+        color: white;
+        font-size: large;
+        font-family: 'IAMAPLAYER';
+    }
+    .f-box1{
+        border: 3px solid rgb(0, 255, 21);
+        width: 100px;
+        height: 100px;
+        margin-left: 80px;
+        float: left;
+    }
+    .f-box2{
+        border: 3px solid rgb(0, 0, 0);
+        width: 100px;
+        height: 100px;
+        margin-left: 30px;
+        float: left;
+    }
+    .f-box3{
+        border: 3px solid rgb(255, 0, 0);
+        width: 100px;
+        height: 100px;
+        margin-left: 30px;
+        float: left;
+    }
+    .f-box4{
+        border: 3px solid rgb(225, 0, 255);
+        width: 100px;
+        height: 100px;
+        margin-left: 30px;
+        float: left;
+    }
+
+</style>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div class="grid-container">
+        <div id="header">YONI's HomePage
+            <div class="header-img"></div>
+        </div>
+        <div id="context">
+            Hello! Welcome to my HomePage!<br>this is my first homepage!! so, maybe it has a few flows...<br>but I try my best to make this and I love this!
+            <br>Thank you for visiting! (write your name! <i class="fa-sharp fa-solid fa-arrow-down"></i><i class="fa-sharp fa-solid fa-arrow-down"></i><i class="fa-sharp fa-solid fa-arrow-down"></i>)
+            <script src="https://kit.fontawesome.com/0c63103431.js" crossorigin="anonymous"></script>
+            <form><input id="text-style" type="text" autocomplete="off" spellcheck="false"  placeholder="Write your name"> <button type="submit">submit</button></form>
+        </div>
+        <div id="sidebar">
+            <div id="sidebar-font1">아오리사과^^</div>
+            <div style="font-size: large; margin-top: 10px;">맛있어용!</div>
+            <div class="sidebar-img"></div>
+            <a href="homework.html" target="_blank">
+                <button class="purchase" type="button">구매하러가기</button>
+            </a>
+        </div>
+        <div id="footer">
+            <div class="f-box1">블로그<br>
+                <a href="https://blog.naver.com/lgayeon07" height="100" width="100" target="_blank">
+                    <img src="블로그.jfif" width="70px" height="70px" alt="블로그">
+                </a>
+            </div>
+            <div class="f-box2">깃허브<br>
+                <a href="https://github.com/OrdinaryYoni" height="100" width="100" target="_blank">
+                    <img src="github.jfif" width="70px" height="70px" alt="github">
+                </a>
+            </div>
+            <div class="f-box3">유튜브<br>
+                <a href="https://www.youtube.com/@YoniSoda" height="100" width="100" target="_blank">
+                    <img src="youtube.jfif" width="70px" height="70px" alt="youtube">
+                </a>
+            </div>
+            <div class="f-box4">인스타<br>
+                <a href="https://www.instagram.com/INSTAGRAM/" height="100" width="100" target="_blank">
+                    <img src="instargram.jfif" width="70px" height="70px" alt="인스타">
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
