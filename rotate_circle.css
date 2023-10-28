@@ -1,0 +1,41 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #ededed;
+}
+
+.loader {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    stroke-linecap: round;
+}
+
+circle {
+    fill: none;
+    stroke-width: 3.5;
+    animation-name: preloader;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    transform-origin: 170px 170px;
+    will-change: transform;
+}
+
+circle:nth-of-type(1) {
+    stroke-dasharray: 250px;
+    animation-delay: -0.05s;
+}
+
+circle:nth-of-type(2) {
+    stroke-dasharray: 150px;
+    animation-delay: -0.30s;
+}
+
+@keyframes preloader {
+    50% {
+        transform: rotate(360deg);
+    }
+}
