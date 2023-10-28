@@ -1,0 +1,89 @@
+_____________________회전원_____________________
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" type="text/css" href="text_highLight.css">
+</head>
+<body>
+    <div class="container">
+        <svg class="loader" xmls="http://www.w3.org/2000/svg" viewBox="0 0 340 340">
+            <circle cx="170" cy="170" r="120" stroke="#20007C"/>
+            <circle cx="170" cy="170" r="60" stroke="#404041"/>
+        </svg>
+    </div>
+</body>
+
+_____________________이샘_____________________
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" type="text/css" href="text_highLight.css">
+</head>
+<body>
+    <h1>이샘<a class="back_square" href="#">
+        <span>코딩</span></a> 전문학원</h1>
+</body>
+
+_____________________기업헤더_____________________
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" type="text/css" href="text_underline.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Join</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+</body>
+_____________________시계_____________________
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" type="text/css" href="clock.css">
+</head>
+<body>
+    <div class="container">
+        <div class="clockBox">
+            <div class="clock"></div>
+        </div>
+    </div>
+</body>
+_____________________로딩_____________________
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" type="text/css" href="effect.css">
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <div class="loader">Loading...</div>
+        </div>
+    </div>
+</body>
+_____________________글씨쓰기_____________________
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" type="text/css" href="write.css">
+</head>
+<body>
+    <div class="container">
+        <svg viewBox="0 0 1418 116" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <g>
+                <text>
+                    <tspan x="0" y="80">
+                        <tspan>이</tspan>
+                        <tspan>샘</tspan>
+                        <tspan>코</tspan>
+                        <tspan>딩</tspan>
+                        <tspan>학</tspan>
+                        <tspan>원</tspan>
+                    </tspan>
+                    
+                </text>
+            </g>
+        </svg>
+    </div>
+</body>
