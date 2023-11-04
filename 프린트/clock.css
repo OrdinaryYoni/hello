@@ -1,0 +1,49 @@
+.container{
+    text-align: center;
+    background-color: #50c8D0;
+}
+.clockBox{
+    height: 200px;
+    position: relative;
+    transition: all .2s ease;
+}
+
+.clock{
+    border-radius: 60px;
+    border: 3px solid #fff;
+    height: 80px;
+    width: 80px;
+    position: relative;
+    top: calc(50% - 43px);
+    left: calc(50% - 43px);
+}
+.clock::after{
+    content: "";
+    position: absolute;
+    background-color: #fff;
+    top: 2px;
+    left: 48%;
+    height: 38px;
+    width: 4px;
+    border-radius: 5px;
+    transform-origin: 50% 97%;
+    transition: transform linear 12s;
+}
+.clock:hover::after{
+    transform: rotate(4320deg);
+}
+.clock::before{
+    content: "";
+    position: absolute;
+    background-color: #fff;
+    top: 6px;
+    left: 48%;
+    height: 35px;
+    width: 4px;
+    border-radius: 5px;
+    transform-origin: 50% 94%;
+    transition: transform linear 12s;
+}
+.clock:hover::before{
+    transform: rotate(360deg);
+}

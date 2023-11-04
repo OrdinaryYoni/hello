@@ -1,0 +1,39 @@
+.container svg{
+    width: 100%;
+    height: 200px;
+    fill: none;
+    stroke-width: 3;
+}
+.container svg text{
+    stroke: #50c8d0;
+    font-weight: normal;
+    font-size: 100px;
+}
+.container svg tspan > tspan{
+    stroke-dasharray: 1500;
+    stroke-dashoffset: -1500;
+}
+.container svg tspan > tspan:nth-of-type(1){
+    animation: draw 300ms 150ms forwards;
+}
+.container svg tspan > tspan:nth-of-type(2){
+    animation: draw 300ms 300ms forwards;
+}
+.container svg tspan > tspan:nth-of-type(3){
+    animation: draw 300ms 450ms forwards;
+}
+.container svg tspan > tspan:nth-of-type(4){
+    animation: draw 300ms 600ms forwards;
+}
+.container svg tspan > tspan:nth-of-type(5){
+    animation: draw 300ms 750ms forwards;
+}
+.container svg tspan > tspan:nth-of-type(6){
+    animation: draw 300ms 900ms forwards;
+}
+
+@keyframes draw {
+    100%{
+        stroke-dashoffset: 0;
+    }
+}
