@@ -1,0 +1,43 @@
+money = int(input())
+
+charge = 1000 - money
+money_type = [500, 100, 50, 10, 5, 1]
+count = 0
+for i in range(len(money_type)):
+   count += charge//money_type[i]
+   charge %= money_type[i]
+
+print(count)
+
+N = int(input())
+K = int(input())
+cnt = 0
+
+while True:
+    if N % K == 0:
+        N /= K
+        cnt += 1
+        
+    elif N == 1:
+        print(cnt)
+        break
+    
+    else:
+        N -= 1
+        cnt += 1
+    
+S = input()
+li = []
+cnt = 0
+for i in range(len(S)):
+    li.append(int(S[i]))
+li.sort()
+for i in li:
+    if i == 0 or i == 1:
+        cnt += i
+    else:
+        if cnt < 1:
+            cnt += 1
+        cnt *= i
+print(cnt)
+
