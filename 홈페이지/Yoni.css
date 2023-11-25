@@ -110,6 +110,7 @@ header .in #gnb li a{
 
 header .in #gnb li a:hover {
 	background-color: #50C8D0;
+	color: white;
 }
 
 figure {
