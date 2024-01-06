@@ -1,0 +1,26 @@
+package 이가연;
+
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class RegularExpression166 {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		String input;
+		Pattern pattern;
+		Matcher m;
+		
+		System.out.println("이름 : ");
+		input = sc.next();
+		pattern = Pattern.compile("^[가-힣]{2,4}$");
+		m = pattern.matcher(input);
+		if(!m.matches()) {
+			System.out.println("이름 형식에 맞지 않습니다.");
+			return;
+		}
+		
+	}
+}
