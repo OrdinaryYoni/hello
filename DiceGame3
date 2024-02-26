@@ -1,10 +1,10 @@
-package 이가연;
+package yoni;
 
 import java.util.Scanner;
 
-public class DiceGame2 {
+public class DiceGame3 {
 	private int DiceNum() {
-		int num = (int) (Math.random() * 5) + 1;
+		int num = (int) (Math.random() * 6) + 1;
 		return num;
 	}
 
@@ -26,19 +26,9 @@ public class DiceGame2 {
 		return r;
 	}
 
-	private void check(int u, int c, String userName) {
-		System.out.println("\n**********결과**********");
-		System.out.println(userName + "님은 "+ u + "만큼 갔습니다!");
-		System.out.println("요니는 "+ c + "만큼 갔습니다!");
-		System.out.println("***********************");
-		if(c < u) System.out.println(userName+ "님이 나보다 빠르다니..! 저의 패배입니다..");
-		else if (c == u) System.out.println("헉 세상에 저희 둘 동시에 들어왔네요!!");
-		else System.out.println("후후후 역시 "+userName+"님은 저를 따라올 수가 없군요!");
-	}
-
 	private void challenge(String ask) {
 		String yn = stringInput(ask);
-		String bye[] = {"엄...네...알겠습니당...","헉 좀 더 하고 가시지...","잘가용!","아쉽지만 또봐용!","안녕히가세요."};
+		String bye[] = {"엄...네...알겠습니당...","Bye:)","잘가용!","아쉽지만 또봐용!","안녕히가세요."};
 		if(yn.equals("y")) {
 			if(ask == "도전하시겠습니까?(y/n) ") detail();
 			mainGame();
@@ -47,45 +37,121 @@ public class DiceGame2 {
 			System.out.println(bye[(int)((Math.random() * 5))]);
 		} 
 	}
+	
+	private void fightStart(String mop_name, int mop_hp, int user_hp, int mop_atk, int user_atk, int user_def, int user_heal) {
+		String comments [] = {"음... 안녕?", "넌 정말 멋지구나!", "우리 싸우지 말자~~", "평화롭게 갑시다!", "싸워봤자 이득되는건 없어!!", "우리 친하게 지내자"};
+		int luck = (int) (Math.random() * 99) + 1;
+		System.out.println("\n" + mop_name + " 체력:" + mop_hp);
+		System.out.println("당신의 체력: "+ user_hp);
+		System.out.println("당신은 무엇을 할까?");
+		int select = intInput("1. 공격 2. 회복 3. 대화");
+		if (select == 1) {
+			if (luck >= 89) {
+				System.out.println("\n크리티컬!!!");
+				System.out.println(mop_name + "에게 " + (user_atk+20) + "만큼 피해를 줬다!");
+				mop_hp -= 20;
+			}else {
+				System.out.println("\n" + mop_name + "에게 " + user_atk + "만큼 피해를 줬다!");
+			}
+			mop_hp -= user_atk;
+		}
+		else if (select == 2) { 
+			if (user_heal > 0) {
+				System.out.println("\n100만큼 회복!");
+				user_hp += 100;
+				user_heal -= 1;
+			}else System.out.println("앗... 회복 포션이 다 떨어졌다...");
+		}
+		else {
+			int n = (int) (Math.random() * 5);
+			System.out.println("\n**************대화**************");
+			System.out.println(comments[n]);
+			System.out.println("*******************************");
+			if (luck == 89) {
+				System.out.println("난 지금까지 살면서 너같은 애는 처음봐..");
+				System.out.println("덕분에 기분이 좋아졌으니 풀어줄게~~");
+				mop_hp = 0;
+			}else { 
+				System.out.println("뭔소리를 하는거야? 난 널 못믿어!");
+			}
+		}
+		user_hp -= mop_atk > user_def ? (mop_atk-user_def) : 0;
+		if (mop_hp <= 0) System.out.println("\n\n축하드립니다! 당신은 몬스터를 해치웠습니다!");
+		else if (user_hp <= 0) System.out.println("\n\n당신은 몬스터에게 졌습니다...");
+		else fightStart(mop_name, mop_hp, user_hp, mop_atk, user_atk, user_def, user_heal);
+	}
 
 	private void detail() {
 		System.out.println("********************************게임 설명********************************");
-		System.out.println("이 게임은 주사위(6)를 던져 요니보다 더 빠르게(?) 50m까지 달리는 게임입니다.");
-		System.out.println("우선 당신의 이름을 적고, 주사위를 던지면 됩니다. ");
-		System.out.println("그럼 즐겜~!");
+		System.out.println("주사위를 3번 던진다.(주사위의 눈은 6)");
+		System.out.println("첫번째 수는 공격력, 두번째 수는 방어력, 세번째 수는 회복 포션 개수이다.\n");
+		System.out.println("당신의 체력은 100이다.");
+		System.out.println("적의 체력/공격력은");
+		System.out.println("1. 슬라임 : 50/5");
+		System.out.println("2. 스켈레톤, 좀비 : 100/10");
+		System.out.println("3. 늑대 : 150/15");
+		System.out.println("4. 드래곤 : 200/30이다.\n");
+		System.out.println("당신은 세가지 선택지가 있다.");
+		System.out.println("1. 공격 2. 회복 3. 대화");
+		System.out.println("공격: 당신의 공격력만큼 적을 공격한다.");
+		System.out.println("회복: 당신이 가지고 있는 회복 포션을 사용해 체력을 회복한다.(+100)");
+		System.out.println("대화: 적과 대화한다...(대화하다보면 친해질지도 모르지...)");
 		System.out.println("**********************************************************************");
 	}
-
-	private void mainGame() {
-		String userName = stringInput("당신의 이름을 입력해주세요.");
-		int user_cnt = 0; int yoni_cnt = 0; int user; int yoni;
-		while(True) {
-			stringInput("주사위를 던지세요!(아무키나 누르세용)");
-			System.out.println("휙!  데굴데굴....");
-			user = DiceNum();
-			yoni = DiceNum();
-			System.out.println(userName + "님의 주사위는 "+user+"이네요!");
-			if (user_cnt < 50) {
-				
-			}
-			System.out.println("요니의 차례!");
-			System.out.println("휙!  데굴데굴....");
-			System.out.println("요니의 주사위는 "+yoni+"이네요!");
-			user_cnt += user;
-			yoni_cnt += yoni;
-		}
-		check(user_cnt, yoni_cnt, userName);
+	
+	public void mainGame() {
+		몬스터[] monsters = new 몬스터[5];
+		monsters[0] = new 몬스터("슬라임", 50,5);
+		String monsters [] = {"슬라임","스켈레톤","좀비","늑대","드래곤"};
+		int monsters_hp [] = {50, 100, 100, 150, 200};
+		int monsters_atk [] = {5, 10, 10, 15, 30};
+		System.out.println("주사위 3번 던지기~!");
+		int atk = DiceNum(); int def = DiceNum(); int heal = DiceNum(); int user_hp = 100;
+		System.out.println("당신의 공격력은... " + atk + "!");
+		System.out.println("당신의 방어력은... " + def + "!");
+		System.out.println("당신의 회복 포션 개수는... " + heal + "개!");
+		int m = intInput("싸울 적을 입력하세요.(1.슬라임 2.스켈레톤 3.좀비 4.늑대 5.드래곤) ");
+		System.out.println(monsters[m-1] + "가 나타났다!");
+		fightStart(monsters[m-1], monsters_hp[m-1], user_hp, monsters_atk[m-1], atk, def, heal);
 	}
 
 	public void start() {
-		System.out.println("***************************");
-		System.out.println("***요니를 이겨라! 주사위 달리기!***");
-		System.out.println("***************************");
+		System.out.println("*********************");
+		System.out.println("***주사위로 몬스터 잡기!***");
+		System.out.println("*********************");
 		challenge("도전하시겠습니까?(y/n) ");
 	}
 
 	public static void main(String[] args) {
-		DiceGame2 game = new DiceGame2();
+		DiceGame3 game = new DiceGame3();
 		game.start();
 	}
 }
+
+class 몬스터{
+	String name;
+	int hp;
+	int atk;
+	public 몬스터(String name, int hp, int atk) {
+		this.name = name;
+		this.hp = hp;
+		this.atk = atk;
+	}
+	
+}
+
+
+
+/*		System.out.println("주사위를 3번 던진다.(주사위의 눈은 사용자가 입력)");
+		System.out.println("첫번째 수는 공격력, 두번째 수는 방어력, 세번째 수는 회복 포션 개수이다.\n");
+		System.out.println("당신의 체력은 100이다.");
+		System.out.println("적의 체력과 공격력은");
+		System.out.println("1. 슬라임 : 50/5");
+		System.out.println("2. 스켈레톤, 좀비 : 100/10");
+		System.out.println("3. 늑대 : 150/15");
+		System.out.println("4. 드래곤 : 200/30이다.\n");
+		System.out.println("당신은 세가지 선택지가 있다.");
+		System.out.println("1. 공격 2. 회복 3. 대화");
+		System.out.println("공격: 당신의 공격력만큼 적을 공격한다.");
+		System.out.println("회복: 당신이 가지고 있는 회복 포션을 사용해 체력을 회복한다.(+50)");
+		System.out.println("대화: 적과 대화한다...(대화하다보면 친해질지도 모르지...)");*/
