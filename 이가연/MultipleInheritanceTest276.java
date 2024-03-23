@@ -1,4 +1,4 @@
-package 이가연;
+package yoni;
 
 interface Car{
 	public void showInfo();
@@ -6,11 +6,11 @@ interface Car{
 
 class PassengerCar implements Car{
 	private int seats;
-	public PassengerCar() {seats=2;}
+	public PassengerCar() {seats=2;}//3
 	public PassengerCar(int n) {seats = n;}
-	public int getSeats() {return seats;}
+	public int getSeats() {return seats;}//15
 	public void setSeats(int n) {seats = n;}
-	public void showInfo() {System.out.println("좌석 수 : "+seats);}
+	public void showInfo() {System.out.println("좌석 수 : "+seats);}//10
 }
 
 interface ITruck extends Car{
@@ -21,10 +21,10 @@ interface ITruck extends Car{
 class Truck implements ITruck{
 	private int payload;
 	public Truck() {payload = 100;}
-	public Truck(int w) {payload = w;}
-	public int getPayload() {return payload;}
+	public Truck(int w) {payload = w;}//5 //8
+	public int getPayload() {return payload;}//17
 	public void setPayload(int w) {payload = w;}
-	public void showInfo() {System.out.println("적재 하중 : " + payload);}
+	public void showInfo() {System.out.println("적재 하중 : " + payload);}//12
 }
 
 class Pickup extends PassengerCar implements ITruck{
@@ -32,13 +32,13 @@ class Pickup extends PassengerCar implements ITruck{
 	Truck truck;
 	
 	public Pickup() {super(4); truck = new Truck(1000); tow_capacity = 10000;}
-	public Pickup(int s, int w, int c) {super(s); truck = new Truck(w); tow_capacity = c;}
+	public Pickup(int s, int w, int c) {super(s); truck = new Truck(w); tow_capacity = c;}//7
 	public void setTow_capacity(int c) {tow_capacity = c;}
 	public int getTow_capacity() {return tow_capacity;}
-	public void showInfo() {System.out.println("좌석 수 : "+getSeats()+", 적재 하중 : "+getPayload()+", 견인 능력 : "+tow_capacity);}
+	public void showInfo() {System.out.println("좌석 수 : "+getSeats()+", 적재 하중 : "+getPayload()+", 견인 능력 : "+tow_capacity);}//14
 	@Override
 	public int getPayload() {
-		return truck.getPayload();
+		return truck.getPayload();//16
 	}
 	@Override
 	public void setPayload(int w) {
@@ -52,10 +52,10 @@ public class MultipleInheritanceTest276 {
 		Car [] cars = new Car[3];//1
 		
 		cars[0] = new PassengerCar();//2
-		cars[1] = new Truck(500);
-		cars[2] = new Pickup(4, 2000, 10000);
+		cars[1] = new Truck(500);//4
+		cars[2] = new Pickup(4, 2000, 10000);//6
 		
-		for (int i=0; i<3; i++) {
+		for (int i=0; i<3; i++) {//9 //11 //13
 			cars[i].showInfo();
 		}
 	}
