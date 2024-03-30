@@ -1,15 +1,12 @@
 package yoni;
 
 public class t2_Rectangle extends t2_shape{
-	int w, h, sw;
+	int w, h;
 	public t2_Rectangle(int w, int h) {
 		this.w = w;
 		this.h = h;
-	}
-	
-	public t2_Rectangle(int sw) {
-		this.sw = sw;
-	}
+		name = "직사각형";
+	} 
 	
 	@Override
 	void calcArea() {
