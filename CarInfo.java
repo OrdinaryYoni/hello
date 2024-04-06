@@ -1,5 +1,7 @@
 package yoni;
 
+import java.util.Scanner;
+
 interface Car{
 	public final static String CARSIZE1 = "small type";
 	String CARSIZE2 = "middle type";
@@ -80,7 +82,12 @@ public class CarInfo {
 
 	public static void main(String[] args) {
 		System.out.println("[3-1]");
-		Pride pr = new Pride(1600,200,50,5);
+		Scanner i = new Scanner(System.in);
+		int pri = i.nextInt();
+		int opt = i.nextInt();
+		int tra = i.nextInt();
+		int dis = i.nextInt();
+		Pride pr = new Pride(pri,opt,dis,tra);
 		pr.maker();
 		pr.size();
 		pr.price();
@@ -88,8 +95,11 @@ public class CarInfo {
 		pr.prideCost();
 		pr.discount();
 		
-		
-		Sonata so = new Sonata(3000,350,100,10);
+		pri = i.nextInt();
+		opt = i.nextInt();
+		tra = i.nextInt();
+		dis = i.nextInt();
+		Sonata so = new Sonata(pri,opt,dis,tra);
 		so.maker();
 		so.size();
 		so.price();
