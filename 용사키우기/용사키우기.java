@@ -4,11 +4,6 @@ public class 용사키우기 {
 
 	public static void main(String[] args) {
 
-		System.out.println("...");
-		sleep(1500);
-		System.err.println("..");
-		sleep(1500);
-		System.out.println(".");
 	}
 
 	
@@ -16,10 +11,12 @@ public class 용사키우기 {
 	{
 		System.out.println("...");
 		sleep(1500);
-		System.out.println("..");
+		System.err.println("..");
+		sleep(1500);
+		System.out.println(".");
 	}
 	
-	static void sleep(int m)
+	void sleep(int m)
 	{
 		try {
 			Thread.sleep(m);
