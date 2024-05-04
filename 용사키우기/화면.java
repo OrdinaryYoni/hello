@@ -26,7 +26,9 @@ public class 화면 {
 	}
 	
 	private static void 이동창() {
-		
+		String arr[] = {"어디로 이동할래?",
+				"┌───────────────────────────────────────────────────┐",
+				"│"};
 	}
 	
 	private static void 가방창() {
