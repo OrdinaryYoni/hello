@@ -3,9 +3,25 @@ package 용사키우기;
 public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 	스탯 stat;
 	public 용사() {
-		name = InputClass.stringInput("용사의 이름을 지어주세요! ");
-		gender = InputClass.stringInput(name+"님의 성별은 무엇인가요?(남/여) ");
+		//name = InputClass.stringInput("용사의 이름을 지어주세요! ");
+		//gender = InputClass.stringInput(name+"님의 성별은 무엇인가요?(남/여) ");
 		stat = new 스탯(name, gender);
+	}
+	
+	public void 이동() {
+		
+	}
+	
+	public void 가방() {
+		
+	}
+	
+	public void 행동() {
+		
+	}
+	
+	public void 회복() {
+		
 	}
 	
 	public void 스킬사용() {
@@ -14,10 +30,8 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 		}
 	}
 	
-	public void 행동() {
-		
-	}
-
+	
+	
 	@Override
 	public void 기본() {
 		System.out.println(name+"의 휘두르기!");

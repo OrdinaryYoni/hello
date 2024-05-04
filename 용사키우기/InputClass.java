@@ -20,4 +20,11 @@ public class InputClass{
 
 		return r;
 	}
+	
+	public static String print() {
+		String r;
+		Scanner ip = new Scanner(System.in);
+		r = ip.nextLine();
+		return r;
+	}
 }
