@@ -2,22 +2,38 @@ package 용사키우기;
 
 public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 	스탯 stat;
+	int end = 0;
 	public 용사() {
 		//name = InputClass.stringInput("용사의 이름을 지어주세요! ");
 		//gender = InputClass.stringInput(name+"님의 성별은 무엇인가요?(남/여) ");
-		stat = new 스탯(name, gender);
+		hp=100;level=1;exp=0;atk=10;def=10;
+		stat = new 스탯(name,gender,level,hp,exp,atk,def);
 	}
 	
 	public void 이동() {
-		
+		화면.이동창(level);
+		int w = InputClass.intInput("어디를 갈까? ");
+		if(w == 1) {
+			stat.place = "부서진 에스토니아의 성";
+			화면.장소(w);
+		}else if(w==2) {
+			stat.place = "서쪽 숲";
+			화면.장소(w);
+		}else if(w==3 & level >= 10) {
+			stat.place = "에테토스 마을";
+		}else if(w==4 & level >= 10) {
+			stat.place = "라니아나 동굴";
+		}else System.out.println("그런 곳은 없어!");
+		설정.sleep(1);
 	}
 	
 	public void 가방() {
+		화면.가방창();
 		
 	}
 	
 	public void 행동() {
-		
+		화면.행동창();
 	}
 	
 	public void 회복() {
@@ -25,9 +41,7 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 	}
 	
 	public void 스킬사용() {
-		if (stat.level == 10) {
-			초보();
-		}
+		
 	}
 	
 	
@@ -40,7 +54,7 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 
 	@Override
 	public void 제국의검() {
-		
+		System.out.println("");
 	}
 
 	@Override
