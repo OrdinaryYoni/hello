@@ -2,41 +2,40 @@ package 용사키우기;
 
 public class 화면 {
 	
-	public static void 메인(String msg, String name, int lv, int hp) {
+	public void 메인(String msg) {
 		용사 user = new 용사();
 		String arr[] = {"\n\n\n\n\n\n\n\n\n\n\n\n",
 				String.format("%s",msg),
 				"           ●        ",
 				"         \\/|\\     ",
 				"          / \\      ",
-				String.format(" %s lv:%d hp:%d",name,lv,hp),
+				String.format(" %s lv:%d hp:%d",user.name,user.level,user.hp),
 				"┌─────────────────────┐",
 				"│당신은 무엇을 할건가?      │",
 				"└─────────────────────┘",
 				"  1.이동  2.가방  3.행동 "
 				};
-		if (msg.equals(""))
 		for(String i:arr) {
 			System.out.println(i);
 		}
 	}
 	
-	public static void 이동창(int lv) {
+	public void 이동창(int lv) {
 		if (lv < 10) System.out.println("1.부서진 에스토니아의 성 2.서쪽 숲");
 		else if(lv<20) System.out.println("1.부서진 에스토니아의 성 2.서쪽 숲 3.에테토스 마을 4.라니아나 던전");
 		else System.out.println(설정.red+"마왕성"+설정.exit);
 	}
 	
-	public static void 가방창() {
+	public void 가방창() {
 		String items[] = {"︻[]▄▅▆▇◤","▬▬ι═══════ﺤ","▄█▀█●","●▅▇█▇▆▅▄▇",
 				"🔪","🗡️",""};
 	}
 	
-	public static void 행동창() {
-		
+	public void 행동창() {
+		System.out.println("1.사냥 2.채집 3.대화");
 	}
 	
-	public static void 장소(int w) {
+	public void 장소(int w) {
 		
 	}
 	
@@ -90,20 +89,38 @@ public class 화면 {
 		}
 	}
 	
-	public static void 엔딩1() {
+	public void 엔딩1() {
 		
 	}
-	public static void 엔딩2() {
+	public void 엔딩2() {
 		
 	}
-	public static void 엔딩3() {
+	public void 엔딩3() {
 		
 	}
-	public static void 엔딩4() {
+	public void 엔딩4() {
 		
 	}
 
-	public static void 흐접엔딩() {
+	public void 흐접엔딩() {
 		
+	}
+
+	public void 공격창(String mop_name) {
+		용사 user = new 용사();
+		String arr[] = {"\n\n\n\n\n\n\n\n\n\n\n\n",
+				mop_name+"이(가) 나타났다!",
+				"           ●        ",
+				"         \\/|\\     ",
+				"          / \\      ",
+				String.format(" %s lv:%d hp:%d",user.name,user.level,user.hp),
+				"┌─────────────────────┐",
+				"│당신은 무엇을 할건가?      │",
+				"└─────────────────────┘",
+				"  1.이동  2.가방  3.행동 "
+				};
+		for(String i:arr) {
+			System.out.println(i);
+		}
 	}
 }

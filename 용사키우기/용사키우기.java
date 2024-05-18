@@ -1,6 +1,21 @@
 package 용사키우기;
 
 public class 용사키우기 {
+	몬스터[] forest_mops = new 몬스터[4];//슬라임, 우딩, 고블린, 골렘
+	몬스터[] dangeon_mops = new 몬스터[4]; //오크, 미네린, 하데론, 오크 왕
+	
+	public 용사키우기() {
+		forest_mops[0] = new 몬스터("슬라임", 50, 5, 2, 20, 5);//이름, 체력, 공격력, (최대)레벨, 최대경험치, 최소경험치
+		forest_mops[1] = new 몬스터("우딩", 80, 8, 3, 20, 8);
+		forest_mops[2] = new 몬스터("고블린", 400, 20, 5, 70, 20);
+		forest_mops[3] = new 몬스터("골렘", 1100, 50, 10, 100, 70);
+		
+		dangeon_mops[0] = new 몬스터("오크", 1500, 70, 12, 120, 150);//이름, 체력, 공격력, (최대)레벨, 최대경험치, 최소경험치
+		dangeon_mops[1] = new 몬스터("미네린", 2000, 100, 15, 200, 160);
+		dangeon_mops[2] = new 몬스터("하데론", 2300, 200, 18, 200, 230);
+		dangeon_mops[3] = new 몬스터("오크 왕", 3000, 300, 20, 300, 300);
+	}
+	
 	public static void main(String[] args) {
 		start();
 	}
@@ -27,6 +42,7 @@ public class 용사키우기 {
 					String check = InputClass.stringInput("다시하시겠습니까?(y/n) ");
 					if(check.equals("y")) {
 						System.out.println("체크포인트로 돌아갑니다.");
+						user.hp = 100 * user.level;
 						설정.sleep(1000);
 					}else {
 						엔딩(89);
@@ -39,9 +55,10 @@ public class 용사키우기 {
 	}
 	
 	static void loop(용사 user) {
+		화면 화면 = new 화면();
 		//설정.sleep(3000);
 		//튜토리얼(user.name,user.stat.level,user.stat.hp);
-		화면.메인("", user.name, user.stat.level, user.stat.hp);
+		화면.메인("");
 		String s = InputClass.print();
 		if (s.equals("1")) user.이동();
 		else if (s.equals("2")) user.가방();
@@ -61,6 +78,7 @@ public class 용사키우기 {
 	}
 	
 	private static void 엔딩(int end) {
+		화면 화면 = new 화면();
 		if (end == 1) {
 			화면.엔딩1();
 		}else if(end==2) {

@@ -3,15 +3,11 @@ package 용사키우기;
 public class 스탯{
 	String name, job, gender, skill, place;
 	String bag[] = {"","","","","","","","","","","","","","","","","","","",""};
-	int hp,mp=50,level,exp,maxExp=100,atk,def;
-	public 스탯(String name, String gender, int level, int hp, int exp, int atk, int def) {
+	int hp=100,mp=50,level=1,exp=0,maxExp=100,atk=10,def=10;
+	
+	public 스탯(String name, String gender) {
 		this.name = name;
 		this.gender = gender;
-		this.hp = hp;
-		this.level = level;
-		this.exp = exp;
-		this.atk = atk;
-		this.def = def;
 	}
 	
 	public void 레벨업(int exp){
