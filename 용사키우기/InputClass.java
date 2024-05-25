@@ -25,6 +25,7 @@ public class InputClass{
 		String r;
 		Scanner ip = new Scanner(System.in);
 		r = ip.nextLine();
+		
 		return r;
 	}
 }

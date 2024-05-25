@@ -1,15 +1,13 @@
 package 용사키우기;
 
 public class 화면 {
-	
-	public void 메인(String msg) {
-		용사 user = new 용사();
+	public static void 메인(String msg, 용사 user) {
 		String arr[] = {"\n\n\n\n\n\n\n\n\n\n\n\n",
 				String.format("%s",msg),
 				"           ●        ",
 				"         \\/|\\     ",
 				"          / \\      ",
-				String.format(" %s lv:%d hp:%d",user.name,user.level,user.hp),
+				String.format(" %s lv:%d hp:%d exp:%d",user.name,user.getLevel(),user.getHp(),user.getExp()),
 				"┌─────────────────────┐",
 				"│당신은 무엇을 할건가?      │",
 				"└─────────────────────┘",
@@ -20,22 +18,22 @@ public class 화면 {
 		}
 	}
 	
-	public void 이동창(int lv) {
+	public static void 이동창(int lv) {
 		if (lv < 10) System.out.println("1.부서진 에스토니아의 성 2.서쪽 숲");
 		else if(lv<20) System.out.println("1.부서진 에스토니아의 성 2.서쪽 숲 3.에테토스 마을 4.라니아나 던전");
 		else System.out.println(설정.red+"마왕성"+설정.exit);
 	}
 	
-	public void 가방창() {
+	public static void 가방창() {
 		String items[] = {"︻[]▄▅▆▇◤","▬▬ι═══════ﺤ","▄█▀█●","●▅▇█▇▆▅▄▇",
 				"🔪","🗡️",""};
 	}
 	
-	public void 행동창() {
+	public static void 행동창() {
 		System.out.println("1.사냥 2.채집 3.대화");
 	}
 	
-	public void 장소(int w) {
+	public static void 장소(int w) {
 		
 	}
 	
@@ -89,38 +87,105 @@ public class 화면 {
 		}
 	}
 	
-	public void 엔딩1() {
+	public static void 엔딩1() {
 		
 	}
-	public void 엔딩2() {
+	public static void 엔딩2() {
 		
 	}
-	public void 엔딩3() {
+	public static void 엔딩3() {
 		
 	}
-	public void 엔딩4() {
-		
-	}
-
-	public void 흐접엔딩() {
+	public static void 엔딩4() {
 		
 	}
 
-	public void 공격창(String mop_name) {
-		용사 user = new 용사();
+	public static void 흐접엔딩() {
+		System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n");
+		System.out.println("당신의 여정은 마왕을 잡기도 전에 끝나버렸습니다.");
+		설정.sleep(2500);
+		System.out.println("당신은 여정을 다시 이어서 할 수 있었지만,");
+		설정.sleep(2500);
+		System.out.println("당신은 그러지 않고 포기했습니다.");
+		설정.sleep(2500);
+		System.out.println("세상은 마왕에 의해 손쉽게 무너졌고,");
+		설정.sleep(2500);
+		System.out.println("사람들은 에스토니아 가문이 마왕을 불렀다고 저주하였습니다.");
+		설정.sleep(2500);
+		System.out.println("그래서 사람들은 당신의 시체를 그냥 산짐승의 밥으로 버려놓았죠.");
+		설정.sleep(2500);
+		System.out.println("아무튼, 이게 당신이 진정 원하던 결말인가요?");
+		설정.sleep(2500);
 		String arr[] = {"\n\n\n\n\n\n\n\n\n\n\n\n",
-				mop_name+"이(가) 나타났다!",
-				"           ●        ",
-				"         \\/|\\     ",
-				"          / \\      ",
-				String.format(" %s lv:%d hp:%d",user.name,user.level,user.hp),
-				"┌─────────────────────┐",
-				"│당신은 무엇을 할건가?      │",
-				"└─────────────────────┘",
-				"  1.이동  2.가방  3.행동 "
+				"   ending 89. 허접.       ",
+				"    ᘛ⁐̤ᕐᐷ                 ",
+				"               ᑄᒾ⁐̤Ꮺ     ",
+				"ᘛ⁐̤ᕐᐷ   ●▅▇█▇▆▅▄▇   ᑄᒾ⁐̤Ꮺ",
+				"     ᘛ⁐̤ᕐᐷ                ",
 				};
 		for(String i:arr) {
 			System.out.println(i);
+		}
+	}
+
+	public static void 공격창(String mop_name, int mop_hp, int mop_lv, 용사 user) {
+		String arr[] = {"\n\n\n\n\n\n\n\n\n\n\n\n",
+				String.format("%s lv:%d hp:%d",mop_name, mop_lv, mop_hp),
+				"                        ●        ",
+				"      ██              \\/|\\     ",
+				"      ██               / \\      ",
+				String.format(" %s lv:%d hp:%d",user.name,user.getLevel(),user.getHp()),
+				"┌───────────────────────────┐",
+				"│당신은 무엇을 할건가?            │",
+				"└───────────────────────────┘",
+				"   1.공격    2.회복    3.행동 "
+				};
+		for(String i:arr) {
+			System.out.println(i);
+		}
+	}
+	
+	public static void 처치창(String mop_name, int mop_exp, 용사 user) {
+		String arr[] = {"\n\n\n\n\n\n\n\n\n\n\n\n",
+				String.format("%s를(을) 물리쳤다! 경험치 %d를 획득했다.",mop_name,mop_exp),
+				"                        ●        ",
+				"      ██              \\/|\\     ",
+				"      ██               / \\      ",
+				String.format(" %s lv:%d hp:%d",user.name,user.getLevel(),user.getHp()),
+				"┌───────────────────────────┐",
+				"│당신은 무엇을 할건가?            │",
+				"└───────────────────────────┘",
+				"   1.공격    2.회복    3.행동 "
+				};
+		for(String i:arr) {
+			System.out.println(i);
+		}
+		설정.sleep(1000);
+	}
+	
+	public static void 게임오버창() {
+		String arr[] = {"\n\n\n\n\n\n\n\n\n\n\n\n",
+				"▀ █ ▀ █ ▀ ▀ █ ▀ █ ▀ █",
+				"   ───────────────   ",
+				"  G a m e   o v e r  ",
+				"   ───────────────   ",
+				"        ▄█▀█●        ",
+				"                     ",
+				"█ ▄ █ ▄ ▄ █ ▄ █ ▄ █ ▄",
+				};
+		for(String i:arr) {
+			System.out.println(i);
+		}
+	}
+	
+	public static void 안내창(int w) {
+		if (w == 1) {
+			System.out.println(설정.yellow+"새로운 장소 해금!!{에테토스 마을}"+설정.exit);
+			System.out.println(설정.yellow+"직업 해금"+설정.exit);
+			System.out.println(설정.yellow+"퀘스트 해금"+설정.exit);
+			System.out.println(설정.yellow+"상점 해금"+설정.exit);
+		}else if(w == 2) {
+			
 		}
 	}
 }
