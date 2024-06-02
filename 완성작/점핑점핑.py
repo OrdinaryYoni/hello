@@ -39,7 +39,7 @@ class Game:
       #  for cloud in CLOUD_LIST:
        #     c = Cloud(*cloud)
         #    self.all_sprites.add(c)
-         #   self.clouds.add(c)
+         #   self.clouds.add(c) 
 
         self.run()
 
