@@ -8,7 +8,6 @@ public class InputClass{
 		System.out.print(prompt);
 		Scanner ip = new Scanner(System.in);
 		r = ip.nextInt();
-
 		return r;
 	}
 	
@@ -17,7 +16,6 @@ public class InputClass{
 		System.out.print(prompt);
 		Scanner ip = new Scanner(System.in);
 		r = ip.nextLine();
-
 		return r;
 	}
 	
@@ -25,7 +23,6 @@ public class InputClass{
 		String r;
 		Scanner ip = new Scanner(System.in);
 		r = ip.nextLine();
-		
 		return r;
 	}
 }

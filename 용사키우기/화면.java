@@ -7,7 +7,7 @@ public class 화면 {
 				"           ●        ",
 				"         \\/|\\     ",
 				"          / \\      ",
-				String.format(" %s lv:%d hp:%d exp:%d",user.name,user.getLevel(),user.getHp(),user.getExp()),
+				String.format(" %s lv:%d hp:%d exp:%d/%d",user.getStat().getName(),user.getStat().getLevel(),user.getStat().getHp(),user.getStat().getExp(),user.getStat().getMaxExp()),
 				"┌─────────────────────┐",
 				"│당신은 무엇을 할건가?      │",
 				"└─────────────────────┘",
@@ -19,14 +19,15 @@ public class 화면 {
 	}
 	
 	public static void 이동창(int lv) {
-		if (lv < 10) System.out.println("1.부서진 에스토니아의 성 2.서쪽 숲");
-		else if(lv<20) System.out.println("1.부서진 에스토니아의 성 2.서쪽 숲 3.에테토스 마을 4.라니아나 던전");
+		if (lv <= 10) System.out.println("1.부서진 에스토니아의 성 2.서쪽 숲");
+		else if(lv<=20) System.out.println("1.부서진 에스토니아의 성 2.서쪽 숲 3.에테토스 마을 4.라니아나 던전");
 		else System.out.println(설정.red+"마왕성"+설정.exit);
 	}
 	
 	public static void 가방창() {
 		String items[] = {"︻[]▄▅▆▇◤","▬▬ι═══════ﺤ","▄█▀█●","●▅▇█▇▆▅▄▇",
 				"🔪","🗡️",""};
+		System.out.println(items[0]);
 	}
 	
 	public static void 행동창() {
@@ -38,6 +39,7 @@ public class 화면 {
 	}
 	
 	public static void 인트로(String gender) {
+		System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n");
 		System.out.println("나는 지금 마왕을 잡기 위해 수련을 하는 중이다.");
 		설정.sleep(2500);
 		System.out.println("사실, 난 처음부터 마왕을 잡고 싶어하진 않았다.");
@@ -84,6 +86,7 @@ public class 화면 {
 			System.out.println(설정.blue+"형을 가리키더니, 형을 데리고 그 구멍 속으로 들어갔다."+설정.exit);
 			설정.sleep(2500);
 			System.out.println(설정.blue+"난 그 후 마왕을 잡기 위해 그리고 나의 유일한 가족, 형을 구하기 위해 수련을 떠나게 되었다."+설정.exit);
+			설정.sleep(3000);
 		}
 	}
 	
@@ -112,9 +115,9 @@ public class 화면 {
 		설정.sleep(2500);
 		System.out.println("사람들은 에스토니아 가문이 마왕을 불렀다고 저주하였습니다.");
 		설정.sleep(2500);
-		System.out.println("그래서 사람들은 당신의 시체를 그냥 산짐승의 밥으로 버려놓았죠.");
+		System.out.println("분노에 찬 사람들은 당신의 시체를 그냥 산짐승의 밥으로 내버려두었죠.");
 		설정.sleep(2500);
-		System.out.println("아무튼, 이게 당신이 진정 원하던 결말인가요?");
+		System.out.println(설정.purple+"아무튼, 이게 당신이 진정 원하던 결말인가요?"+설정.exit);
 		설정.sleep(2500);
 		String arr[] = {"\n\n\n\n\n\n\n\n\n\n\n\n",
 				"   ending 89. 허접.       ",
@@ -134,7 +137,7 @@ public class 화면 {
 				"                        ●        ",
 				"      ██              \\/|\\     ",
 				"      ██               / \\      ",
-				String.format(" %s lv:%d hp:%d",user.name,user.getLevel(),user.getHp()),
+				String.format(" %s lv:%d hp:%d exp:%d/%d",user.getStat().getName(),user.getStat().getLevel(),user.getStat().getHp(),user.getStat().getExp(),user.getStat().getMaxExp()),
 				"┌───────────────────────────┐",
 				"│당신은 무엇을 할건가?            │",
 				"└───────────────────────────┘",
@@ -151,7 +154,7 @@ public class 화면 {
 				"                        ●        ",
 				"      ██              \\/|\\     ",
 				"      ██               / \\      ",
-				String.format(" %s lv:%d hp:%d",user.name,user.getLevel(),user.getHp()),
+				String.format(" %s lv:%d hp:%d exp:%d/%d",user.getStat().getName(),user.getStat().getLevel(),user.getStat().getHp(),user.getStat().getExp(),user.getStat().getMaxExp()),
 				"┌───────────────────────────┐",
 				"│당신은 무엇을 할건가?            │",
 				"└───────────────────────────┘",
@@ -186,6 +189,24 @@ public class 화면 {
 			System.out.println(설정.yellow+"상점 해금"+설정.exit);
 		}else if(w == 2) {
 			
+		}
+	}
+
+	public static void 마을행동창(용사 user) {
+		String arr[] = {"\n\n\n\n\n\n\n\n\n\n\n\n",
+				"   |    |               |    |   ",
+				"   |   /                 \\   |   ",
+				"   |  /                   \\  |   ",
+				"   | /          ●          \\ |   ",
+				"   |/         \\/|\\          \\|  ",
+				"   /           / \\           \\  ",
+				String.format(" %s lv:%d hp:%d exp:%d/%d",user.getStat().getName(),user.getStat().getLevel(),user.getStat().getHp(),user.getStat().getExp(),user.getStat().getMaxExp()),
+				"┌───────────────────────────┐",
+				"│당신은 무엇을 할건가?            │",
+				"└───────────────────────────┘",
+				};
+		for(String i:arr) {
+			System.out.println(i);
 		}
 	}
 }

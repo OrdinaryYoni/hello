@@ -6,11 +6,10 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 	private 라니아나던전 던전 = new 라니아나던전();
 	private 절망의고원 고원 = new 절망의고원();
 	private 마이하스산 산 = new 마이하스산();
-	private 화면 화면 = new 화면();
 	private int end = 0;
 	public 용사() {
-		//String name = InputClass.stringInput("용사의 이름을 지어주세요! ");
-		//String gender = InputClass.stringInput(name+"님의 성별은 무엇인가요?(남/여) ");
+		String name = InputClass.stringInput("용사의 이름을 지어주세요! ");
+		String gender = InputClass.stringInput(name+"님의 성별은 무엇인가요?(남/여) ");
 		stat = new 스탯(name,gender);
 	}
 	
@@ -26,7 +25,7 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 		}else if(w==3 && stat.getLevel() > 10) {
 			stat.setPlace("에테토스 마을");
 		}else if(w==4 && stat.getLevel() > 10) {
-			stat.setPlace("라니아나 동굴");
+			stat.setPlace("라니아나 던전");
 		}else if(w==5 && stat.getLevel() > 20) {
 			stat.setPlace("절망의 고원");
 		}else if(w==6 && stat.getLevel() > 40) {
@@ -40,19 +39,33 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 	}
 	
 	public void 행동() {
-		화면.행동창();
-		int w = InputClass.intInput("무엇을 할까? ");
-		if(w == 1) {
-			if(stat.getPlace().equals("서쪽 숲")) {
-				숲.행동(this);
-			}else {
-				System.out.println("잡을 몹들이 없다.");
-			}
-		}else if(w == 2) {
-			 
-		}else if (w == 3) {
+		if(stat.getPlace().equals("에테토스 마을")) {
+			화면.마을행동창(this);
+			int w = InputClass.intInput("1.2.3.4.5.");
+		}else {
+			화면.행동창();
+			int w = InputClass.intInput("무엇을 할까? ");
+			if(w == 1) {
+				if(stat.getPlace().equals("서쪽 숲")) {
+					숲.행동(this);
+				}else if(stat.getPlace().equals("라니아나 던전")) {
+					던전.행동(this);
+				}else if(stat.getPlace().equals("절망의 고원")) {
+					고원.행동(this);
+				}else if(stat.getPlace().equals("마이하스산")) {
+					산.행동(this);
+				}
+				
+				else {
+					System.out.println("잡을 몹들이 없다.");
+				}
+			}else if(w == 2) {
+				 
+			}else if (w == 3) {
+				
+			}else System.out.println("빙글빙글...");
 			
-		}else System.out.println("빙글빙글...");
+		}
 		
 	}
 
@@ -184,33 +197,29 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 	@Override
 	public void 초보() {
 		int choiceJob = InputClass.intInput(name + "님, 어떤 직업을 고르실 건가요?(1.검사  2.궁수  3.마법사) ");
-		if(choiceJob == 1) job = "검사";
-		else if(choiceJob == 2) job = "궁수";
-		else job = "마법사";
+		if(choiceJob == 1) stat.setJob("검사");
+		else if(choiceJob == 2)  stat.setJob("궁수");
+		else stat.setJob("마법사");
 		
 	}
 
 	@Override
 	public void 중급자() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void 숙련자() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void 마스터() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void 전설() {
-		// TODO Auto-generated method stub
 		
 	}
 
