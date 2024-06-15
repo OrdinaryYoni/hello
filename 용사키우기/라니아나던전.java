@@ -9,12 +9,14 @@ public class 라니아나던전 {
 		mops[3] = new 몬스터("오크 왕", 3000, 300, 20, 300, 300);
 	}
 	
-	public void 행동(용사 user) {
+	public void 사냥(용사 user) {
 		while(true) {
 			int num = 0;
-			if(user.getStat().getLevel() <= 15) {
+			if(user.getStat().getLevel() <= 12) {
+				num = 0;
+			}else if (user.getStat().getLevel() <= 15) {
 				num = (int) (Math.random() * 2);
-			}else if (user.getStat().getLevel() <= 18) {
+			}else if (user.getStat().getLevel() <= 18){
 				num = (int) (Math.random() * 3);
 			}else {
 				num = (int) (Math.random() * 4);
@@ -37,7 +39,7 @@ public class 라니아나던전 {
 					if(w.equals("1")) {//1.공격 2.회복 3.행동
 						mop_hp -= user.getStat().getAtk();
 					}else if(w.equals("2")) {
-						user.getStat().setHp(user.getStat().getHp()+100);
+						user.getStat().setHp(user.getStat().getHp()+400);//여기 잠깐 개발자모드ㅋㅋ
 						if (user.getStat().getHp() > user.getStat().getMaxHp()) {
 							user.getStat().setHp(user.getStat().getMaxHp());
 						}
@@ -65,5 +67,9 @@ public class 라니아나던전 {
 			화면.게임오버창();
 			return 1;
 		}else return 0; 
+	}
+	
+	public void 채집(용사 용사) {
+		
 	}
 }

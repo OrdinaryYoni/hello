@@ -1,6 +1,7 @@
 package 용사키우기;
 
 public class 스탯{
+	private String[] bag = {"","","","","","","","","","","","","","","","","","","",""};
 	private String name, job, gender, skill, place;
 	private int hp,maxHp,mp,level,exp,maxExp,atk,def;
 	public 스탯(String name, String gender) {

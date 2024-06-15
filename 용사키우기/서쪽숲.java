@@ -9,7 +9,7 @@ public class 서쪽숲 {
 		mops[3] = new 몬스터("골렘", 1100, 50, 10, 150, 80);
 	}
 	
-	public void 행동(용사 user) {
+	public void 사냥(용사 user) {
 		while(true) {
 			int num = 0;
 			if(user.getStat().getLevel() <= 3) {
@@ -42,7 +42,8 @@ public class 서쪽숲 {
 							user.getStat().setHp(user.getStat().getMaxHp());
 						}
 					}else if(w.equals("3")) {
-						
+						 int dmg = user.스킬사용();
+						 mop_hp -= dmg;
 					}else System.out.println("잘못된 선택을 해버렸다..");
 					
 					user.getStat().setHp(user.getStat().getHp()-mop_atk);
@@ -65,5 +66,9 @@ public class 서쪽숲 {
 			화면.게임오버창();
 			return 1;
 		}else return 0; 
+	}
+
+	public void 채집(용사 user) {
+		화면.채집창(user);
 	}
 }

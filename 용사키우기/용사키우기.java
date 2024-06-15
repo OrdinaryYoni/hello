@@ -9,7 +9,7 @@ public class 용사키우기 {
 
 	void start()
 	{
-		System.out.println(설정.purple+"###############\n###용사 키우기!###\n###############\n\n\n"+설정.exit);
+		System.out.println(설정.purple+"###############\n###용⋌˫키우⌝ᥣ!###\n###############\n\n\n"+설정.exit);
 		//설정.sleep(3000);
 		용사 user = new 용사();
 		//화면.인트로(user.getStat().getGender());
@@ -29,10 +29,14 @@ public class 용사키우기 {
 					if(check.equals("y")) {
 						System.out.println("체크포인트로 돌아갑니다.");
 						user.getStat().setHp(100 * user.getStat().getLevel());
-						설정.sleep(1000);
-					}else {
+						설정.sleep(1500);
+					}else if(check.equals("n")) {
 						엔딩(89);
 						break;
+					}else {
+						System.out.println("잘못된 선택입니다. 일단 체크포인트로 돌아갑니다.");
+						user.getStat().setHp(100 * user.getStat().getLevel());
+						설정.sleep(1500);
 					}
 				}
 			}

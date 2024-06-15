@@ -11,7 +11,7 @@ public class 절망의고원 {
 		mops[5] = new 몬스터("세라", 1100, 50, 40, 100, 70);
 	}
 	
-	public void 행동(용사 user) {
+	public void 사냥(용사 user) {
 		while(true) {
 			int num = 0;
 			if(user.getStat().getLevel() <= 3) {
@@ -67,5 +67,9 @@ public class 절망의고원 {
 			화면.게임오버창();
 			return 1;
 		}else return 0; 
+	}
+	
+	public void 채집(용사 용사) {
+		
 	}
 }
