@@ -1,9 +1,9 @@
 package 용사키우기;
 
 public class 화면 {
-	public static void 메인(String msg, 용사 user) {
+	public static void 메인(용사 user) {
 		String arr[] = {"\n\n\n\n\n\n\n\n\n\n\n\n",
-				String.format("%s",msg),
+				String.format("%s",user.getStat().getPlace()),
 				"           ●        ",
 				"         \\/|\\     ",
 				"          / \\      ",
@@ -122,8 +122,8 @@ public class 화면 {
 		String arr[] = {"\n\n\n\n\n\n\n\n\n\n\n\n",
 				"   ending 89. 허접.       ",
 				"    ᘛ⁐̤ᕐᐷ                 ",
-				"               ᑄᒾ⁐̤Ꮺ     ",
-				"ᘛ⁐̤ᕐᐷ   ●▅▇█▇▆▅▄▇   ᑄᒾ⁐̤Ꮺ",
+				"               ᑄᒾ⁐̤೨     ",
+				"ᘛ⁐̤ᕐᐷ   ●▅▇█▇▆▅▄▇   ᑄᒾ⁐̤೨",
 				"     ᘛ⁐̤ᕐᐷ                ",
 				};
 		for(String i:arr) {
@@ -259,7 +259,7 @@ public class 화면 {
 						"충격적이지? 근데.. 어제 내 아내가 그곳으로 끌려간 것 같아...",
 						"어제 집에 들어가니까 집안이 난장판이고 아내가 없어졌더라고...",
 						"젠장! 잘 숨겼었는데..!!",
-						"그래서 말이야 네가 내 아내를 찾아줬으면 해 할 수 있지?? 제발 내 아내를 구해줘..."
+						"그래서 말이야 네가 내 아내를 찾아줬으면 해. 할 수 있지?? 제발 내 아내를 구해줘..."
 				};
 				for(String i:arr) {
 					System.out.println(i);
@@ -276,8 +276,47 @@ public class 화면 {
 		
 	}
 	
-	public static void 골목길(용사 user) {
-		
+	public static void 골목길(용사 user, int w) {
+		if (w==1) {
+			String arr[] = {"\n\n\n\n\n\n\n\n\n\n\n\n",
+					"    "+설정.BLACK_BOLD_BRIGHT+"스레타하"+설정.exit+"       |        ",
+					"      ● /        \\      ",
+					"     <█          \\     ",
+					"      |>           \\    ",
+					"    /       ●       \\   ",
+					"   /      \\/|\\       \\  ",
+					"┌───────────────────────┐",
+					"│당신은 무엇을 할건가?        │",
+					"└───────────────────────┘",
+					" 1.대화   2.그냥가기   3.공격 "
+					};
+			for(String i:arr) {
+				System.out.println(i);
+			}
+		}else if(w==2) {
+			String arr[] = {"\n\n\n\n\n\n\n\n\n\n\n\n",
+					"         "+설정.back_black+"       "+설정.exit+"         ",
+					"        "+설정.back_black+"         "+설정.exit+"        ",
+					"        "+설정.back_black+" "+설정.BLACK_BACKGROUND_BRIGHT+"       "+설정.back_black+" "+설정.exit+"        ",
+					"        "+설정.back_black+"   "+설정.BLACK_BACKGROUND_BRIGHT+"   "+설정.back_black+"   "+설정.exit+"          ",
+					"       "+설정.back_black+"           "+설정.exit+"       ",
+					"     "+설정.back_black+"               "+설정.exit+"     ",
+					설정.back_black+설정.purple+"┌───────────────────────┐"+설정.exit,
+					설정.back_black+설정.purple+"│호호호.. 당신, 절망에 빠졌군요.│"+설정.exit,
+					설정.back_black+설정.purple+"└───────────────────────┘"+설정.exit,
+					" 1.?뭔솔   2.(무시)   3.네. "
+					};
+			for(String i:arr) {
+				System.out.println(i);
+			}
+			설정.sleep(1000);
+		}else if(w==3) {
+			System.out.println("호호호.. 잘가요, 절망이시여..");
+			설정.sleep(1000);
+		}else {
+			System.out.println("호호.. "+user.getStat().getName()+".. 나를 죽이면 후회할 것이다...");
+			설정.sleep(1000);
+		}
 	}
 	
 	public static void 모험가길드(용사 user, int w) {
@@ -285,7 +324,7 @@ public class 화면 {
 			String arr[] = {"\n\n\n\n\n\n\n\n\n\n\n\n",
 					"        |               |        ",
 					"        |========"+설정.yellow+"릴리아"+설정.exit+"===|        ",
-					"       /          •●•    \\       ",
+					"       /           ●     \\       ",
 					"      /   ________/█\\_____\\      ",
 					"     /    |     ●          \\     ",
 					"    /         \\/|\\          \\   ",
@@ -293,7 +332,7 @@ public class 화면 {
 					"┌───────────────────────────────────┐",
 					"│당신은 무엇을 할건가?                    │",
 					"└───────────────────────────────────┘",
-					" 1.모험가 등록   2.퀘스트   3.판매   4.승급"
+					" 1.모험가 등록   2.퀘스트   3.판매   4.공격"
 					};
 			for(String i:arr) {
 				System.out.println(i);
@@ -314,6 +353,7 @@ public class 화면 {
 			for(String i:arr) {
 				System.out.println(i);
 			}
+			설정.sleep(1000);
 		}else if(w==3) {
 			System.out.println("미안하네... 난 이제 무기 강화에는 손을 땠어..");
 			설정.sleep(1000);

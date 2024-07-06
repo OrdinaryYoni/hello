@@ -44,7 +44,8 @@ public class 라니아나던전 {
 							user.getStat().setHp(user.getStat().getMaxHp());
 						}
 					}else if(w.equals("3")) {
-						
+						 int dmg = user.스킬사용();
+						 mop_hp -= dmg;	
 					}else System.out.println("잘못된 선택을 해버렸다..");
 					
 					user.getStat().setHp(user.getStat().getHp()-mop_atk);

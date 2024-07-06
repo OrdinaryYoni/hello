@@ -48,7 +48,7 @@ public class 용사키우기 {
 	void loop(용사 user) {
 		//설정.sleep(3000);
 		//튜토리얼(user.name,user.stat.level,user.stat.hp);
-		화면.메인("",user);
+		화면.메인(user);
 		String s = InputClass.print();
 		if (s.equals("1")) user.이동();
 		else if (s.equals("2")) user.가방();

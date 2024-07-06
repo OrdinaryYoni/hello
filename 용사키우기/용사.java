@@ -48,12 +48,16 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 				마을.대장간(this);
 			}else if(w.equals("2")) {
 				화면.잡화점(this);
+				마을.잡화점(this);
 			}else if(w.equals("3")) {
-				화면.골목길(this);
+				화면.골목길(this,1);
+				마을.골목길(this);
 			}else if(w.equals("4")) {
 				화면.모험가길드(this,1);
+				마을.모험가길드(this);
 			}else if(w.equals("5")) {
 				화면.왕궁(this);
+				마을.왕궁(this);
 			}
 		}else {
 			화면.행동창();
@@ -85,7 +89,8 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 					System.out.println("여긴 어디지? 다시 돌아가야겠다.");
 				}
 			}else if (w == 3) {
-				
+				System.out.println("웅애");
+				설정.sleep(1000);
 			}else System.out.println("빙글빙글..."); 설정.sleep(1000);
 			
 			

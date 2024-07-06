@@ -30,20 +30,30 @@ public class 에테토스마을 {
 	}
 	
 	public void 골목길(용사 user) {
-		
+		String w = InputClass.print();
+		if (w.equals("1")) {
+			화면.골목길(user, 2);
+			String a = InputClass.print();
+		}else if(w.equals("2")) {
+			화면.골목길(user, 3);
+		}else if(w.equals("3")) {
+			화면.골목길(user, 4);
+			싸움(user,4);
+		}
 	}
 	
 	public void 모험가길드(용사 user) {
 		String w = InputClass.print();
 		if (w.equals("1")) {
 			화면.모험가길드(user, 2);
+			
 		}else if(w.equals("2")) {
 			화면.모험가길드(user, 3);
 		}else if(w.equals("3")) {
 			화면.모험가길드(user, 4);
-		}else {
+		}else if(w.equals("4")) {
 			화면.모험가길드(user,5);
-			싸움(user,0);
+			싸움(user,2);
 		}
 	}
 	
@@ -88,10 +98,7 @@ public class 에테토스마을 {
 					user.getStat().setHp(user.getStat().getHp()-npc_atk);
 				}
 			}
-			if (user.getStat().getHp() > 0) {
-				String yn = InputClass.stringInput("계속 사냥할까?(y/n) ");
-				if (yn.equals("n")) break;
-			}else break;
+			break;
 		}
 	}
 	
