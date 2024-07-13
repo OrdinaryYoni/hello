@@ -14,6 +14,7 @@ public class 스탯{
 		maxExp = 100*level;
 		atk = 10*level;
 		def = 10*level;
+		skill = "엄숨";
 		this.name = name;
 		this.gender = gender;
 		if (gender.equals("여")) this.job = "멸문가 에스토니아의 제 3공녀";
@@ -21,15 +22,17 @@ public class 스탯{
 	}
 	public void 레벨업(){
 		if(this.exp >= maxExp) {
-			this.exp -= maxExp;
-			level++;
+			int up = (int) this.exp / maxExp;
+			this.exp -= maxExp*up;
+			level+=up;
 			if(maxExp <= 1000) maxExp = 100*level;
-			else maxExp = 100*level+200;
+			else maxExp = 1000+200*(level-10);
 			maxHp = 100*level;
 			mp = 50*level;
 			atk = 10*level;
 			def = 10*level;
-		}else if(this.level == 11) {
+			hp = 100*level;
+		}else if(this.level == 11 && job=="멸문가 에스토니아의 제 3소공자" || job=="멸문가 에스토니아의 제 3공녀") {
 			화면.안내창(1);
 		}else if(this.level == 21) {
 			System.out.println(설정.yellow+"새로운 장소 해금!!{}"+설정.exit);

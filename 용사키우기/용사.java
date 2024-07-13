@@ -17,6 +17,7 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 	public void 이동() {
 		화면.이동창(stat.getLevel());
 		int w = InputClass.intInput("어디를 갈까? ");
+		if (stat.getLevel() >= 100) stat.setPlace("마왕성");
 		if(w == 1) {
 			stat.setPlace("부서진 에스토니아의 성");
 			화면.장소(w);
@@ -31,6 +32,14 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 			stat.setPlace("절망의 고원");
 		}else if(w==6 && stat.getLevel() > 40) {
 			stat.setPlace("마이하스산");
+		}else if(w==7 && stat.getLevel() > 40) {
+			stat.setPlace("채석장");
+		}else if(w==8 && stat.getLevel() > 60) {
+			stat.setPlace("플로라 마을");
+		}else if(w==9 && stat.getLevel() > 60) {
+			stat.setPlace("진실의 서재");
+		}else if(w==10 && stat.getLevel() > 80) {
+			stat.setPlace("이실리아 세계수");
 		}else System.out.println("그런 곳은 없어!"); 설정.sleep(600);
 	}
 	
@@ -277,10 +286,17 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 
 	@Override
 	public void 초보() {
-		int choiceJob = InputClass.intInput(name + "님, 어떤 직업을 고르실 건가요?(1.검사  2.궁수  3.마법사) ");
-		if(choiceJob == 1) stat.setJob("검사");
-		else if(choiceJob == 2)  stat.setJob("궁수");
-		else stat.setJob("마법사");
+		int choiceJob = InputClass.intInput(stat.getName() + "님, 어떤 직업을 고르실 건가요?(1.검사  2.궁수  3.마법사) ");
+		if(choiceJob == 1) {
+			stat.setJob("검사"); 
+			stat.setSkill("제국의 검");
+		}else if(choiceJob == 2) {
+			stat.setJob("궁수");
+			stat.setSkill("활의 노래");
+		}else {
+			stat.setJob("마법사");
+			stat.setSkill("초급 마법");
+		}
 	}
 
 	@Override

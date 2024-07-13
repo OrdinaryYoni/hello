@@ -3,10 +3,10 @@ package 용사키우기;
 public class 마이하스산 {
 	몬스터[] mops = new 몬스터[4];
 	public 마이하스산() {
-		mops[0] = new 몬스터("슬라임", 50, 5, 2, 20, 5);//이름, 체력, 공격력, (최대)레벨, 최대경험치, 최소경험치
-		mops[1] = new 몬스터("우딩", 80, 8, 3, 20, 8);
-		mops[2] = new 몬스터("고블린", 400, 20, 5, 70, 20);
-		mops[3] = new 몬스터("골렘", 1100, 50, 10, 100, 70);
+		mops[0] = new 몬스터("하급 마족", 50, 5, 2, 20, 5);//이름, 체력, 공격력, (최대)레벨, 최대경험치, 최소경험치
+		mops[1] = new 몬스터("중급 마족", 80, 8, 3, 20, 8);
+		mops[2] = new 몬스터("마이하스 베어", 400, 20, 5, 70, 20);
+		mops[3] = new 몬스터("단테", 1100, 50, 10, 100, 70);
 	}
 	
 	public void 사냥(용사 user) {
@@ -46,6 +46,7 @@ public class 마이하스산 {
 					}else System.out.println("잘못된 선택을 해버렸다..");
 					
 					user.getStat().setHp(user.getStat().getHp()-mop_atk);
+					user.getStat().setMp(user.getStat().getMp()+10);
 				}
 			}
 			if (user.getStat().getHp() > 0) {

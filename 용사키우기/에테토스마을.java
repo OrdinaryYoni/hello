@@ -2,12 +2,13 @@ package 용사키우기;
 
 public class 에테토스마을 {
 	NPC[] npcs = new NPC[5];
+	int [] cnt = {0,0,0,0,0};
 	public 에테토스마을() {
-		npcs[0] = new NPC("대장장이", 1600, 700, 999999, 16);//이름 체력 공격력 방어력 레벨
-		npcs[1] = new NPC("포션 상인", 1500, 500, 999999, 15);
-		npcs[2] = new NPC("릴리아", 1, 1, 999999, 15); // 모험가 등록, 퀘스트 받기
-		npcs[3] = new NPC("길드장", 3000, 1500, 999999, 30);
-		npcs[4] = new NPC("스레타하", 1, 1, 1, 1); //검사의 숨겨진 스킬 해금 조건중 하나
+		npcs[0] = new NPC("대장장이", 1600, 700, 999999, 16, 3900);//이름 체력 공격력 방어력 레벨 exp
+		npcs[1] = new NPC("포션 상인", 1500, 500, 999999, 15, 100);
+		npcs[2] = new NPC("릴리아", 1, 1, 999999, 15, 10000); // 모험가 등록, 퀘스트 받기
+		npcs[3] = new NPC("길드장", 3000, 1500, 999999, 30, 1004);
+		npcs[4] = new NPC("스레타하", 1, 1, 1, 1, 50000); //검사의 숨겨진 스킬 해금 조건중 하나 
 	}
 	
 	public void 대장간(용사 user) {
@@ -46,6 +47,14 @@ public class 에테토스마을 {
 		String w = InputClass.print();
 		if (w.equals("1")) {
 			화면.모험가길드(user, 2);
+			if(user.getStat().getJob()=="멸문가 에스토니아의 제 3소공자" || user.getStat().getJob()=="멸문가 에스토니아의 제 3공녀") {
+				System.out.println("엥? 모험가님께서는 아직 직업이 없으시네요...");
+				설정.sleep(1000);
+				System.out.println("어서 직업등록절차를 진행해봅시다><");
+				설정.sleep(1000);
+				화면.모험가길드(user, 89);
+				user.초보();
+			}
 			
 		}else if(w.equals("2")) {
 			화면.모험가길드(user, 3);
@@ -68,11 +77,13 @@ public class 에테토스마을 {
 			int npc_hp = npcs[num].getHp();
 			int npc_lv = (int) (Math.random() * npcs[num].getLevel()+1);
 			int npc_def = npcs[num].getDef();
-			int exp = 50000;
+			int exp = npcs[num].getExp();
 			int i;
 			while(true) {
-				i = IsMobAlive(exp, npc_hp, npc_name, user);
+				i = IsMobAlive(num, exp, npc_hp, npc_name, user, cnt);
 				if (i == 1) {
+					cnt[num]++;
+					System.out.println(cnt[num]);
 					break;
 				}else {
 					화면.NPC공격창(npc_name,npc_hp,npc_lv,user,num);
@@ -102,10 +113,15 @@ public class 에테토스마을 {
 		}
 	}
 	
-	public int IsMobAlive(int exp, int npc_hp, String npc_name, 용사 user) {
+	public int IsMobAlive(int n,int exp, int npc_hp, String npc_name, 용사 user,int[] cnt) {
 		if (npc_hp <= 0) {
 			화면.처치창(npc_name, exp, user);
-			user.getStat().setExp(user.getStat().getExp()+exp);
+			if (cnt[n] >= 1) {
+				user.getStat().setExp(user.getStat().getExp()+0);
+			}
+			else {
+				user.getStat().setExp(user.getStat().getExp()+exp);
+			}
 			user.getStat().레벨업();
 			return 1;
 		}else if (user.getStat().getHp() <= 0) {

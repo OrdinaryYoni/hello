@@ -49,6 +49,7 @@ public class 라니아나던전 {
 					}else System.out.println("잘못된 선택을 해버렸다..");
 					
 					user.getStat().setHp(user.getStat().getHp()-mop_atk);
+					user.getStat().setMp(user.getStat().getMp()+10);
 				}
 			}
 			if (user.getStat().getHp() > 0) {
