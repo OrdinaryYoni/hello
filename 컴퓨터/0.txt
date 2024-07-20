@@ -1,0 +1,43 @@
+a= int(input())# 34
+b = a -(a%3)#33
+arr = list(range(3, b+1, 3));#[3,6,9,12,15]
+s = 0
+for i in range(b//3):
+    s = s+(arr[i] * ((b//3) - i))
+
+print(s)
+
+a = input()#3 7
+b = input()#abcdefgh
+li = a.split(' ')#['3','7']
+su1 =int(li[0])
+su2 = int(li[1])
+char = b[su1-1:su2]#cdefg
+
+reverse_char = ''
+for c in char:
+    reverse_char = c + reverse_char
+
+b = b.replace(char,reverse_char)
+
+print(b)
+
+a = int(input()) # 5
+b = input() # 1 4 2 3 5
+c = input()# 8 1 2 3 7
+my1 = b.split(' ')
+my2 = c.split(' ')
+
+def TrueOrFalse(a,my1,my2):
+    for i in range(a):
+        if my1[i] in my2:
+            return True
+
+hello = False
+hello = TrueOrFalse(a,my1,my2)
+if hello == True:
+    print('TRUE')
+else:
+    print('FALSE')
+
+a = list(map(int, input().split()))

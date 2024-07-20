@@ -1,0 +1,8 @@
+텔레포트
+script.Parent.Touched:Connect(function(hit)
+    local humanoid = hit.Parent:FindFirstChild("Humanoid")
+ 
+    if humanoid then
+        hit.Parent:MoveTo(game.Workspace.Spawn4.Position)
+    end
+end)
