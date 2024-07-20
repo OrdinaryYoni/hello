@@ -28,14 +28,15 @@ public class 용사키우기 {
 					String check = InputClass.stringInput("다시하시겠습니까?(y/n) ");
 					if(check.equals("y")) {
 						System.out.println("체크포인트로 돌아갑니다.");
-						user.getStat().setHp(100 * user.getStat().getLevel());
+						user.getStat().setHp(200 * user.getStat().getLevel());
 						설정.sleep(1500);
 					}else if(check.equals("n")) {
 						엔딩(89);
 						break;
 					}else {
 						System.out.println("잘못된 선택입니다. 일단 체크포인트로 돌아갑니다.");
-						user.getStat().setHp(100 * user.getStat().getLevel());
+						user.getStat().setHp(user.getStat().getMaxHp());
+						user.getStat().setMp(user.getStat().getMaxMp());
 						설정.sleep(1500);
 					}
 				}

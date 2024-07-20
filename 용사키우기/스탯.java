@@ -3,17 +3,17 @@ package 용사키우기;
 public class 스탯{
 	private String[] bag = {"","","","","","","","","","","","","","","","","","","",""};
 	private String name, job, gender, skill, place;
-	private int hp,maxHp,mp,level,exp,maxExp,atk,def;
+	private int hp,maxHp,mp,maxMp,level,exp,maxExp,atk,def;
 	public 스탯(String name, String gender) {
-		level = 11;
-		maxHp = 100*level;
+		level = 1;
+		maxHp = 200*level;
 		place = "부서진 에스토니아의 성";
-		hp = 100 * level;
-		mp = 50*level;
+		hp = maxHp;
+		maxMp = (int) (400+(400*level*0.1));
+		mp = maxMp;
 		exp = 0;
 		maxExp = 100*level;
 		atk = 10*level;
-		def = 10*level;
 		skill = "엄숨";
 		this.name = name;
 		this.gender = gender;
@@ -21,22 +21,16 @@ public class 스탯{
 		else this.job = "멸문가 에스토니아의 제 3소공자";
 	}
 	public void 레벨업(){
-		if(this.exp >= maxExp) {
-			int up = (int) this.exp / maxExp;
-			this.exp -= maxExp*up;
-			level+=up;
-			if(maxExp <= 1000) maxExp = 100*level;
-			else maxExp = 1000+200*(level-10);
-			maxHp = 100*level;
-			mp = 50*level;
+		while(exp>=maxExp) {
+			this.exp -= maxExp;
+			level+=1;
+			if(maxExp < 1000) maxExp = 100*level;
+			else maxExp = 2000+200*(level-10);
+			maxHp = 200*level;
+			maxMp = (int) (400+(400*level*0.1));
+			mp = maxMp;
 			atk = 10*level;
-			def = 10*level;
-			hp = 100*level;
-		}else if(this.level == 11 && job=="멸문가 에스토니아의 제 3소공자" || job=="멸문가 에스토니아의 제 3공녀") {
-			화면.안내창(1);
-		}else if(this.level == 21) {
-			System.out.println(설정.yellow+"새로운 장소 해금!!{}"+설정.exit);
-			System.out.println(설정.yellow+"새로운 퀘스트 해금"+설정.exit);
+			hp = maxHp;
 		}
 	}
 	
@@ -71,4 +65,6 @@ public class 스탯{
 	public void setMaxHp(int maxHp) {this.maxHp = maxHp;}
 	public int getMaxExp() {return maxExp;}
 	public void setMaxExp(int maxExp) {this.maxExp = maxExp;}
+	public int getMaxMp() {return maxMp;}
+	public void setMaxMp(int maxMp) {this.maxMp = maxMp;}
 }

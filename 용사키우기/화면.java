@@ -14,7 +14,7 @@ public class 화면 {
 
 	public static void 이동창(int lv) {
 		if (lv == 100) {
-			System.out.println(설정.red + "마왕성" + 설정.exit);
+			System.out.println(설정.red + "10.마왕성" + 설정.exit);
 			return;
 		}
 
@@ -25,12 +25,14 @@ public class 화면 {
 		if (lv > 20)
 			System.out.print("5.절망의 고원");
 		if (lv > 40)
-			System.out.print(" 6.마이하스산 7.채석장");
+			System.out.print(" 6.마이하스산");
 		if (lv > 60)
-			System.out.print(" 8.플로라 마을 9.진실의 서재");
-		System.out.println();
+			System.out.print(" 7.플로라 마을");
 		if (lv > 80)
-			System.out.println("10.이실리아 세계수");
+			System.out.print(" 8.진실의 서재");
+		System.out.println();
+		if (lv > 90)
+			System.out.println("9.이실리아 세계수");
 
 	}
 

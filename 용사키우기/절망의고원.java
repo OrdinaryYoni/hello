@@ -3,23 +3,29 @@ package 용사키우기;
 public class 절망의고원 {
 	몬스터[] mops = new 몬스터[6];
 	public 절망의고원() {
-		mops[0] = new 몬스터("어린 고스트", 3500, 300, 23, 300, 100);//이름, 체력, 공격력, (최대)레벨, 최대경험치, 최소경험치
-		mops[1] = new 몬스터("성인 고스트", 4000, 369, 26, 400, 100);
-		mops[2] = new 몬스터("기사 고스트", 4500, 400, 30, 500, 100);
-		mops[3] = new 몬스터("좀비", 6000, 200, 33, 300, 200);
-		mops[4] = new 몬스터("사이론", 3000, 600, 39, 600, 300);
-		mops[5] = new 몬스터("세라", 10000, 1000, 40, 700, 600);
+		mops[0] = new 몬스터("어린 고스트", 3500, 300, 23, 500, 100);//이름, 체력, 공격력, (최대)레벨, 최대경험치, 최소경험치
+		mops[1] = new 몬스터("성인 고스트", 4000, 369, 26, 600, 600);
+		mops[2] = new 몬스터("기사 고스트", 4500, 400, 30, 700, 700);
+		mops[3] = new 몬스터("좀비", 6000, 200, 33, 600, 600);
+		mops[4] = new 몬스터("사이론", 3000, 600, 39, 500, 400);
+		mops[5] = new 몬스터("세라", 10000, 1000, 40, 1000, 1000);
 	}
 	
 	public void 사냥(용사 user) {
 		while(true) {
 			int num = 0;
-			if(user.getStat().getLevel() <= 3) {
+			if(user.getStat().getLevel() <= 23) {
+				num = (int) (Math.random() * 1);
+			}else if (user.getStat().getLevel() <= 26) {
 				num = (int) (Math.random() * 2);
-			}else if (user.getStat().getLevel() <= 9) {
+			}else if (user.getStat().getLevel() <= 30) {
 				num = (int) (Math.random() * 3);
-			}else {
+			}else if (user.getStat().getLevel() <= 33) {
 				num = (int) (Math.random() * 4);
+			}else if (user.getStat().getLevel() <= 39) {
+				num = (int) (Math.random() * 5);
+			}else {
+				num = (int) (Math.random() * 6);
 			}
 			String mop_name = mops[num].getName();
 			int mop_atk = mops[num].getAtk();
@@ -28,7 +34,7 @@ public class 절망의고원 {
 			int max = mops[num].getMaxexp();
 			int min = mops[num].getMinexp();
 			int exp = (int) (Math.random() * (max-min+1) + min);
-			int i;
+			int i, up=0;
 			while(true) {
 				i = IsMobAlive(exp, mop_hp, mop_name, user);
 				if (i == 1) {
@@ -38,22 +44,30 @@ public class 절망의고원 {
 					String w = InputClass.print();
 					if(w.equals("1")) {//1.공격 2.회복 3.행동
 						mop_hp -= user.getStat().getAtk();
+						up=20;
 					}else if(w.equals("2")) {
-						user.getStat().setHp(user.getStat().getHp()+100);
+						user.getStat().setHp(user.getStat().getHp()+1100); //개발자모드ㅋㅋ
 						if (user.getStat().getHp() > user.getStat().getMaxHp()) {
 							user.getStat().setHp(user.getStat().getMaxHp());
 						}
+						up=5;
 					}else if(w.equals("3")) {
-						
+						int dmg = user.스킬사용();
+						mop_hp -= dmg;
+						up=20;
 					}else System.out.println("잘못된 선택을 해버렸다..");
 					
 					user.getStat().setHp(user.getStat().getHp()-mop_atk);
-					user.getStat().setMp(user.getStat().getMp()+10);
+					user.getStat().setMp(user.getStat().getMp()+up);
 				}
 			}
 			if (user.getStat().getHp() > 0) {
 				String yn = InputClass.stringInput("계속 사냥할까?(y/n) ");
-				if (yn.equals("n")) break;
+				if (yn.equals("n")) {
+					user.getStat().setHp(user.getStat().getMaxHp());
+					user.getStat().setMp(user.getStat().getMaxMp());
+					break;
+				}
 			}else break;
 		}
 	}

@@ -1,16 +1,16 @@
 package 용사키우기;
 
-public class 에테토스마을 {
+public class 플로라마을 {
 	NPC[] npcs = new NPC[5];
 	int [] cnt = {0,0,0,0,0};
-	public 에테토스마을() {
+	public 플로라마을() {
 		npcs[0] = new NPC("대장장이", 1600, 700, 999999, 16, 3900);//이름 체력 공격력 방어력 레벨 exp
 		npcs[1] = new NPC("포션 상인", 1500, 500, 999999, 15, 100);
 		npcs[2] = new NPC("릴리아", 1, 1, 999999, 15, 10000); // 모험가 등록, 퀘스트 받기
 		npcs[3] = new NPC("길드장", 3000, 1500, 999999, 30, 1004);
 		npcs[4] = new NPC("스레타하", 1, 1, 1, 1, 50000); //검사의 숨겨진 스킬 해금 조건중 하나 
 	}
-	
+
 	public void 대장간(용사 user) {
 		String w = InputClass.print();
 		if (w.equals("1")) {

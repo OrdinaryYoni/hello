@@ -32,13 +32,11 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 			stat.setPlace("절망의 고원");
 		}else if(w==6 && stat.getLevel() > 40) {
 			stat.setPlace("마이하스산");
-		}else if(w==7 && stat.getLevel() > 40) {
-			stat.setPlace("채석장");
-		}else if(w==8 && stat.getLevel() > 60) {
+		}else if(w==7 && stat.getLevel() > 60) {
 			stat.setPlace("플로라 마을");
-		}else if(w==9 && stat.getLevel() > 60) {
+		}else if(w==8 && stat.getLevel() > 80) {
 			stat.setPlace("진실의 서재");
-		}else if(w==10 && stat.getLevel() > 80) {
+		}else if(w==9 && stat.getLevel() > 90) {
 			stat.setPlace("이실리아 세계수");
 		}else System.out.println("그런 곳은 없어!"); 설정.sleep(600);
 	}
@@ -209,7 +207,7 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 	@Override
 	public int 화염의폭동() {
 		if(stat.getMp() >= 300) {
-			System.out.println(설정.red+"[\"모두 다 태워버려라!\"]+설정.exit");
+			System.out.println(설정.red+"[\"모두 다 태워버려라!\"]"+설정.exit);
 			stat.setMp(stat.getMp()-300);
 			설정.sleep(500);
 			return 120*(stat.getLevel()-10);
@@ -224,7 +222,7 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 	public void 물의평화() {
 		if(stat.getMp() >= 400) {
 			System.out.println(설정.cyan+"[\"물의 잔잔함이 나를 채운다...\"]"+설정.exit);
-			stat.setHp(stat.getHp()+1000*(stat.getLevel()-10));
+			stat.setHp(stat.getMaxHp());
 			stat.setMp(stat.getMp()-400);
 			설정.sleep(500);
 		}else {

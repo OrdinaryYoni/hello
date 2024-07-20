@@ -28,7 +28,7 @@ public class 라니아나던전 {
 			int max = mops[num].getMaxexp();
 			int min = mops[num].getMinexp();
 			int exp = (int) (Math.random() * (max-min+1) + min);
-			int i;
+			int i, up=0;
 			while(true) {
 				i = IsMobAlive(exp, mop_hp, mop_name, user);
 				if (i == 1) {
@@ -38,23 +38,30 @@ public class 라니아나던전 {
 					String w = InputClass.print();
 					if(w.equals("1")) {//1.공격 2.회복 3.행동
 						mop_hp -= user.getStat().getAtk();
+						up=10;
 					}else if(w.equals("2")) {
 						user.getStat().setHp(user.getStat().getHp()+400);//여기 잠깐 개발자모드ㅋㅋ
 						if (user.getStat().getHp() > user.getStat().getMaxHp()) {
 							user.getStat().setHp(user.getStat().getMaxHp());
 						}
+						up=5;
 					}else if(w.equals("3")) {
 						 int dmg = user.스킬사용();
 						 mop_hp -= dmg;	
+						 up=10;
 					}else System.out.println("잘못된 선택을 해버렸다..");
 					
 					user.getStat().setHp(user.getStat().getHp()-mop_atk);
-					user.getStat().setMp(user.getStat().getMp()+10);
+					user.getStat().setMp(user.getStat().getMp()+up);
 				}
 			}
 			if (user.getStat().getHp() > 0) {
 				String yn = InputClass.stringInput("계속 사냥할까?(y/n) ");
-				if (yn.equals("n")) break;
+				if (yn.equals("n")) {
+					user.getStat().setHp(user.getStat().getMaxHp());
+					user.getStat().setMp(user.getStat().getMaxMp());
+					break;
+				}
 			}else break;
 		}
 	}
