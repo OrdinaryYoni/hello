@@ -5,7 +5,7 @@ public class 스탯{
 	private String name, job, gender, skill, place;
 	private int hp,maxHp,mp,maxMp,level,exp,maxExp,atk,def;
 	public 스탯(String name, String gender) {
-		level = 1;
+		level = 100;
 		maxHp = 200*level;
 		place = "부서진 에스토니아의 성";
 		hp = maxHp;
@@ -15,6 +15,7 @@ public class 스탯{
 		maxExp = 100*level;
 		atk = 10*level;
 		skill = "엄숨";
+		def = 0;
 		this.name = name;
 		this.gender = gender;
 		if (gender.equals("여")) this.job = "멸문가 에스토니아의 제 3공녀";
@@ -23,7 +24,11 @@ public class 스탯{
 	public void 레벨업(){
 		while(exp>=maxExp) {
 			this.exp -= maxExp;
-			level+=1;
+			if(level == 100) {
+				level = 100;
+			}else {
+				level+=1;
+			}
 			if(maxExp < 1000) maxExp = 100*level;
 			else maxExp = 2000+200*(level-10);
 			maxHp = 200*level;

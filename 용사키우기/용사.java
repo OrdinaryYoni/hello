@@ -7,6 +7,10 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 	private 절망의고원 고원 = new 절망의고원();
 	private 마이하스산 산 = new 마이하스산();
 	private 에테토스마을 마을 = new 에테토스마을();
+	private 플로라마을 마을2 = new 플로라마을();
+	private 진실의서재 서재 = new 진실의서재();
+	private 이실리아세계수 나무 = new 이실리아세계수();
+	private 마왕성 성 = new 마왕성();
 	private int end = 0;
 	public 용사() {
 		String name = InputClass.stringInput("용사의 이름을 지어주세요! ");
@@ -17,7 +21,7 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 	public void 이동() {
 		화면.이동창(stat.getLevel());
 		int w = InputClass.intInput("어디를 갈까? ");
-		if (stat.getLevel() >= 100) stat.setPlace("마왕성");
+		
 		if(w == 1) {
 			stat.setPlace("부서진 에스토니아의 성");
 			화면.장소(w);
@@ -38,6 +42,8 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 			stat.setPlace("진실의 서재");
 		}else if(w==9 && stat.getLevel() > 90) {
 			stat.setPlace("이실리아 세계수");
+		}else if (w==10 && stat.getLevel() >= 100) {
+			stat.setPlace("마왕성");
 		}else System.out.println("그런 곳은 없어!"); 설정.sleep(600);
 	}
 	
@@ -78,8 +84,13 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 					고원.사냥(this);
 				}else if(stat.getPlace().equals("마이하스산")) {
 					산.사냥(this);
-				}
-				else {
+				}else if(stat.getPlace().equals("진실의 서재")) {
+					서재.사냥(this);
+				}else if(stat.getPlace().equals("이실리아 나무")) {
+					나무.사냥(this);
+				}else if(stat.getPlace().equals("마왕성")) {
+					성.사냥(this);
+				}else {
 					System.out.println("잡을 몹들이 없다.");
 				}
 			}else if(w == 2) {
@@ -156,9 +167,9 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 
 	@Override
 	public int 제국의검() {
-		if(stat.getMp() >= 450) {
+		if(stat.getMp() >= 400) {
 			System.out.println(설정.purple+"[\"이것이 제국의 힘이다..!\"]"+설정.exit);
-			stat.setMp(stat.getMp()-450);
+			stat.setMp(stat.getMp()-400);
 			설정.sleep(1000);
 			return 200*(stat.getLevel()-10);
 		}else {
@@ -171,7 +182,7 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 	@Override
 	public int 에스토니아의비명() {
 		System.out.println(설정.back_black+설정.purple+"ಎಲ್ಲವೂ ನಾಶವಾಗಬೇಕು."+설정.exit);
-		stat.setHp(999999);
+		stat.setHp(99999999);
 		설정.sleep(500);
 		return 99999999;
 	}

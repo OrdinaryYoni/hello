@@ -5,11 +5,15 @@ public class 그냥_출력_테스트용 {
 	public static void main(String[] args) {
 		int num = 4;
 		String arr[] = {"\n\n\n\n\n\n\n\n\n\n\n\n",
-				"    /          /|         * *      ",
-				"   /＼●        ( |＼●     * ● *     ",
-				"     />        \\| /∨    * √|∨*    ",
-				"    <＼          />      * /\\*    ",
-				"    "+설정.back_black+설정.RED_BOLD_BRIGHT+"검사"+설정.exit+"         "+설정.back_black+설정.GREEN_BOLD_BRIGHT+"궁수"+설정.exit+"       "+설정.back_black+설정.BLUE_BOLD_BRIGHT+"마법사"+설정.exit+"    ",
+				"  |     |    |     |    |     |  ",
+				"  |  1  |    |  2  |    |  3  |  ",
+				"  |     |    |     |    |     |  ",
+				"  (_____)    (_____)    (_____)  ",
+				"                                 ",
+				"   ●   |     |    |     |       ",
+				" \\/|\\  |  4  |    |  5  |       ",
+				"  / \\  |     |    |     |       ",
+				"       (_____)    (_____)       ",
 				};
 		for(String i:arr) {
 			System.out.println(i);
