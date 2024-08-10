@@ -3,7 +3,7 @@ package 용사키우기;
 public class 절망의고원 {
 	몬스터[] mops = new 몬스터[6];
 	public 절망의고원() {
-		mops[0] = new 몬스터("어린 고스트", 3500, 300, 23, 1100, 1100);//이름, 체력, 공격력, (최대)레벨, 최대경험치, 최소경험치
+		mops[0] = new 몬스터("어린 고스트", 3500, 300, 23, 1500, 1500);//이름, 체력, 공격력, (최대)레벨, 최대경험치, 최소경험치
 		mops[1] = new 몬스터("성인 고스트", 4000, 369, 26, 2000, 1800);
 		mops[2] = new 몬스터("기사 고스트", 4500, 400, 30, 3000, 2900);
 		mops[3] = new 몬스터("좀비", 6000, 200, 33, 3500, 3400);
@@ -15,7 +15,7 @@ public class 절망의고원 {
 		while(true) {
 			int num = 0;
 			if(user.getStat().getLevel() <= 23) {
-				num = (int) (Math.random() * 1);
+				num = 0;
 			}else if (user.getStat().getLevel() <= 26) {
 				num = (int) (Math.random() * 2);
 			}else if (user.getStat().getLevel() <= 30) {
@@ -25,7 +25,7 @@ public class 절망의고원 {
 			}else if (user.getStat().getLevel() <= 39) {
 				num = (int) (Math.random() * 5);
 			}else {
-				num = (int) (Math.random() * 6);
+				num = 5;
 			}
 			String mop_name = mops[num].getName();
 			int mop_atk = mops[num].getAtk();
@@ -50,7 +50,7 @@ public class 절망의고원 {
 						if (user.getStat().getHp() > user.getStat().getMaxHp()) {
 							user.getStat().setHp(user.getStat().getMaxHp());
 						}
-						up=5;
+						up=-5;
 					}else if(w.equals("3")) {
 						int dmg = user.스킬사용();
 						mop_hp -= dmg;

@@ -42,7 +42,38 @@ public class 화면 {
 	}
 
 	public static void 행동창() {
-		System.out.println("1.사냥 2.채집 3.대화");
+		System.out.println("1.사냥 2.채집 3.스탯");
+	}
+	
+	public static void 스탯창(용사 user) {
+		String arr[] = {"\n\n\n\n\n\n\n\n\n\n\n\n",
+				String.format("이름: %s lv: %d 성별: %s", user.getStat().getName(), 
+						user.getStat().getLevel(),user.getStat().getGender()),
+				"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+				String.format("직업: %s \n호칭: %s", user.getStat().getJob(), 
+						user.getStat().getTitle()),
+				String.format("보유 스킬: %s \n진행중인 퀘스트: %s", user.getStat().getSkill(), 
+						user.getStat().getQuest()),
+				String.format("공격력: %d+%d \n방어력: %d \nmp: %d/%d", user.getStat().getAtk(),
+						user.getStat().getWeaponAtk(), user.getStat().getDef(),
+						user.getStat().getMp(),user.getStat().getMaxMp()),
+				String.format("현재 체력: %d/%d \n현재 무기: %s", user.getStat().getHp(), 
+						user.getStat().getMaxHp(),user.getStat().getCurrentWeapon()),
+				"\n스킬과 직업 설명은 마을 도섣관으로..."
+				};
+		
+		for (String i : arr) {
+			System.out.println(i);
+			설정.sleep(800);
+		}
+		설정.sleep(5000);
+		System.out.println("3초후에 꺼집니다.");
+		System.out.println("3...");
+		설정.sleep(1000);
+		System.out.println("2..");
+		설정.sleep(1000);
+		System.out.println("1.");
+		설정.sleep(1000);
 	}
 
 	public static void 장소(int w) {
@@ -102,6 +133,35 @@ public class 화면 {
 	}
 
 	public static void 엔딩1() {
+		System.out.println("당신은 마왕과 열심히 싸웠습니다.");
+		설정.sleep(2500);
+		System.out.println("수많은 노력과 시간을 썼기 때문에 당신은 전보다 강해졌죠.");
+		설정.sleep(2500);
+		System.out.println("그러나, 마왕을 쓰러뜨리기에는 역부족이였습니다");
+		설정.sleep(2500);
+		System.out.println("당신은 마왕과 열심히 싸웠습니다.");
+		설정.sleep(2500);
+		System.out.println("마왕은 당신에게 말합니다.");
+		설정.sleep(2500);
+		System.out.println(설정.back_black + 설정.red + "ಮೂರ್ಖತನದಿಂದ, ನೀವು ನನ್ನ ವೇದಿಕೆಯಲ್ಲಿ ಚೆನ್ನಾಗಿ ಮಾಡಿದ್ದೀರಿ.(어리석게도 나의 무대에 잘 임해주었구나.)" + 설정.exit);
+		설정.sleep(2500);
+		System.out.println(설정.back_black + 설정.red + "შენი წყალობით მე ჩავყარე საფუძველი მსოფლიო ბატონობას!!!(덕분에 세계정복을 할 수 있게 되었다!!!)" + 설정.exit);
+		설정.sleep(2500);
+		System.out.println(설정.back_black + 설정.red + "ಉತ್ತಮ ಕೆಲಸ.(수고했다.)" + 설정.exit);
+		설정.sleep(2500);
+		System.out.println(설정.back_black + 설정.red + "ನಾನೀಗ ಹೊರಡುತ್ತಿದ್ದೇನೆ.(난 이제 가겠다.)" + 설정.exit);
+		설정.sleep(2500);
+		System.out.println("당신은 마왕이 다인을 끌고 어딘가로 가는 것을 보았지만 이내 숨이 끊어졌습니다...");
+		설정.sleep(2500);
+		System.out.println("[Ending 1. 완전히 사라진 에스토니아]");
+		설정.sleep(2500);
+	}
+
+	public static void 엔딩2() {
+		
+	}
+
+	public static void 엔딩3() {
 		System.out.println("당신은 드디어 마왕을 쓰러뜨렸고 다인과 감격의 재회를 하였습니다.");
 		설정.sleep(2500);
 		System.out.println("당신은 기뻐하였고 다인도 기뻐하는 듯했습니다.");
@@ -126,14 +186,6 @@ public class 화면 {
 		설정.sleep(2500);
 		System.out.println("[Ending 3. 마왕이 된 다인]");
 		설정.sleep(2500);
-	}
-
-	public static void 엔딩2() {
-
-	}
-
-	public static void 엔딩3() {
-
 	}
 
 	public static void 엔딩4() {
@@ -164,12 +216,16 @@ public class 화면 {
 	}
 
 	public static void 공격창(String mop_name, int mop_hp, int mop_lv, 용사 user) {
-		String arr[] = { "\n\n\n\n\n\n\n\n\n\n\n\n", String.format("%s lv:%d hp:%d", mop_name, mop_lv, mop_hp),
-				"                        ●        ", "      ██              \\/|\\     ",
+		String arr[] = { "\n\n\n\n\n\n\n\n\n\n\n\n",
+				String.format("%s lv:%d hp:%d", mop_name, mop_lv, mop_hp),
+				"                        ●        ", 
+				"      ██              \\/|\\     ",
 				"      ██               / \\      ",
 				String.format(" %s lv:%d hp:%d mp:%d exp:%d/%d", user.getStat().getName(), user.getStat().getLevel(),
 						user.getStat().getHp(), user.getStat().getMp(), user.getStat().getExp(), user.getStat().getMaxExp()),
-				"┌───────────────────────────┐", "│당신은 무엇을 할건가?            │", "└───────────────────────────┘",
+				"┌───────────────────────────┐",
+				"│당신은 무엇을 할건가?            │", 
+				"└───────────────────────────┘",
 				"   1.공격    2.회복    3.행동 " };
 		for (String i : arr) {
 			System.out.println(i);
@@ -303,11 +359,11 @@ public class 화면 {
 				String arr[] = { "(흠... 애송이는 아니구먼..)",
 				"자네, 마이하스 산에서 나는 약초를 구해다 줄 수 있겠나?",
 				설정.blue+"제가 왜 해야하죠?"+설정.exit,
-				"사실, 내 아내가 에스토니아 근처 숲에서 점심거리를 구한 뒤로부터 몸이 안 좋아졌다네.",
-				"그래서 치유사에게 부탁을 했지만 몸이 낫기는 커녕 더 안 좋아졌다네.",
+				"사실, 내 아내가 에스토니아 근처 숲에서 점심거리를 구한 뒤로부터 몸이 안 좋아졌어.",
+				"그래서 치유사에게 부탁을 했지만 몸이 낫기는 커녕 더 안 좋아졌다네..",
 				"난 그 뒤로 강화하는 일은 그만두고 아내의 몸을 고칠 방법을 찾던 중",
-				"최근 마이하스 산에 "+설정.purple+"엘리벳의 눈물"+설정.exit+"이라는 먹으면 모든 병이 낫는 약초가 있다는 사실을 알게되었네.",
-				"아무튼, 이 약초를 찾아준다면 사례는 두둑히 주겠다네."
+				"최근 마이하스 산에 "+설정.purple+"엘리벳의 눈물"+설정.exit+"이라는 모든 병이 낫는 약초가 있다는 사실을 알게되었네.",
+				"그래서, 자네가 이 약초를 찾아준다면 사례는 두둑히 주겠다네."
 				};
 				for (String i : arr) {
 					System.out.println(i);

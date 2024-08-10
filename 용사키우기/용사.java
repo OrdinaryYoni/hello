@@ -102,14 +102,12 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 					고원.채집(this);
 				}else if(stat.getPlace().equals("마이하스산")) {
 					산.채집(this);
-				}
-				else {
+				}else {
 					System.out.println("여긴 어디지? 다시 돌아가야겠다.");
 				}
 			}else if (w == 3) {
-				System.out.println("웅애");
-				설정.sleep(1000);
-			}else System.out.println("빙글빙글..."); 설정.sleep(1000);
+				화면.스탯창(this);
+			}else System.out.println("빙글빙글..."); 설정.sleep(500);
 			
 			
 		}
@@ -221,7 +219,7 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 			System.out.println(설정.red+"[\"모두 다 태워버려라!\"]"+설정.exit);
 			stat.setMp(stat.getMp()-300);
 			설정.sleep(500);
-			return 120*(stat.getLevel()-10);
+			return 160*(stat.getLevel()-10);
 		}else {
 			System.out.println("mp가 부족하다..");
 			설정.sleep(500);
@@ -249,7 +247,7 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 			stat.setHp(stat.getHp()/2);
 			stat.setMp(stat.getMp()-400);
 			설정.sleep(500);
-			return 200*(stat.getLevel()-10);
+			return 300*(stat.getLevel()-10);
 		}else {
 			System.out.println("mp가 부족하다..");
 			설정.sleep(500);
@@ -306,26 +304,27 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 			stat.setJob("마법사");
 			stat.setSkill("초급 마법");
 		}
+		stat.setTitle("초급 모험가");
 	}
 
 	@Override
 	public void 중급자() {
-		
+		stat.setTitle("중급 모험가");
 	}
 
 	@Override
 	public void 숙련자() {
-		
+		stat.setTitle("상급 모험가");
 	}
 
 	@Override
 	public void 마스터() {
-		
+		stat.setTitle("용사");
 	}
 
 	@Override
 	public void 전설() {
-		
+		stat.setTitle("1000년에 한 번 나올까 말까하는 전설의 용사");
 	}
 
 	public 스탯 getStat() {return stat;}

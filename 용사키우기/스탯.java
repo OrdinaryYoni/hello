@@ -2,12 +2,13 @@ package 용사키우기;
 
 public class 스탯{
 	private String[] bag = {"","","","","","","","","","","","","","","","","","","",""};
-	private String name, job, gender, skill, place;
-	private int hp,maxHp,mp,maxMp,level,exp,maxExp,atk,def;
+	private String name, job, gender, skill, place, title, quest, currentWeapon;
+	private int hp,maxHp,mp,maxMp,level,exp,maxExp,atk,def, weaponAtk;
 	public 스탯(String name, String gender) {
-		level = 100;
+		level = 21;
 		maxHp = 200*level;
 		place = "부서진 에스토니아의 성";
+		title = "일반인보다 약함";
 		hp = maxHp;
 		maxMp = (int) (400+(400*level*0.1));
 		mp = maxMp;
@@ -15,12 +16,16 @@ public class 스탯{
 		maxExp = 100*level;
 		atk = 10*level;
 		skill = "엄숨";
+		quest = "엄숨";
+		currentWeapon = "뾰족한 나뭇가지";
+		weaponAtk = 0;
 		def = 0;
 		this.name = name;
 		this.gender = gender;
 		if (gender.equals("여")) this.job = "멸문가 에스토니아의 제 3공녀";
 		else this.job = "멸문가 에스토니아의 제 3소공자";
 	}
+	
 	public void 레벨업(){
 		while(exp>=maxExp) {
 			this.exp -= maxExp;
@@ -38,9 +43,6 @@ public class 스탯{
 			hp = maxHp;
 		}
 	}
-	
-	
-	
 	
 	
 	
@@ -72,4 +74,12 @@ public class 스탯{
 	public void setMaxExp(int maxExp) {this.maxExp = maxExp;}
 	public int getMaxMp() {return maxMp;}
 	public void setMaxMp(int maxMp) {this.maxMp = maxMp;}
+	public String getTitle() {return title;}
+	public void setTitle(String title) {this.title = title;}
+	public String getQuest() {return quest;}
+	public void setQuest(String quest) {this.quest = quest;}
+	public String getCurrentWeapon() {return currentWeapon;}
+	public void setCurrentWeapon(String currentWeapon) {this.currentWeapon = currentWeapon;}
+	public int getWeaponAtk() {return weaponAtk;}
+	public void setWeaponAtk(int weaponAtk) {this.weaponAtk = weaponAtk;}
 }
