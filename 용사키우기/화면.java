@@ -3,10 +3,15 @@ package 용사키우기;
 public class 화면 {
 	public static void 메인(용사 user) {
 		String arr[] = { "\n\n\n\n\n\n\n\n\n\n\n\n", String.format("%s", user.getStat().getPlace()),
-				"           ●        ", "         \\/|\\     ", "          / \\      ",
+				"           ●        ",
+				"         \\/|\\     ",
+				"          / \\      ",
 				String.format(" %s lv:%d hp:%d exp:%d/%d", user.getStat().getName(), user.getStat().getLevel(),
 						user.getStat().getHp(), user.getStat().getExp(), user.getStat().getMaxExp()),
-				"┌─────────────────────┐", "│당신은 무엇을 할건가?      │", "└─────────────────────┘", "  1.이동  2.가방  3.행동 " };
+				"┌─────────────────────┐", 
+				"│당신은 무엇을 할건가?      │", 
+				"└─────────────────────┘", 
+				"  1.이동  2.가방  3.행동 " };
 		for (String i : arr) {
 			System.out.println(i);
 		}
@@ -180,7 +185,7 @@ public class 화면 {
 		설정.sleep(2500);
 		System.out.println(설정.back_black + 설정.red + "참 어리석구나!!! 난 네가 쓰러뜨렸다고 생각한 마왕이란말이다!!!!" + 설정.exit);
 		설정.sleep(2500);
-		System.out.println("당신은 모든 희망을 버렸습니다.");
+		System.out.println("당신은 엄청난 충격을 받았습니다. 다인이 마왕이라니...");
 		설정.sleep(2500);
 		System.out.println("그리고 눈을 감았죠. 영원히.");
 		설정.sleep(2500);
@@ -208,7 +213,7 @@ public class 화면 {
 		설정.sleep(2500);
 		System.out.println(설정.purple + "아무튼, 이게 당신이 진정 원하던 결말인가요?" + 설정.exit);
 		설정.sleep(2500);
-		String arr[] = { "\n\n\n\n\n\n\n\n\n\n\n\n", "   ending 89. 허접.       ", "    ᘛ⁐̤ᕐᐷ                 ",
+		String arr[] = { "\n\n\n\n\n\n\n\n\n\n\n\n", "   ending 89. 겁쟁이 용사.       ", "    ᘛ⁐̤ᕐᐷ                 ",
 				"               ᑄᒾ⁐̤೨     ", "ᘛ⁐̤ᕐᐷ   ●▅▇█▇▆▅▄▇   ᑄᒾ⁐̤೨", "     ᘛ⁐̤ᕐᐷ                ", };
 		for (String i : arr) {
 			System.out.println(i);
@@ -499,6 +504,87 @@ public class 화면 {
 				"└───────────────────────────┘",
 				"   1.공격    2.회복    3.행동 " };
 		for (String i : arr) {
+			System.out.println(i);
+		}
+	}
+
+	public static void 절망() {
+		String arr[] = {"\n\n\n\n\n\n\n\n\n\n\n\n",
+				"        "+설정.BLACK_BACKGROUND_BRIGHT+"|  |  |  |  |"+설정.exit+"       ",
+				"       "+설정.BLACK_BACKGROUND_BRIGHT+"||  | | | |  ||"+설정.exit+"      ",
+				"      "+설정.BLACK_BACKGROUND_BRIGHT+"| |  || O ||  | |"+설정.exit+"     ",
+				"     "+설정.BLACK_BACKGROUND_BRIGHT+"|  |  |  O  |  |  |"+설정.exit+"    ",
+				"    "+설정.BLACK_BACKGROUND_BRIGHT+"||  | |       | |  ||"+설정.exit+"   ",
+				"   "+설정.BLACK_BACKGROUND_BRIGHT+"| |  || ▃▂▁▁▂▃ ||  | |"+설정.exit+"  ",
+				"  "+설정.BLACK_BACKGROUND_BRIGHT+"|  |  |           |  |  |"+설정.exit+" ",
+				"┌───────────────────────────┐",
+				"│           절망적.           │",
+				"└───────────────────────────┘",
+				"  1.잡아먹기  2.받아들이기  3.공격  ",
+				};
+		
+		for (String i : arr) {
+			System.out.println(i);
+		}
+	}
+
+	public static void 증오() {
+		String arr[] = {"\n\n\n\n\n\n\n\n\n\n\n\n",
+				"        "+설정.back_black+설정.purple+"|  |  |  |  |"+설정.exit+"       ",
+				"       "+설정.back_black+설정.purple+"||  | | | |  ||"+설정.exit+"      ",
+				"      "+설정.back_black+설정.purple+"| |  || O ||  | |"+설정.exit+"     ",
+				"     "+설정.back_black+설정.purple+"|  |  |  O  |  |  |"+설정.exit+"    ",
+				"    "+설정.back_black+설정.purple+"||  | |       | |  ||"+설정.exit+"   ",
+				"   "+설정.back_black+설정.purple+"| |  || ▃▂▁▁▂▃ ||  | |"+설정.exit+"  ",
+				"  "+설정.back_black+설정.purple+"|  |  |           |  |  |"+설정.exit+" ",
+				"┌──────────────────────────┐",
+				"│        증오를 받아라.        │",
+				"└──────────────────────────┘",
+				" 1.잡아먹기  2.받아들이기  3.공격  ",
+				};
+		for(String i:arr) {
+			System.out.println(i);
+		}
+	}
+
+	public static void 복수() {
+		String arr[] = {"\n\n\n\n\n\n\n\n\n\n\n\n",
+				"        "+설정.back_black+설정.purple+"|  |  |  "+설정.back_red+설정.black+"|  |"+설정.exit+"       ",
+				"       "+설정.back_black+설정.purple+"||  | | | |  "+설정.back_red+설정.black+"||"+설정.exit+"      ",
+				"      "+설정.back_black+설정.purple+"| |  || "+설정.red+"O"+설정.purple+" ||  | "+설정.back_red+설정.black+"|"+설정.exit+"     ",
+				"     "+설정.back_black+설정.purple+"|  |  |  "+설정.red+"O"+설정.purple+"  |  |  |"+설정.exit+"    ",
+				"    "+설정.back_red+"||"+설정.back_black+설정.purple+"  | |       | |  ||"+설정.exit+"   ",
+				"   "+설정.back_red+"| |  ||"+설정.back_black+설정.purple+" "+설정.red+"▃▂▁▁▂▃"+설정.purple+" ||  | |"+설정.exit+"  ",
+				"  "+설정.back_red+"|  |  |   "+설정.back_black+설정.purple+"        |  |  |"+설정.exit+" ",
+				"┌──────────────────────────┐",
+				"│        완벽한 복수를!        │",
+				"└──────────────────────────┘",
+				" 1.잡아먹기  2.받아들이기  3.공격  ",
+				};
+		for(String i:arr) {
+			System.out.println(i);
+		}
+	}
+
+	public static void 단서() {
+		
+	}
+
+	public static void 열쇠() {
+		String arr[] = {"\n\n\n\n\n\n\n\n\n\n\n\n",
+				"        "+설정.YELLOW_BACKGROUND_BRIGHT+설정.CYAN_BOLD_BRIGHT+"|  |  |  |  |"+설정.exit+"       ",
+				"       "+설정.YELLOW_BACKGROUND_BRIGHT+설정.CYAN_BOLD_BRIGHT+"||  | | | |  ||"+설정.exit+"      ",
+				"      "+설정.YELLOW_BACKGROUND_BRIGHT+설정.CYAN_BOLD_BRIGHT+"| |  || O ||  | |"+설정.exit+"     ",
+				"     "+설정.YELLOW_BACKGROUND_BRIGHT+설정.CYAN_BOLD_BRIGHT+"|  |  |O O O|  |  |"+설정.exit+"    ",
+				"    "+설정.YELLOW_BACKGROUND_BRIGHT+설정.CYAN_BOLD_BRIGHT+"||  | |   O   | |  ||"+설정.exit+"   ",
+				"   "+설정.YELLOW_BACKGROUND_BRIGHT+설정.CYAN_BOLD_BRIGHT+"| |  ||  <___>  ||  | |"+설정.exit+"  ",
+				"  "+설정.YELLOW_BACKGROUND_BRIGHT+설정.CYAN_BOLD_BRIGHT+"|  |  |           |  |  |"+설정.exit+" ",
+				"┌────────────────────────────┐",
+				"│      최후를 알고 싶은 사람       │",
+				"└────────────────────────────┘",
+				"  1.잡아먹기  2.받아들이기  3.공격  ",
+				};
+		for(String i:arr) {
 			System.out.println(i);
 		}
 	}

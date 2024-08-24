@@ -4,70 +4,31 @@ public class 플로라마을 {
 	NPC[] npcs = new NPC[5];
 	int [] cnt = {0,0,0,0,0};
 	public 플로라마을() {
-		npcs[0] = new NPC("대장장이", 1600, 700, 999999, 16, 3900);//이름 체력 공격력 방어력 레벨 exp
-		npcs[1] = new NPC("포션 상인", 1500, 500, 999999, 15, 100);
-		npcs[2] = new NPC("릴리아", 1, 1, 999999, 15, 10000); // 모험가 등록, 퀘스트 받기
-		npcs[3] = new NPC("길드장", 3000, 1500, 999999, 30, 1004);
-		npcs[4] = new NPC("스레타하", 1, 1, 1, 1, 50000); //검사의 숨겨진 스킬 해금 조건중 하나 
+		npcs[0] = new NPC("데스피아", 404, 404, 404, 404, 404);
+		npcs[1] = new NPC("엔머티", 666, 666, 666, 666, 666);
+		npcs[2] = new NPC("뤼벤", 1004, 1004, 1004, 1004, 1004);
+		npcs[3] = new NPC("프로비소", 8282, 8282, 8282, 8282, 8282);
+		npcs[4] = new NPC("노아", 1, 1, 1, 1, 1);
 	}
 
-	public void 대장간(용사 user) {
+	public void 절망(용사 user) {
 		String w = InputClass.print();
-		if (w.equals("1")) {
-			화면.대장간(user, 2);
-			String a = InputClass.stringInput("무엇을 살거냐? ");
-		}else if(w.equals("2")) {
-			화면.대장간(user, 3);
-		}else if(w.equals("3")) {
-			화면.대장간(user, 4);
-		}else {
-			화면.대장간(user,5);
-			싸움(user,0);
-		}
 	}
 	
-	public void 잡화점(용사 user) {
-		
-	}
-	
-	public void 골목길(용사 user) {
+	public void 증오(용사 user) {
 		String w = InputClass.print();
-		if (w.equals("1")) {
-			화면.골목길(user, 2);
-			String a = InputClass.print();
-		}else if(w.equals("2")) {
-			화면.골목길(user, 3);
-		}else if(w.equals("3")) {
-			화면.골목길(user, 4);
-			싸움(user,4);
-		}
 	}
 	
-	public void 모험가길드(용사 user) {
+	public void 복수(용사 user) {
 		String w = InputClass.print();
-		if (w.equals("1")) {
-			화면.모험가길드(user, 2);
-			if(user.getStat().getJob()=="멸문가 에스토니아의 제 3소공자" || user.getStat().getJob()=="멸문가 에스토니아의 제 3공녀") {
-				System.out.println("엥? 모험가님께서는 아직 직업이 없으시네요...");
-				설정.sleep(1000);
-				System.out.println("어서 직업등록절차를 진행해봅시다><");
-				설정.sleep(1000);
-				화면.모험가길드(user, 89);
-				user.초보();
-			}
-			
-		}else if(w.equals("2")) {
-			화면.모험가길드(user, 3);
-		}else if(w.equals("3")) {
-			화면.모험가길드(user, 4);
-		}else if(w.equals("4")) {
-			화면.모험가길드(user,5);
-			싸움(user,2);
-		}
 	}
 	
-	public void 왕궁(용사 user) {
-		
+	public void 단서(용사 user) {
+		String w = InputClass.print();
+	}
+	
+	public void 열쇠(용사 user) {
+		String w = InputClass.print();
 	}
 	
 	public void 싸움(용사 user,int num) {

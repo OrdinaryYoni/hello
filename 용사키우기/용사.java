@@ -36,14 +36,18 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 			stat.setPlace("절망의 고원");
 		}else if(w==6 && stat.getLevel() > 40) {
 			stat.setPlace("마이하스산");
+			중급자();
 		}else if(w==7 && stat.getLevel() > 60) {
 			stat.setPlace("플로라 마을");
+			숙련자();
 		}else if(w==8 && stat.getLevel() > 80) {
 			stat.setPlace("진실의 서재");
+			마스터();
 		}else if(w==9 && stat.getLevel() > 90) {
 			stat.setPlace("이실리아 세계수");
 		}else if (w==10 && stat.getLevel() >= 100) {
 			stat.setPlace("마왕성");
+			전설();
 		}else System.out.println("그런 곳은 없어!"); 설정.sleep(600);
 	}
 	
@@ -71,6 +75,25 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 			}else if(w.equals("5")) {
 				화면.왕궁(this);
 				마을.왕궁(this);
+			}
+		}else if(stat.getPlace().equals("플로라 마을")) {
+			화면.마을행동창2(this);
+			String w = InputClass.print();
+			if(w.equals("1")) {
+				화면.절망();
+				마을2.절망(this);
+			}else if(w.equals("2")) {
+				화면.증오();
+				마을2.증오(this);
+			}else if(w.equals("3")) {
+				화면.복수();
+				마을2.복수(this);
+			}else if(w.equals("4")) {
+				화면.단서();
+				마을2.단서(this);
+			}else if(w.equals("5")){
+				화면.열쇠();
+				마을2.열쇠(this);
 			}
 		}else {
 			화면.행동창();
