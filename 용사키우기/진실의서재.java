@@ -51,7 +51,10 @@ public class 진실의서재 {
 						up=30;
 					}else System.out.println("잘못된 선택을 해버렸다..");
 					
-					user.getStat().setHp(user.getStat().getHp()-mop_atk);
+					if(user.getStat().getDef() > mop_atk) {
+						System.out.println("방어력이 높아서 공격이 통하지 않았다!");
+						설정.sleep(1000);
+					}else user.getStat().setHp(user.getStat().getHp()-(mop_atk-user.getStat().getDef()));
 					user.getStat().setMp(user.getStat().getMp()+up);
 				}
 			}

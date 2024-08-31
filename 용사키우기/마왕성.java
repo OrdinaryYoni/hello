@@ -37,10 +37,10 @@ public class 마왕성 {
 					if(mop_mp >= 400) {
 						System.out.println(설정.back_black+설정.red+"[\"모든 생물을 멸하리!\"]"+설정.exit);
 						설정.sleep(500);
-						user.getStat().setHp(user.getStat().getHp()-10000);
+						user.getStat().setHp(user.getStat().getHp()-(10000-user.getStat().getDef()));
 						mop_mp = 0;
 					}else {
-						user.getStat().setHp(user.getStat().getHp()-mop_atk);
+						user.getStat().setHp(user.getStat().getHp()-(mop_atk-user.getStat().getDef()));
 						mop_mp+=10;
 					}
 					user.getStat().setMp(user.getStat().getMp()+up);

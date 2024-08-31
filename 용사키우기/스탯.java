@@ -2,7 +2,7 @@ package 용사키우기;
 
 public class 스탯{
 	private String[] bag = {"","","","","","","","","","","","","","","","","","","",""};
-	private String name, job, gender, skill, place, title, quest, currentWeapon;
+	private String name, job, gender, skill, place, title, quest, currentWeapon, completeQuest;
 	private int hp,maxHp,mp,maxMp,level,exp,maxExp,atk,def, weaponAtk;
 	public 스탯(String name, String gender) {
 		level = 61;
@@ -17,6 +17,7 @@ public class 스탯{
 		atk = 10*level;
 		skill = "엄숨";
 		quest = "엄숨";
+		completeQuest = "엄숨";
 		currentWeapon = "뾰족한 나뭇가지";
 		weaponAtk = 0;
 		def = 0;
@@ -82,4 +83,6 @@ public class 스탯{
 	public void setCurrentWeapon(String currentWeapon) {this.currentWeapon = currentWeapon;}
 	public int getWeaponAtk() {return weaponAtk;}
 	public void setWeaponAtk(int weaponAtk) {this.weaponAtk = weaponAtk;}
+	public String getCompleteQuest() {return completeQuest;}
+	public void setCompleteQuest(String completeQuest) {this.completeQuest = completeQuest;}
 }
