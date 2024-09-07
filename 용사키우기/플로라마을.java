@@ -60,10 +60,10 @@ public class 플로라마을 {
 				cnt[1]+=1;
 				user.getStat().레벨업();
 			}else if(w.equals("2")) {
-				System.out.println(설정.BLACK_BACKGROUND_BRIGHT+"하하하 멍청아 가라!"+설정.exit);
+				System.out.println(설정.BLACK_BACKGROUND_BRIGHT+"하하하 착한 멍청아 가라!"+설정.exit);
 				설정.sleep(1000);
 				System.out.println("뭐지...? 몸이 가볍다!");
-				user.getStat().setAtk(user.getStat().getAtk()+2000);
+				user.getStat().setPlusAtk(2000);
 				설정.sleep(1000);
 				System.out.println("20000 경험치를 얻었다.");
 				설정.sleep(1000);
@@ -138,6 +138,31 @@ public class 플로라마을 {
 	
 	public void 열쇠(용사 user) {
 		String w = InputClass.print();
+		if(cnt[4]==0) {
+			if(w.equals("1")) {
+				System.out.println("마무맛돔 만남담.");
+				설정.sleep(1000);//256200
+				System.out.println("혐미 마미됨 검 감담.");
+				설정.sleep(1000);
+				System.out.println("10 경험치를 얻었다.");
+				설정.sleep(1000);
+				user.getStat().setExp(user.getStat().getExp()+10);
+				user.getStat().레벨업();
+				cnt[4]+=1;
+			}else if(w.equals("2")) {
+				System.out.println(설정.BLACK_BACKGROUND_BRIGHT+"다인을 조심해."+설정.exit);
+				설정.sleep(1000);
+				System.out.println("80000 경험치를 얻었다.");
+				설정.sleep(1000);
+				user.getStat().setExp(user.getStat().getExp()+30000);
+				user.getStat().레벨업();
+				cnt[4]+=1;
+			}else {
+				System.out.println(설정.YELLOW_BACKGROUND_BRIGHT+설정.RED_BRIGHT+"어리석구나"+설정.exit);
+				설정.sleep(500);
+				싸움(user,3);
+			}
+		}else System.out.println("어? 자세히보니 그냥 옛날 그림이다."); 설정.sleep(1000);
 	}
 	
 	public void 싸움(용사 user,int num) {

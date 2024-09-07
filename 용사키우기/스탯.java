@@ -3,9 +3,9 @@ package 용사키우기;
 public class 스탯{
 	private String[] bag = {"","","","","","","","","","","","","","","","","","","",""};
 	private String name, job, gender, skill, place, title, quest, currentWeapon, completeQuest;
-	private int hp,maxHp,mp,maxMp,level,exp,maxExp,atk,def, weaponAtk;
+	private int hp,maxHp,mp,maxMp,level,exp,maxExp,atk,def, weaponAtk, plusAtk;
 	public 스탯(String name, String gender) {
-		level = 61;
+		level = 1;
 		maxHp = 200*level;
 		place = "부서진 에스토니아의 성";
 		title = "일반인보다 약함";
@@ -13,6 +13,7 @@ public class 스탯{
 		maxMp = (int) (400+(400*level*0.1));
 		mp = maxMp;
 		exp = 0;
+		plusAtk = 0;
 		maxExp = 100*level;
 		atk = 10*level;
 		skill = "엄숨";
@@ -40,7 +41,7 @@ public class 스탯{
 			maxHp = 200*level;
 			maxMp = (int) (400+(400*level*0.1));
 			mp = maxMp;
-			atk = 10*level;
+			atk = 10*level+plusAtk;
 			hp = maxHp;
 		}
 	}
@@ -85,4 +86,6 @@ public class 스탯{
 	public void setWeaponAtk(int weaponAtk) {this.weaponAtk = weaponAtk;}
 	public String getCompleteQuest() {return completeQuest;}
 	public void setCompleteQuest(String completeQuest) {this.completeQuest = completeQuest;}
+	public int getPlusAtk() {return plusAtk;}
+	public void setPlusAtk(int plusAtk) {this.plusAtk = plusAtk;}
 }

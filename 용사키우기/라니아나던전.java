@@ -3,15 +3,15 @@ package 용사키우기;
 public class 라니아나던전 {
 	몬스터[] mops = new 몬스터[4]; //오크, 미네린, 하데론, 오크 왕
 	public 라니아나던전() {
-		mops[0] = new 몬스터("오크", 1500, 70, 12, 600, 500);//이름, 체력, 공격력, (최대)레벨, 최대경험치, 최소경험치
-		mops[1] = new 몬스터("미네린", 2000, 100, 15, 800, 800);
-		mops[2] = new 몬스터("하데론", 2300, 200, 18, 900, 900);
+		mops[0] = new 몬스터("오크", 1500, 70, 12, 800, 800);//이름, 체력, 공격력, (최대)레벨, 최대경험치, 최소경험치
+		mops[1] = new 몬스터("미네린", 2000, 100, 15, 900, 900);
+		mops[2] = new 몬스터("하데론", 2300, 200, 18, 1000, 1000);
 		mops[3] = new 몬스터("오크 왕", 3000, 300, 20, 1200, 1000);
 	}
 	
 	public void 사냥(용사 user) {
 		while(true) {
-			int num = 0;
+			int num;
 			if(user.getStat().getLevel() <= 12) {
 				num = 0;
 			}else if (user.getStat().getLevel() <= 15) {
@@ -44,7 +44,7 @@ public class 라니아나던전 {
 						if (user.getStat().getHp() > user.getStat().getMaxHp()) {
 							user.getStat().setHp(user.getStat().getMaxHp());
 						}
-						up=5;
+						up=-5;
 					}else if(w.equals("3")) {
 						 int dmg = user.스킬사용();
 						 mop_hp -= dmg;	

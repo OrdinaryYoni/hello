@@ -1,25 +1,28 @@
 package 용사키우기;
 
 public class 진실의서재 {
-	몬스터[] mops = new 몬스터[4];
+	몬스터[] mops = new 몬스터[5];
 	public 진실의서재() {
-		mops[0] = new 몬스터("조심해", 2, 2000, 0, 1000, 900);//이름, 체력, 공격력, (최대)레벨, 최대경험치, 최소경험치
-		mops[1] = new 몬스터("목", 3, 3000, 0, 1500, 1400);
-		mops[2] = new 몬스터("마왕", 1, 1000, 0, 2000, 1900);
-		mops[3] = new 몬스터("아름다운것", 4, 4000, 0, 2500, 2500);
+		mops[0] = new 몬스터("조심해", 2, 2000, 0, 6000, 6000);//이름, 체력, 공격력, (최대)레벨, 최대경험치, 최소경험치
+		mops[1] = new 몬스터("목", 3, 3000, 0, 6500, 6500);
+		mops[2] = new 몬스터("마왕", 1, 1000, 0, 7000, 7000);
+		mops[3] = new 몬스터("아름다운것", 4, 4000, 0, 7500, 7500);
+		mops[4] = new 몬스터("헤넬푸스", 50000, 5000, 0,10000,10000);
 	}
 	
 	public void 사냥(용사 user) {
 		while(true) {
-			int num = 0;
-			if(user.getStat().getLevel() <= 45) {
+			int num;
+			if(user.getStat().getLevel() <= 83) {
+				num = 0;
+			}else if (user.getStat().getLevel() <= 85) {
 				num = 1;
-			}else if (user.getStat().getLevel() <= 55) {
-				num = (int) (Math.random() * 2);
-			}else if (user.getStat().getLevel() <= 58) {
-				num = (int) (Math.random() * 3);
+			}else if (user.getStat().getLevel() <= 87) {
+				num = 2;
+			}else if (user.getStat().getLevel() <= 89) {
+				num = 3;
 			}else {
-				num = (int) (Math.random() * 4);
+				num = 4;
 			}
 			String mop_name = mops[num].getName();
 			int mop_atk = mops[num].getAtk();

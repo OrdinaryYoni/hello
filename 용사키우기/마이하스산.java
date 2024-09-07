@@ -11,9 +11,9 @@ public class 마이하스산 {
 	
 	public void 사냥(용사 user) {
 		while(true) {
-			int num = 0;
+			int num;
 			if(user.getStat().getLevel() <= 45) {
-				num = 1;
+				num = 0;
 			}else if (user.getStat().getLevel() <= 55) {
 				num = (int) (Math.random() * 2);
 			}else if (user.getStat().getLevel() <= 58) {
@@ -44,7 +44,7 @@ public class 마이하스산 {
 						if (user.getStat().getHp() > user.getStat().getMaxHp()) {
 							user.getStat().setHp(user.getStat().getMaxHp());
 						}
-						up=5;
+						up=-5;
 					}else if(w.equals("3")) {
 						int dmg = user.스킬사용();
 						mop_hp -= dmg;

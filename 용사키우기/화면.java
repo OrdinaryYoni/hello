@@ -567,7 +567,22 @@ public class 화면 {
 	}
 
 	public static void 단서() {
-		
+		String arr[] = {"\n\n\n\n\n\n\n\n\n\n\n\n",
+				"        "+설정.BLUE_BACKGROUND_BRIGHT+"|  |  |  |  |"+설정.exit+"       ",
+				"       "+설정.RED_BACKGROUND_BRIGHT+설정.white+"||  | | | |  ||"+설정.exit+"      ",
+				"      "+설정.BLUE_BACKGROUND_BRIGHT+"| |  || O ||  | |"+설정.exit+"     ",
+				"     "+설정.RED_BACKGROUND_BRIGHT+설정.white+"|  |  |  O  |  |  |"+설정.exit+"    ",
+				"    "+설정.BLUE_BACKGROUND_BRIGHT+"||  | |       | |  ||"+설정.exit+"   ",
+				"   "+설정.RED_BACKGROUND_BRIGHT+설정.white+"| |  || ▃▂▁▁▂▃ ||  | |"+설정.exit+"  ",
+				"  "+설정.BLUE_BACKGROUND_BRIGHT+"|  |  |           |  |  |"+설정.exit+" ",
+				"┌───────────────────────────┐",
+				"│   "+설정.blue+"당신에게 "+설정.red+"알려줄 "+설정.blue+"것은 "+설정.red+"없네요."+설정.exit+"    │",
+				"└───────────────────────────┘",
+				"  1.잡아먹기  2.받아들이기  3.공격  ",
+				};
+		for(String i:arr) {
+			System.out.println(i);
+		}
 	}
 
 	public static void 열쇠() {

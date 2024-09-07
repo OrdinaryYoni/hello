@@ -109,7 +109,7 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 					산.사냥(this);
 				}else if(stat.getPlace().equals("진실의 서재")) {
 					서재.사냥(this);
-				}else if(stat.getPlace().equals("이실리아 나무")) {
+				}else if(stat.getPlace().equals("이실리아 세계수")) {
 					나무.사냥(this);
 				}else if(stat.getPlace().equals("마왕성")) {
 					성.사냥(this);

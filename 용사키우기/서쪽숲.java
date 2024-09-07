@@ -42,7 +42,7 @@ public class 서쪽숲 {
 						if (user.getStat().getHp() > user.getStat().getMaxHp()) {
 							user.getStat().setHp(user.getStat().getMaxHp());
 						}
-						up=5;
+						up=-5;
 					}else if(w.equals("3")) {
 						 int dmg = user.스킬사용();
 						 mop_hp -= dmg;

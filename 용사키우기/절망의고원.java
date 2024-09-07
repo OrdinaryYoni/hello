@@ -13,7 +13,7 @@ public class 절망의고원 {
 	
 	public void 사냥(용사 user) {
 		while(true) {
-			int num = 0;
+			int num;
 			if(user.getStat().getLevel() <= 23) {
 				num = 0;
 			}else if (user.getStat().getLevel() <= 26) {
