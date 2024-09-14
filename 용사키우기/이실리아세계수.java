@@ -13,11 +13,11 @@ public class 이실리아세계수 {
 	public void 사냥(용사 user) {
 		while(true) {
 			int num;
-			if(user.getStat().getLevel() <= 93) {
+			if(cnt[0] == 0) {
 				num = 0;
-			}else if (user.getStat().getLevel() <= 95) {
+			}else if (cnt[1] == 0) {
 				num = 1;
-			}else if (user.getStat().getLevel() <= 97) {
+			}else if (cnt[2] == 0) {
 				num = 2;
 			}else {
 				num = 3;
@@ -31,25 +31,33 @@ public class 이실리아세계수 {
 			int exp = (int) (Math.random() * (max-min+1) + min);
 			int i, up=0;
 			while(true) {
-				i = IsMobAlive(exp, mop_hp, mop_name, user);
-				if (i == 1) {
+				i = IsMobAlive(num, exp, mop_hp, mop_name, user);
+				if (i == 1) { 
 					break;
 				}else {
 					화면.공격창(mop_name,mop_hp,mop_lv,user);
 					String w = InputClass.print();
 					if(w.equals("1")) {//1.공격 2.회복 3.행동
 						mop_hp -= user.getStat().getAtk();
-						up=30;
+						if (user.getStat().getMp() < user.getStat().getMaxMp()) {up=40;}
 					}else if(w.equals("2")) {
-						user.getStat().setHp(user.getStat().getHp()+9000); //응 개발자 모드~
-						if (user.getStat().getHp() > user.getStat().getMaxHp()) {
-							user.getStat().setHp(user.getStat().getMaxHp());
+						if (user.getStat().getMp() >= 5) {
+							if (user.getStat().getHp() < user.getStat().getMaxHp()) {
+								up=-5;
+								user.getStat().setHp(user.getStat().getHp()+9000);
+							}else {
+								System.out.println("체력이 너무 많다...");
+								설정.sleep(500);
+							}
+						}else {
+							System.out.println("Mp가 부족하다..."); 
+							up=0;
+							설정.sleep(500);
 						}
-						up=-10;
 					}else if(w.equals("3")) {
 						int dmg = user.스킬사용();
 						mop_hp -= dmg;
-						up=30;
+						if (user.getStat().getMp() < user.getStat().getMaxMp()) {up=40;}
 					}else System.out.println("잘못된 선택을 해버렸다..");
 					
 					if(user.getStat().getDef() >= mop_atk) {
@@ -70,7 +78,7 @@ public class 이실리아세계수 {
 		}
 	}
 	
-	public int IsMobAlive(int mop_exp, int mop_hp, String mop_name, 용사 user) {
+	public int IsMobAlive(int num, int mop_exp, int mop_hp, String mop_name, 용사 user) {
 		if (user.getStat().getHp() <= 0) {
 			화면.게임오버창();
 			return 1;
@@ -78,6 +86,7 @@ public class 이실리아세계수 {
 			화면.처치창(mop_name, mop_exp, user);
 			user.getStat().setExp(user.getStat().getExp()+mop_exp);
 			user.getStat().레벨업();
+			cnt[num] += 1;
 			return 1;
 		}else return 0; 
 	}

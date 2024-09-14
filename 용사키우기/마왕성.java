@@ -52,7 +52,9 @@ public class 마왕성 {
 	public int IsMobAlive(int mop_exp, int mop_hp, String mop_name, 용사 user) {
 		if (mop_hp <= 0) {
 			화면.처치창(mop_name, mop_exp, user);
-			user.setEnd(3);
+			if (user.getStat().getCompleteQuest().indexOf("증오가 날 감싸네") != -1) user.setEnd(2);
+			else if (user.getStat().getCompleteQuest().indexOf("마왕의 모략") != -1) user.setEnd(4);
+			else user.setEnd(3);
 			user.getStat().setExp(user.getStat().getExp()+mop_exp);
 			user.getStat().레벨업();
 			return 1;

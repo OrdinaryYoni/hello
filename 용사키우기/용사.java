@@ -36,18 +36,18 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 			stat.setPlace("절망의 고원");
 		}else if(w==6 && stat.getLevel() > 40) {
 			stat.setPlace("마이하스산");
-			중급자();
+			if (!stat.getTitle().equals("상급 모험가")) 중급자();
 		}else if(w==7 && stat.getLevel() > 60) {
 			stat.setPlace("플로라 마을");
-			숙련자();
+			if (!stat.getTitle().equals("용사")) 숙련자();
 		}else if(w==8 && stat.getLevel() > 80) {
 			stat.setPlace("진실의 서재");
-			마스터();
+			if (!stat.getTitle().equals("1000년에 한 번 나올까 말까하는 전설의 용사")) 마스터();
 		}else if(w==9 && stat.getLevel() > 90) {
 			stat.setPlace("이실리아 세계수");
 		}else if (w==10 && stat.getLevel() >= 100) {
 			stat.setPlace("마왕성");
-			전설();
+			if (!stat.getTitle().equals("절망.")) 전설();
 		}else System.out.println("그런 곳은 없어!"); 설정.sleep(600);
 	}
 	
@@ -95,6 +95,10 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 				화면.열쇠();
 				마을2.열쇠(this);
 			}
+		}else if(stat.getPlace().equals("마왕성")) {
+			화면.마왕성창();
+			설정.sleep(1000);
+			성.사냥(this);
 		}else {
 			화면.행동창();
 			int w = InputClass.intInput("무엇을 할까? ");
@@ -111,8 +115,6 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 					서재.사냥(this);
 				}else if(stat.getPlace().equals("이실리아 세계수")) {
 					나무.사냥(this);
-				}else if(stat.getPlace().equals("마왕성")) {
-					성.사냥(this);
 				}else {
 					System.out.println("잡을 몹들이 없다.");
 				}
@@ -131,10 +133,7 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 			}else if (w == 3) {
 				화면.스탯창(this);
 			}else System.out.println("빙글빙글..."); 설정.sleep(500);
-			
-			
 		}
-		
 	}
 
 	public void 회복() {
@@ -178,12 +177,20 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 	}
 	
 	
-	
 	@Override
 	public int 기본() {
-		System.out.println(stat.getName()+"의 휘두르기!");
-		설정.sleep(500);
-		return 15*stat.getLevel();
+		if(stat.getMp() >= 100) {
+			System.out.println(stat.getName()+"의 휘두르기!");
+			stat.setHp(stat.getMaxHp());
+			stat.setMp(stat.getMp()-100);
+			설정.sleep(500);
+			return 30*stat.getLevel();
+		}else {
+			System.out.println("Mp가 부족하다..");
+			설정.sleep(500);
+			return 0;
+		}
+		
 	}
 
 	@Override
@@ -191,10 +198,10 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 		if(stat.getMp() >= 400) {
 			System.out.println(설정.purple+"[\"이것이 제국의 힘이다..!\"]"+설정.exit);
 			stat.setMp(stat.getMp()-400);
-			설정.sleep(1000);
+			설정.sleep(500);
 			return 200*(stat.getLevel()-10);
 		}else {
-			System.out.println("mp가 부족하다..");
+			System.out.println("Mp가 부족하다..");
 			설정.sleep(500);
 			return 0;
 		}	
@@ -203,7 +210,10 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 	@Override
 	public int 에스토니아의비명() {
 		System.out.println(설정.back_black+설정.purple+"ಎಲ್ಲವೂ ನಾಶವಾಗಬೇಕು."+설정.exit);
-		stat.setHp(99999999);
+		stat.setHp(9999999);
+		stat.setMaxHp(9999999);
+		stat.setLevel(99999);
+		절망();
 		설정.sleep(500);
 		return 99999999;
 	}
@@ -216,7 +226,7 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 			설정.sleep(500);
 			return 160*(stat.getLevel()-10);
 		}else {
-			System.out.println("mp가 부족하다..");
+			System.out.println("Mp가 부족하다..");
 			설정.sleep(500);
 			return 0;
 		}	
@@ -230,7 +240,7 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 			설정.sleep(500);
 			return 7500*(stat.getLevel()-20);
 		}else {
-			System.out.println("mp가 부족하다..");
+			System.out.println("Mp가 부족하다..");
 			설정.sleep(500);
 			return 0;
 		}	
@@ -244,7 +254,7 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 			설정.sleep(500);
 			return 160*(stat.getLevel()-10);
 		}else {
-			System.out.println("mp가 부족하다..");
+			System.out.println("Mp가 부족하다..");
 			설정.sleep(500);
 			return 0;
 		}
@@ -258,7 +268,7 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 			stat.setMp(stat.getMp()-400);
 			설정.sleep(500);
 		}else {
-			System.out.println("mp가 부족하다..");
+			System.out.println("Mp가 부족하다..");
 			설정.sleep(500);
 		}
 	}
@@ -272,7 +282,7 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 			설정.sleep(500);
 			return 300*(stat.getLevel()-10);
 		}else {
-			System.out.println("mp가 부족하다..");
+			System.out.println("Mp가 부족하다..");
 			설정.sleep(500);
 			return 0;
 		}
@@ -286,7 +296,7 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 			설정.sleep(500);
 			return 2000*(stat.getLevel()-20);
 		}else {
-			System.out.println("mp가 부족하다..");
+			System.out.println("Mp가 부족하다..");
 			설정.sleep(500);
 			return 0;
 		}
@@ -300,7 +310,7 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 			설정.sleep(500);
 			return 3000*(stat.getLevel()-20);
 		}else {
-			System.out.println("mp가 부족하다..");
+			System.out.println("Mp가 부족하다..");
 			설정.sleep(500);
 			return 0;
 		}
@@ -348,6 +358,10 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 	@Override
 	public void 전설() {
 		stat.setTitle("1000년에 한 번 나올까 말까하는 전설의 용사");
+	}
+	
+	public void 절망() {
+		stat.setTitle("절망.");
 	}
 
 	public 스탯 getStat() {return stat;}

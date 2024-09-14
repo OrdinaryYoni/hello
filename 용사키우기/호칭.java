@@ -6,4 +6,5 @@ public interface 호칭 {
 	public abstract void 숙련자();
 	public abstract void 마스터();
 	public abstract void 전설();
+	public abstract void 절망();
 }

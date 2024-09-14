@@ -38,17 +38,25 @@ public class 마이하스산 {
 					String w = InputClass.print();
 					if(w.equals("1")) {//1.공격 2.회복 3.행동
 						mop_hp -= user.getStat().getAtk();
-						up=30;
+						if (user.getStat().getMp() < user.getStat().getMaxMp()) {up=30;}
 					}else if(w.equals("2")) {
-						user.getStat().setHp(user.getStat().getHp()+2000); //응 개발자 모드~
-						if (user.getStat().getHp() > user.getStat().getMaxHp()) {
-							user.getStat().setHp(user.getStat().getMaxHp());
+						if (user.getStat().getMp() >= 5) {
+							if (user.getStat().getHp() < user.getStat().getMaxHp()) {
+								up=-5;
+								user.getStat().setHp(user.getStat().getHp()+2000);
+							}else {
+								System.out.println("체력이 너무 많다...");
+								설정.sleep(500);
+							}
+						}else {
+							System.out.println("Mp가 부족하다..."); 
+							up=0;
+							설정.sleep(500);
 						}
-						up=-5;
 					}else if(w.equals("3")) {
 						int dmg = user.스킬사용();
 						mop_hp -= dmg;
-						up=30;
+						if (user.getStat().getMp() < user.getStat().getMaxMp()) {up=30;}
 					}else System.out.println("잘못된 선택을 해버렸다..");
 					
 					if(user.getStat().getDef() >= mop_atk) {

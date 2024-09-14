@@ -44,7 +44,7 @@ public class 플로라마을 {
 		String w = InputClass.print();
 		if(cnt[1]==0) {
 			if(w.equals("1")) {
-				if(user.getStat().getCompleteQuest().equals("증오가 날 감싸네")) {
+				if(user.getStat().getCompleteQuest().indexOf("증오가 날 감싸네") != -1) {
 					System.out.println(설정.back_black+설정.purple+"뭐든지... 죽이고 싶어..."+설정.exit);
 					설정.sleep(1000);
 					user.getStat().setSkill("에스토니아의 비명");
@@ -188,21 +188,30 @@ public class 플로라마을 {
 							System.out.println("방어력이 너무 높아서 공격이 통하지 않는다...");
 							설정.sleep(1000);
 						}else npc_hp -= user.getStat().getAtk();
-						up=10;
+						if (user.getStat().getMp() < user.getStat().getMaxMp()) {up=10;}
 					}else if(w.equals("2")) {
-						user.getStat().setHp(user.getStat().getHp()+100);
-						if (user.getStat().getHp() > user.getStat().getMaxHp()) {
-							user.getStat().setHp(user.getStat().getMaxHp());
+						if (user.getStat().getMp() >= 5) {
+							if (user.getStat().getHp() < user.getStat().getMaxHp()) {
+								up=-5;
+								user.getStat().setHp(user.getStat().getHp()+100);
+							}else {
+								System.out.println("체력이 너무 많다...");
+								설정.sleep(500);
+							}
+						}else {
+							System.out.println("Mp가 부족하다..."); 
+							up=0;
+							설정.sleep(500);
 						}
-						up=5;
+						
 					}else if(w.equals("3")) {
 						 int dmg = user.스킬사용();
 						 if(npc_def>=dmg) {
 							System.out.println("방어력이 너무 높아서 공격이 통하지 않는다...");
 							설정.sleep(1000);
 						 }else npc_hp -= dmg;
-						 up=10;
-					}else System.out.println("잘못된 선택을 해버렸다..");
+						 if (user.getStat().getMp() < user.getStat().getMaxMp()) {up=10;}
+					}else System.out.println("잘못된 선택을 해버렸다.."); 설정.sleep(500);
 					
 					if(user.getStat().getDef() >= npc_atk) {
 						System.out.println("방어력이 높아서 공격이 통하지 않았다!");

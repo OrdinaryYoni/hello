@@ -93,20 +93,28 @@ public class 에테토스마을 {
 							System.out.println("방어력이 너무 높아서 공격이 통하지 않는다...");
 							설정.sleep(1000);
 						}else npc_hp -= user.getStat().getAtk();
-						up=10;
+						if (user.getStat().getMp() < user.getStat().getMaxMp()) {up=10;}
 					}else if(w.equals("2")) {
-						user.getStat().setHp(user.getStat().getHp()+100);
-						if (user.getStat().getHp() > user.getStat().getMaxHp()) {
-							user.getStat().setHp(user.getStat().getMaxHp());
+						if (user.getStat().getMp() >= 5) {
+							if (user.getStat().getHp() < user.getStat().getMaxHp()) {
+								up=-5;
+								user.getStat().setHp(user.getStat().getHp()+100);
+							}else {
+								System.out.println("체력이 너무 많다...");
+								설정.sleep(500);
+							}
+						}else {
+							System.out.println("Mp가 부족하다..."); 
+							up=0;
+							설정.sleep(500);
 						}
-						up=5;
 					}else if(w.equals("3")) {
 						 int dmg = user.스킬사용();
 						 if(npc_def>=dmg) {
 							System.out.println("방어력이 너무 높아서 공격이 통하지 않는다...");
 							설정.sleep(1000);
 						 }else npc_hp -= dmg;
-						 up=10;
+						 if (user.getStat().getMp() < user.getStat().getMaxMp()) {up=10;}
 					}else System.out.println("잘못된 선택을 해버렸다..");
 					
 					user.getStat().setHp(user.getStat().getHp()-npc_atk);
