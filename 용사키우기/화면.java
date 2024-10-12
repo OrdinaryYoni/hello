@@ -260,13 +260,11 @@ public class 화면 {
 		for(String i:arr2) {
 			System.out.println(i);
 		}
-		System.out.println(설정.back_black + 설정.red +"\"이런, 내 마지막 수가 들켜버렸군... 젠자아아아아아아아아아아아아앙!!!!!\"+ 설정.exit");
+		System.out.println(설정.back_black + 설정.red +"\"이런, 내 마지막 수를 들켜버렸군... 젠자아아아아아아아아아아아아앙!!!!!\"+ 설정.exit");
 		설정.sleep(2500);
 		System.out.println("이후 마왕은 가루가 되어 사라졌습니다.");
 		설정.sleep(2500);
 		System.out.println("당신은 곧바로 다인의 품에 안겼습니다.");
-		설정.sleep(2500);
-		System.out.println("이후 마왕은 가루가 되어 사라졌습니다.");
 		설정.sleep(2500);
 		System.out.println(설정.cyan+"\"동생아, 많이 힘들었지?\""+설정.exit);
 		설정.sleep(2500);
@@ -276,7 +274,7 @@ public class 화면 {
 		설정.sleep(2500);
 		System.out.println(설정.blue+"\"그래도 나는 모두를 살리고 싶었는 걸..\""+설정.exit);
 		설정.sleep(2500);
-		System.out.println("그 순간 지금까지 만나왔던 마괴수들에게서 빛이 나기 시작합니다.");
+		System.out.println("그 순간 마왕성에 있는 마괴수들 몸에서 빛이 나기 시작합니다.");
 		설정.sleep(2500);
 		System.out.println("그 후 죽은줄만 알았던 사람들이 나타났습니다..!?");
 		설정.sleep(2500);
@@ -345,8 +343,8 @@ public class 화면 {
 				"                        ●        ",
 				"      ██              \\/|\\     ",
 				"      ██               / \\      ",
-				String.format(" %s lv:%d hp:%d exp:%d/%d", user.getStat().getName(), user.getStat().getLevel(),
-						user.getStat().getHp(), user.getStat().getExp(), user.getStat().getMaxExp()),
+				String.format(" %s lv:%d hp:%d mp:%d exp:%d/%d", user.getStat().getName(), user.getStat().getLevel(),
+						user.getStat().getHp(),user.getStat().getMp(), user.getStat().getExp(), user.getStat().getMaxExp()),
 				"┌───────────────────────────┐",
 				"│당신은 무엇을 할건가?            │", 
 				"└───────────────────────────┘",
@@ -549,6 +547,36 @@ public class 화면 {
 			설정.sleep(1000);
 		}
 	}
+	
+	public static void 스레타하(용사 user, int a) {
+		if(a==1) {
+			System.out.println(설정.back_black+설정.purple+"저는 스레타하, 데스필교의 증오의 신을 찾고 있죠.. 호호호호....");
+			설정.sleep(1300);
+			System.out.println("당신에게는 거대한 힘이 보이군요... 마치 증오의 신같은..."+설정.exit);
+			설정.sleep(1300);
+			System.out.println("(이상한 사람인 것 같다... 그냥 가자)");
+			설정.sleep(1400);
+		}else if(a==2) {
+			System.out.println(설정.back_black+설정.purple+"절망은 피할 수 없는 법!"+설정.exit);
+			설정.sleep(1300);
+			System.out.println(설정.back_black+설정.purple+"당신은 결국 저희에게 오게될 것입니다!!!!"+설정.exit);
+			설정.sleep(1400);
+		}else if(a==3) {
+			System.out.println(설정.back_black+설정.purple+"오..? 당신 절망에 대해 아는게 있으신가요?"+설정.exit);
+			설정.sleep(1300);
+			System.out.println(설정.blue+"\"어? 내가 왜 이런 대답을...?\""+설정.exit);
+			설정.sleep(1300);
+			System.out.println(설정.back_black+설정.purple+"흠.. 아 제 소개가 늦었군요.. 저는 스레타하, 데스필교의 증오의 신을 찾고 있습니다."+설정.exit);
+			설정.sleep(1300);
+			System.out.println(설정.back_black+설정.purple+"하지만, 방금 막 찾은 것 같군요..."+설정.exit);
+			설정.sleep(1300);
+			System.out.println(설정.back_black+설정.purple+user.getStat().getName()+"님, 저 스레타하가 데스필교까지 모시도록 하겠습니다."+설정.exit);
+			설정.sleep(1400);
+		}else {
+			System.out.println(설정.back_black+설정.purple+"음? 아무말도 안하시군요... 호호호호..."+설정.exit);
+			설정.sleep(1000);
+		}
+	}
 
 	public static void 모험가길드(용사 user, int w) {
 		if (w == 1) {
@@ -606,12 +634,95 @@ public class 화면 {
 		}
 	}
 
-	public static void 왕궁(용사 user) {
-
+	public static void 데스필교(용사 user) {
+		String arr[] = {"\n\n\n\n\n\n\n\n\n\n\n\n",
+				"       ",
+				"       __",
+				"      / \\\\",
+				"      |O||",
+				" -----| |/\\",
+				"        /  \\",
+				" ------/ /\\ \\",
+				"  O O  | || |",
+				"       | || |",
+				"-------------",
+		};
+		for(String i:arr) {
+			System.out.println(i);
+		}
 	}
 
 	public static void 채집창(용사 user) {
-
+		if(user.getStat().getPlace().equals("서쪽 숲")) {
+			System.out.println("풀..돌...나무.. 그냥 숲이다..");
+			설정.sleep(1000);
+		}else if(user.getStat().getPlace().equals("라니아나 던전")) {
+			System.out.println("돌,돌,돌 그리고, 돌이다. 왜 광석이 없지?");
+			설정.sleep(1000);
+		}else if(user.getStat().getPlace().equals("마이하스산")) {
+			if (user.getStat().getQuest().equals("대장장이의 부탁")) {
+				System.out.println("도대체 약초 이름이 \"엘리벳의 눈물\"인거지?");
+				설정.sleep(1000);
+				System.out.println("어? 이건가?");
+				설정.sleep(1000);
+				System.out.println("빨리 가서 주자.");
+				설정.sleep(1000);
+			}else {
+				System.out.println("음 등산만 했다.");
+				설정.sleep(1000);
+			}
+		}else if(user.getStat().getPlace().equals("절망의 고원")) {
+			System.out.println("예전에는 여기가 \"희망의 고원\"이었다지?");
+			설정.sleep(1000);
+		}else if(user.getStat().getPlace().equals("진실의 서재")) {
+			System.out.println("와 정말 많은 책들이 있다!!");
+			설정.sleep(1300);
+			System.out.println("갑자기 내 앞에 책 한 권이 떨어졌다.");
+			설정.sleep(1300);
+			if(user.getStat().getQuest().equals("탐욕적인 시선")) {
+				String arr[] = {
+						"세상의 진실? 읽어봐야지~","이 세상에 있는 국가는 총 4개이다.","자연의 나라, 이시스.",
+						"검의 나라, 자이로스.","마법의 나라, 사살리우스.","그리고, 희망의 나라, 에스토니아.",
+						"그중 에스토니아가 가장 부귀한 나라였다.","어느날, 사살리우스에서 무시무시한 전염병이 퍼졌다.",
+						"순식간에 사람들은 마괴수들로 변하였고, 다른 세 국가는 사살리우스를 봉쇄하였다.",
+						"그 후 사살리우스 국왕이 이시스에 전쟁을 선포하였다. 많은 마괴수와 함께..",
+						"심지어 사살리우스 국왕도 인간의 모습이 보이질 않았다.",
+						"당연히 자연만 좋아하여서 군사력이 0에 수렴하는 이시스는 쉽게 무너졌고",
+						"단 2년만에 두 국가가 지도상에서 사라졌다.",
+						"살아남았던 두 국가는 두려움에 떨고 있었다. 왜냐하면 언젠가는 자신들이 타격을 입을게 뻔하니..",
+						"두 국가는 힘을 합쳐 한 국가로 만들기로 조약을 맺었다.","당연히 자이로스가 에스토니아 산하로 들어가는 구조였다.",
+						"그러나 자이로스 국왕은 이를 부정적으로 받아들었다.","그래서 자이로스 국왕이 기념식에서 에스토니아 국왕을 살해했다.",
+						"에스토니아 가문까지 멸문될 뻔했지만 에스토니아 국왕의 동생은 적당한 직위만 주면 가만히 있겠다고 하여 멸문까진 되지 않았다.",
+						"자이로스 국왕은 그 후 이 일을 이 곳, 진실의 서재에 영원히 봉인하였다.",
+						"현재는 이 일을 아는 사람들은 다 죽었고, 현 자이로스 대제국의 만행을 아무도 모른다.",
+						설정.back_black+설정.purple+"... 감히 우리의 선조를 죽이고 잘 살고 있다고??","...용서하지않겠어.",
+						"일단 마왕부터 죽이고 왕궁을 쳐부숴버리겠어."+설정.exit
+				};
+				for (String i : arr) {
+					System.out.println(i);
+					설정.sleep(1500);
+				}
+			}else if(user.getStat().getQuest().equals("마왕의 모략")) {
+				System.out.println("마왕의 비밀? 약점이 있을지도 몰라! 읽어봐야지~");
+				System.out.println("마왕은 아주 강력한 힘을 가지고 있다.");
+				System.out.println("마괴수들을 다루는 강력한 힘... 그러나 이뿐만이 아니다.");
+				System.out.println("마왕은 사실, 죽음이 다가올 때쯤이면 인간 하나를 납치해온다.");
+				System.out.println("단 조건이 있는데 바로 자신을 죽여줄 \"용사\"를 만들어야한다.");
+				System.out.println("그래야지 새로운 몸으로 옮길때 필요한 힘을 얻을 수 있기 때문이다.");
+				System.out.println("마왕은 옮겨갈 몸에 표식을 남기는데 좀 처럼 찾기 힘들다.");
+				System.out.println("하지만 마괴수들은 마왕과 연결되어있다. 그리고 특히 진실의 서재에 있는 마괴수들은 \"오직 진실만을\" 말한다.");
+				System.out.println("그러나 이미 몬스터들을 쓰러뜨렸다면, 어쩔 수 없다. 기억해라 그들의 이름을!");
+				System.out.println("음 아주 중요한 정보를 얻었다.");
+			}else {
+				System.out.println("근데 책이 안 펼쳐진다.. "+설정.purple+"특수한 마법"+설정.exit+"이라도 걸린 것처럼...");
+				설정.sleep(1300);
+			}
+		}else if(user.getStat().getPlace().equals("이실리아 세계수")) {
+			System.out.println("음? 이실리아? 원래 \"시실리아\" 세계수 아니였나?");
+			설정.sleep(1000);
+			System.out.println("이상하네...");
+			설정.sleep(1000);
+		}
 	}
 
 	public static void NPC공격창(String npc_name, int npc_hp, int npc_lv, 용사 user, int num) {

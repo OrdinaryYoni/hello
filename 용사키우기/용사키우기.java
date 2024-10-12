@@ -11,7 +11,7 @@ public class 용사키우기 {
 	{
 		System.out.println(설정.purple+"###############\n###용⋌˫키우⌝ᥣ!###\n###############\n\n\n"+설정.exit);
 		용사 user = new 용사();
-		화면.인트로(user.getStat().getGender());
+		//화면.인트로(user.getStat().getGender());
 		while(true) {
 			if (user.getEnd() > 0) {
 				엔딩(user.getEnd());

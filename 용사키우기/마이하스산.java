@@ -90,7 +90,7 @@ public class 마이하스산 {
 		}else return 0; 
 	}
 	
-	public void 채집(용사 용사) {
-		
+	public void 채집(용사 user) {
+		화면.채집창(user);
 	}
 }

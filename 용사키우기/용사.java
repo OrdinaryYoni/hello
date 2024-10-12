@@ -73,7 +73,6 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 				화면.모험가길드(this,1);
 				마을.모험가길드(this);
 			}else if(w.equals("5")) {
-				화면.왕궁(this);
 				마을.왕궁(this);
 			}
 		}else if(stat.getPlace().equals("플로라 마을")) {
@@ -127,6 +126,10 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 					고원.채집(this);
 				}else if(stat.getPlace().equals("마이하스산")) {
 					산.채집(this);
+				}else if(stat.getPlace().equals("진실의 서재")) {
+					서재.채집(this);
+				}else if(stat.getPlace().equals("이실리아 세계수")) {
+					나무.채집(this);
 				}else {
 					System.out.println("여긴 어디지? 다시 돌아가야겠다.");
 				}
@@ -134,10 +137,6 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 				화면.스탯창(this);
 			}else System.out.println("빙글빙글..."); 설정.sleep(500);
 		}
-	}
-
-	public void 회복() {
-		
 	}
 	
 	public int 스킬사용() {

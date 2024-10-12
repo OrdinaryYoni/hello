@@ -32,14 +32,26 @@ public class 에테토스마을 {
 	
 	public void 골목길(용사 user) {
 		String w = InputClass.print();
-		if (w.equals("1")) {
-			화면.골목길(user, 2);
-			String a = InputClass.print();
-		}else if(w.equals("2")) {
-			화면.골목길(user, 3);
-		}else if(w.equals("3")) {
-			화면.골목길(user, 4);
-			싸움(user,4);
+		if(cnt[4]==0) {
+			if (w.equals("1")) {
+				화면.골목길(user, 2);
+				String a = InputClass.print();
+				if(a.equals("1")) {
+					화면.스레타하(user, 1);
+				}else if(a.equals("2")) {
+					화면.스레타하(user, 2);
+				}else if(a.equals("3")) {
+					화면.스레타하(user, 3);
+				}else 화면.스레타하(user, 89);
+			}else if(w.equals("2")) {
+				화면.골목길(user, 3);
+			}else if(w.equals("3")) {
+				화면.골목길(user, 4);
+				싸움(user,4);
+			}
+		}else {
+			System.out.println("아까 해치웠다.");
+			설정.sleep(1000);
 		}
 	}
 	
