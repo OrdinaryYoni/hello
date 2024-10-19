@@ -704,7 +704,95 @@ public class 화면 {
 	}
 	
 	public static void 데스필교행동창(용사 user) {
-		
+		String arr[] = { "\n\n\n\n\n\n\n\n\n\n\n\n",
+				"        _________________          ",
+				"       /|               |\\        ",
+				"      / |    Are you    | \\       ",
+				"     /  |{h}{a}{t}{e}{r}|  \\      ",
+				"    /   |    (__?__)    |   \\     ",
+				"   /| /||   [|     |]   ||\\ |\\   ",
+				"  /||/ ||    )     (    || \\||\\  ",
+				" / ||| ||   (       )   || ||| \\  ",
+				"/  ||| /                 \\ |||  \\", 
+				" /||||/         ●         \\||||\\ ",
+				"/ |||/         /|\\         \\||| \\", 
+				"  ||/          / \\          \\||  ",
+				"  |/                         \\|  ",
+				};
+		for (String i : arr) {
+			System.out.println(i);
+		}
+		설정.sleep(1500);
+		if(user.getStat().getCompleteQuest().indexOf("절망의 길")!=-1){
+			System.out.println(설정.red+"절망의 길을 통과하신 분...");
+			설정.sleep(1500);
+			System.out.println("이제 절망의 맛을 보았으니, 타락의 맛도 보셔야죠.. 뇽뇽뇽...");
+			설정.sleep(1500);
+			System.out.println("저는 타락의 하수인...의 대리입니다.");
+			설정.sleep(1500);
+			System.out.println("타락의 길은 타락의 하수인을 찾는 것입니다.");
+			설정.sleep(1500);
+			System.out.println("쉽진 않을 겁니다. 저조차도 타락의 하수인님을 찾기 힘들거든요..");
+			설정.sleep(1500);
+			System.out.println("힘내세요..뇽뇽뇽"+설정.exit);
+			설정.sleep(1500);
+		}else if(user.getStat().getCompleteQuest().indexOf("타락의 길") != -1) {
+			System.out.println(설정.back_black+설정.RED_BRIGHT+"음? 어우 타락의 냄새;;");
+			설정.sleep(1500);
+			System.out.println("빨리 냄새를 지워야겠어요.. 진실의 서재에 가서 빨리 탐욕을 알아오세요.. 우욱");
+			설정.sleep(1500);
+			System.out.println("타락은 오물냄새와 같다니까 으.."+설정.exit);
+			설정.sleep(1500);
+			System.out.println("(저 멀리서 타락의 하수...아니 대리가 욕을 하며 뛰어오는 것이 보인다..)");
+			설정.sleep(1500);
+		}else if(user.getStat().getCompleteQuest().indexOf("탐욕의 길") != -1){
+			System.out.println(설정.green+"탐욕은 늘 타락을 싫어해요..");
+			설정.sleep(1500);
+			System.out.println("물론 겉으로만 싫어하는 것이죠ㅎㅎ");
+			설정.sleep(1500);
+			System.out.println("사실 탐욕은 타락을 좋아합니다ㅎㅎ"+설정.exit);
+			설정.sleep(1500);
+			System.out.println(설정.back_black+설정.RED_BRIGHT+"ㅁ..뭐라고?? 이 잡초도 키우지 못하는게?"+설정.exit);
+			설정.sleep(1500);
+			System.out.println(설정.green+"나도 키우고 싶다고요! 이 빌어먹을 죽음의 힘때문에 다 죽는다고!!");
+			설정.sleep(1500);
+			System.out.println("앗? 당신을 까먹어버렸네요.. 당신도 이 죽음의 힘을 얻어야해요.");
+			설정.sleep(1500);
+			System.out.println("라니아나 던전에 가서 생명의 돌을 얻어오세요."+설정.exit);
+			설정.sleep(1500);
+			System.out.println(설정.back_black+설정.RED_BRIGHT+"아하~ 죽음의 힘은 그냥 줄 수 있으면서 잡초들 키우고 싶으니까 그 돌 가져오라는 거지ㅋㅋ"+설정.exit);
+			설정.sleep(1500);
+			System.out.println("(이번에는 탐욕과 죽음이 싸우고 있다.. 타락은 부끄러워하고 있다..)");
+			설정.sleep(1500);
+		}else if(user.getStat().getCompleteQuest().indexOf("죽음의 길") != -1) {
+			System.out.println(설정.back_black+설정.purple+"어머나~ 설마 모든 길을 다 갔다온거야~?");
+			설정.sleep(1500);
+			System.out.println("내 동생 스레타하가 제대로 데리고 왔나보네~");
+			설정.sleep(1500);
+			System.out.println("하.지.만.");
+			설정.sleep(1500);
+			System.out.println("증오는 다루기 힘들텐뎅ㅎ");
+			설정.sleep(1500);
+			System.out.println("넌 진심으로 남을 증오해본 적이 없는 용.사.잖.아~");
+			설정.sleep(1500);
+			System.out.println("어멋? 한심해라~ 그건 증오보단 분노인걸~");
+			설정.sleep(1500);
+			System.out.println("제대로 알아와봐~ 아마 시실리아 세계수에서 알 수 있을꺼야~"+설정.exit);
+			설정.sleep(1500);
+		}else {
+			System.out.println(설정.back_black+설정.purple+"당신은 지금부터 절망, 타락, 탐욕, 죽음, 증오를 배워야합니다.");
+			설정.sleep(1500);
+			System.out.println("우선 절망의 길을 해야하는데...");
+			설정.sleep(1500);
+			System.out.println("음~ 향기로운 절망의 냄새...");
+			설정.sleep(1500);
+			System.out.println("이미 당신은 절망의 힘을 가지고 있네요...");
+			설정.sleep(1500);
+			System.out.println("어쩔 수 없죠.. 절망의 길은 통과입니다"+설정.exit);
+			설정.sleep(1500);
+			System.out.println("(너무 쉽다..)");
+			설정.sleep(1500);
+		}
 	}
 
 	public static void 채집창(용사 user) {
@@ -895,7 +983,7 @@ public class 화면 {
 	}
 
 	public static void 잡화상대화(용사 user, int w) {
-		if(w == 1 && user.getStat().getQuest().equals("")) {
+		if(w == 1 && user.getStat().getQuest().equals("타락의 길")) {
 			System.out.println(설정.red+"데스필교의 증오의 신 후보자님이셨군뇽..");
 			설정.sleep(1500);
 			System.out.println("처음뵙겠습니다. 저는 대외적으론 잡화상인으로 알려져있지만 사실 데스필교의 타락의 하수인 에빌린입니다.");

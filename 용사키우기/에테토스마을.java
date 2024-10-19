@@ -39,7 +39,12 @@ public class 에테토스마을 {
 				if(a.equals("1")) {
 					화면.잡화상대화(user,1);
 				}else if (a.equals("2")) {
+					if (user.getStat().getQuest().equals("타락의 길")) {
+						user.getStat().setCompleteQuest(user.getStat().getCompleteQuest()+"타락의 길 ");
+						user.getStat().setQuest("엄숨");
+					}
 					화면.잡화상대화(user,2);
+					
 				}else {
 					화면.잡화상대화(user,3);
 				}
@@ -56,25 +61,31 @@ public class 에테토스마을 {
 	}
 	
 	public void 골목길(용사 user) {
-		String w = InputClass.print();
 		if(cnt[4]==0) {
-			if (w.equals("1")) {
-				화면.골목길(user, 2);
-				String a = InputClass.print();
-				if(a.equals("1")) {
-					화면.스레타하(user, 1);
-				}else if(a.equals("2")) {
-					화면.스레타하(user, 2);
-				}else if(a.equals("3")) {
-					화면.스레타하(user, 3);
-					user.getStat().setPlace("데스필교");
-				}else 화면.스레타하(user, 89);
-			}else if(w.equals("2")) {
-				화면.골목길(user, 3);
-			}else if(w.equals("3")) {
-				화면.골목길(user, 4);
-				싸움(user,4);
+			if(user.getStat().getCompleteQuest().indexOf("절망의 길") != -1) {
+				System.out.println(설정.back_black+설정.purple+"기다리고 있었습니다. 증오의 신이시여... 가시지요.."+설정.exit);
+				user.getStat().setPlace("데스필교");
+			}else {
+				String w = InputClass.print();
+				if (w.equals("1")) {
+					화면.골목길(user, 2);
+					String a = InputClass.print();
+					if(a.equals("1")) {
+						화면.스레타하(user, 1);
+					}else if(a.equals("2")) {
+						화면.스레타하(user, 2);
+					}else if(a.equals("3")) {
+						화면.스레타하(user, 3);
+						user.getStat().setPlace("데스필교");
+					}else 화면.스레타하(user, 89);
+				}else if(w.equals("2")) {
+					화면.골목길(user, 3);
+				}else if(w.equals("3")) {
+					화면.골목길(user, 4);
+					싸움(user,4);
+				}
 			}
+			
 		}else {
 			System.out.println("아까 해치웠다.");
 			설정.sleep(1000);

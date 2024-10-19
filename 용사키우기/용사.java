@@ -16,7 +16,7 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 	public 용사() {
 		String name = InputClass.stringInput("용사의 이름을 지어주세요! ");
 		String gender = InputClass.stringInput(name+"님의 성별은 무엇인가요?(남/여) ");
-		stat = new 스탯(name,gender);
+		stat = new 스탯(name,gender); 
 	}
 	
 	public void 이동() {
@@ -95,24 +95,19 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 				마을2.열쇠(this);
 			}
 		}else if(stat.getPlace().equals("데스필교")) {
-			화면.마을행동창2(this);
-			String w = InputClass.print();
-			if(w.equals("1")) {
-				화면.절망();
-				마을2.절망(this);
-			}else if(w.equals("2")) {
-				화면.증오();
-				마을2.증오(this);
-			}else if(w.equals("3")) {
-				화면.복수();
-				마을2.복수(this);
-			}else if(w.equals("4")) {
-				화면.단서();
-				마을2.단서(this);
-			}else if(w.equals("5")){
-				화면.열쇠();
-				마을2.열쇠(this);
+			if(stat.getCompleteQuest().indexOf("죽음의 길") != -1) {
+				이교.증오의길(this);
+			}else if(stat.getCompleteQuest().indexOf("탐욕의 길") != -1) {
+				이교.죽음의길(this);
+			}else if(stat.getCompleteQuest().indexOf("타락의 길") != -1) {
+				이교.탐욕의길(this);
+			}else if(stat.getCompleteQuest().indexOf("절망의 길") != -1){
+				이교.타락의길(this);
+			}else {
+				이교.절망의길(this);
+				System.out.println(stat.getCompleteQuest().indexOf("절망의 길"));
 			}
+			
 		}else if(stat.getPlace().equals("마왕성")) {
 			화면.마왕성창();
 			설정.sleep(1000);
@@ -154,7 +149,7 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 				}
 			}else if (w == 3) {
 				화면.스탯창(this);
-			}else System.out.println("빙글빙글..."); 설정.sleep(500);
+			}else {System.out.println("빙글빙글..."); 설정.sleep(500);}
 		}
 	}
 	
