@@ -5,7 +5,7 @@ public class 에테토스마을 {
 	int [] cnt = {0,0,0,0,0};
 	public 에테토스마을() {
 		npcs[0] = new NPC("대장장이", 1600, 700, 999999, 16, 3900);//이름 체력 공격력 방어력 레벨 exp
-		npcs[1] = new NPC("포션 상인", 1500, 500, 999999, 15, 100);
+		npcs[1] = new NPC("잡화상인", 1, 1, 1, 1, 50000);
 		npcs[2] = new NPC("릴리아", 1, 1, 999999, 15, 10000); // 모험가 등록, 퀘스트 받기
 		npcs[3] = new NPC("길드장", 3000, 1500, 999999, 30, 1004);
 		npcs[4] = new NPC("스레타하", 1, 1, 1, 1, 50000); //검사의 숨겨진 스킬 해금 조건중 하나 
@@ -27,7 +27,32 @@ public class 에테토스마을 {
 	}
 	
 	public void 잡화점(용사 user) {
-		
+		if(user.getStat().getLevel()>=50) {
+			화면.잡화점(user,1);
+			String w = InputClass.print();
+			if (w.equals("1")) {
+				화면.잡화점(user, 2);
+				String a = InputClass.print();
+			}else if(w.equals("2")) {
+				화면.잡화점(user, 3);
+				String a = InputClass.print();
+				if(a.equals("1")) {
+					화면.잡화상대화(user,1);
+				}else if (a.equals("2")) {
+					화면.잡화상대화(user,2);
+				}else {
+					화면.잡화상대화(user,3);
+				}
+			}else if(w.equals("3")) {
+				화면.잡화점(user, 4);
+			}else {
+				화면.잡화점(user,5);
+				싸움(user,0);
+			}
+		}else {
+			System.out.println("앗.. 문이 닫혀있다..");
+			설정.sleep(1000);
+		}
 	}
 	
 	public void 골목길(용사 user) {
@@ -42,6 +67,7 @@ public class 에테토스마을 {
 					화면.스레타하(user, 2);
 				}else if(a.equals("3")) {
 					화면.스레타하(user, 3);
+					user.getStat().setPlace("데스필교");
 				}else 화면.스레타하(user, 89);
 			}else if(w.equals("2")) {
 				화면.골목길(user, 3);

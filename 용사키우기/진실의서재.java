@@ -98,7 +98,7 @@ public class 진실의서재 {
 			user.getStat().setCompleteQuest(user.getStat().getCompleteQuest()+"탐욕적인 시선 ");
 			user.getStat().setQuest("엄숨");
 		}else if(user.getStat().getQuest().equals("마왕의 모략")) {
-			user.getStat().setCompleteQuest(user.getStat().getCompleteQuest()+"마왕의 모략");
+			user.getStat().setCompleteQuest(user.getStat().getCompleteQuest()+"마왕의 모략 ");
 			user.getStat().setQuest("엄숨");
 		}else {
 			

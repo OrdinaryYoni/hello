@@ -41,7 +41,7 @@ public class 마왕성 {
 						mop_mp = 0;
 					}else {
 						user.getStat().setHp(user.getStat().getHp()-(mop_atk-user.getStat().getDef()));
-						mop_mp+=10;
+						mop_mp+=40;
 					}
 					user.getStat().setMp(user.getStat().getMp()+up);
 				}

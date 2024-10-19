@@ -503,8 +503,59 @@ public class 화면 {
 		}
 	}
 
-	public static void 잡화점(용사 user) {
-
+	public static void 잡화점(용사 user, int w) {
+		if(w == 1) {
+			String arr[] = { "\n\n\n\n\n\n\n\n\n\n\n\n", 
+					"        |┌─┐┌─┐┌─┐┌─┐┌─┐|        ",
+					"        |└─┘└─┘└─┘└─┘└─┘|        ",
+					"        |========" + 설정.red + "잡화상" + 설정.exit + "===|        ",
+					"       /        /\\_/\\    \\       ", 
+						"      /   _____( •ﻌ• )_____\\      ",
+					"     /    |     ●          \\     ", 
+					"    /         \\/|\\          \\   ",
+					"   /           / \\           \\  ", 
+					"┌───────────────────────────────────┐",
+					"│당신은 무엇을 할거냥?                    │",
+					"└───────────────────────────────────┘",
+					" 1.구매     2.대화     3.공격" };
+				
+			for (String i : arr) {
+				System.out.println(i);
+			}
+		}else if(w == 2) {
+			String arr[] = { "\n\n\n\n\n\n\n\n\n\n\n\n", 
+					"          어떤 걸 원하냥?•ﻌ•          ",
+					"             ____                ",
+					"          ⡞⠳⣄|⣀Ϟ⣀|⣀⣠⠞⢷            ", 
+					"         ⣾　          ⣷           ",
+					"         ⠻⣄   ᦲ ᆺ ᦲ  ⣠⠟           ",
+					"      🔍⣠⡿           ⢿⣄           ",
+					"        ⠙⠛⣾         ⣷⠛⠋💼         ",
+					"=================================", 
+					" 1.🗝️   2.🏴‍☠️   3.🔮   4.🧸   5.🧶",
+					"=================================" };
+			for (String i : arr) {
+				System.out.println(i);
+			}
+		}else if(w == 3) {
+			String arr[] = { "\n\n\n\n\n\n\n\n\n\n\n\n", 
+					"          무슨 말을 할꺼냥?           ",
+					"             ____                ",
+					"          ⡞⠳⣄|⣀Ϟ⣀|⣀⣠⠞⢷            ", 
+					"         ⣾　          ⣷ ??        ",
+					"         ⠻⣄   ᦲ ᆺ ᦲ  ⣠⠟           ",
+					"      🔍⣠⡿           ⢿⣄           ",
+					"        ⠙⠛⣾         ⣷⠛⠋💼         ",
+					"=================================", 
+					"1.데스필교 어때? 2.웬 고양이?  3.귀엽당...",
+					"=================================" };
+			for (String i : arr) {
+				System.out.println(i);
+			}
+		}else {
+			System.out.println("...");
+			설정.sleep(1000);
+		}
 	}
 
 	public static void 골목길(용사 user, int w) {
@@ -543,7 +594,7 @@ public class 화면 {
 			System.out.println("호호호.. 잘가요, 절망이시여..");
 			설정.sleep(1000);
 		} else {
-			System.out.println("호호.. " + user.getStat().getName() + ".. 나를 죽이면 후회할 것이다...");
+			System.out.println(설정.back_black+설정.purple+"호호.. " + user.getStat().getName() + ".. 나를 죽이면 후회할 것이다..."+설정.exit);
 			설정.sleep(1000);
 		}
 	}
@@ -629,7 +680,7 @@ public class 화면 {
 				System.out.println(i);
 			}
 		} else {
-			System.out.println("오케이 나랑 싸우고 싶다는 거지?");
+			System.out.println("저희의 서비스가 마음에 안들었다니 유감이네요.");
 			설정.sleep(1000);
 		}
 	}
@@ -651,48 +702,52 @@ public class 화면 {
 			System.out.println(i);
 		}
 	}
+	
+	public static void 데스필교행동창(용사 user) {
+		
+	}
 
 	public static void 채집창(용사 user) {
 		if(user.getStat().getPlace().equals("서쪽 숲")) {
-			System.out.println("풀..돌...나무.. 그냥 숲이다..");
+			System.out.println(설정.blue+"풀..돌...나무.. 그냥 숲이다.."+설정.exit);
 			설정.sleep(1000);
 		}else if(user.getStat().getPlace().equals("라니아나 던전")) {
-			System.out.println("돌,돌,돌 그리고, 돌이다. 왜 광석이 없지?");
+			System.out.println(설정.blue+"돌,돌,돌 그리고, 돌이다. 왜 광석이 없지?"+설정.exit);
 			설정.sleep(1000);
 		}else if(user.getStat().getPlace().equals("마이하스산")) {
 			if (user.getStat().getQuest().equals("대장장이의 부탁")) {
-				System.out.println("도대체 약초 이름이 \"엘리벳의 눈물\"인거지?");
+				System.out.println(설정.blue+"도대체 약초 이름이 \"엘리벳의 눈물\"인거지?"+설정.exit);
 				설정.sleep(1000);
-				System.out.println("어? 이건가?");
+				System.out.println(설정.blue+"어? 이건가?"+설정.exit);
 				설정.sleep(1000);
-				System.out.println("빨리 가서 주자.");
+				System.out.println(설정.blue+"빨리 가서 주자."+설정.exit);
 				설정.sleep(1000);
 			}else {
-				System.out.println("음 등산만 했다.");
+				System.out.println(설정.blue+"음 등산만 했다."+설정.exit);
 				설정.sleep(1000);
 			}
 		}else if(user.getStat().getPlace().equals("절망의 고원")) {
-			System.out.println("예전에는 여기가 \"희망의 고원\"이었다지?");
+			System.out.println(설정.blue+"예전에는 여기가 \"희망의 고원\"이었다지?"+설정.exit);
 			설정.sleep(1000);
 		}else if(user.getStat().getPlace().equals("진실의 서재")) {
-			System.out.println("와 정말 많은 책들이 있다!!");
+			System.out.println(설정.blue+"와 정말 많은 책들이 있다!!"+설정.exit);
 			설정.sleep(1300);
 			System.out.println("갑자기 내 앞에 책 한 권이 떨어졌다.");
 			설정.sleep(1300);
 			if(user.getStat().getQuest().equals("탐욕적인 시선")) {
 				String arr[] = {
-						"세상의 진실? 읽어봐야지~","이 세상에 있는 국가는 총 4개이다.","자연의 나라, 이시스.",
+						설정.purple+"세상의 진실? 읽어봐야지~"+설정.exit,"이 세상에 있는 국가는 총 4개이다.","자연의 나라, 이시스.",
 						"검의 나라, 자이로스.","마법의 나라, 사살리우스.","그리고, 희망의 나라, 에스토니아.",
 						"그중 에스토니아가 가장 부귀한 나라였다.","어느날, 사살리우스에서 무시무시한 전염병이 퍼졌다.",
 						"순식간에 사람들은 마괴수들로 변하였고, 다른 세 국가는 사살리우스를 봉쇄하였다.",
 						"그 후 사살리우스 국왕이 이시스에 전쟁을 선포하였다. 많은 마괴수와 함께..",
-						"심지어 사살리우스 국왕도 인간의 모습이 보이질 않았다.",
-						"당연히 자연만 좋아하여서 군사력이 0에 수렴하는 이시스는 쉽게 무너졌고",
+						"사살리우스 국왕도 감염이 된 것인지는 몰라도 더 이상 인간이라고 부를수 없었다.",
+						"당연히 자연만 좋아했기에 군사력이 0에 수렴하는 이시스는 너무 쉽게 무너졌고",
 						"단 2년만에 두 국가가 지도상에서 사라졌다.",
-						"살아남았던 두 국가는 두려움에 떨고 있었다. 왜냐하면 언젠가는 자신들이 타격을 입을게 뻔하니..",
-						"두 국가는 힘을 합쳐 한 국가로 만들기로 조약을 맺었다.","당연히 자이로스가 에스토니아 산하로 들어가는 구조였다.",
-						"그러나 자이로스 국왕은 이를 부정적으로 받아들었다.","그래서 자이로스 국왕이 기념식에서 에스토니아 국왕을 살해했다.",
-						"에스토니아 가문까지 멸문될 뻔했지만 에스토니아 국왕의 동생은 적당한 직위만 주면 가만히 있겠다고 하여 멸문까진 되지 않았다.",
+						"살아남았던 두 국가는 두려움에 떨고 있었다. 왜냐하면 언젠가는 자신들이 피해를 입을게 뻔하니..",
+						"그래서 두 국가는 힘을 합쳐 한 국가로 만들기로 조약을 맺었다.","당연히 자이로스가 에스토니아 산하로 들어가는 구조였다.",
+						"그러나 자이로스 국왕은 이를 탐탁지 않게 여겼고,","그래서 자이로스 국왕이 기념식에서 에스토니아 국왕을 살해했다.",
+						"에스토니아 가문은 멸문될 뻔했지만 에스토니아 국왕의 동생은 적당한 작위만 주면 가만히 있겠다고 하여 멸문까진 되지 않았다.",
 						"자이로스 국왕은 그 후 이 일을 이 곳, 진실의 서재에 영원히 봉인하였다.",
 						"현재는 이 일을 아는 사람들은 다 죽었고, 현 자이로스 대제국의 만행을 아무도 모른다.",
 						설정.back_black+설정.purple+"... 감히 우리의 선조를 죽이고 잘 살고 있다고??","...용서하지않겠어.",
@@ -703,7 +758,7 @@ public class 화면 {
 					설정.sleep(1500);
 				}
 			}else if(user.getStat().getQuest().equals("마왕의 모략")) {
-				System.out.println("마왕의 비밀? 약점이 있을지도 몰라! 읽어봐야지~");
+				System.out.println(설정.blue+"마왕의 비밀? 약점이 있을지도 몰라! 읽어봐야지~"+설정.exit);
 				System.out.println("마왕은 아주 강력한 힘을 가지고 있다.");
 				System.out.println("마괴수들을 다루는 강력한 힘... 그러나 이뿐만이 아니다.");
 				System.out.println("마왕은 사실, 죽음이 다가올 때쯤이면 인간 하나를 납치해온다.");
@@ -718,9 +773,9 @@ public class 화면 {
 				설정.sleep(1300);
 			}
 		}else if(user.getStat().getPlace().equals("이실리아 세계수")) {
-			System.out.println("음? 이실리아? 원래 \"시실리아\" 세계수 아니였나?");
+			System.out.println(설정.blue+"음? 이실리아? 원래 \"시실리아\" 세계수 아니였나?"+설정.exit);
 			설정.sleep(1000);
-			System.out.println("이상하네...");
+			System.out.println(설정.blue+"이상하네..."+설정.exit);
 			설정.sleep(1000);
 		}
 	}
@@ -837,5 +892,56 @@ public class 화면 {
 		for(String i:arr) {
 			System.out.println(i);
 		}
+	}
+
+	public static void 잡화상대화(용사 user, int w) {
+		if(w == 1 && user.getStat().getQuest().equals("")) {
+			System.out.println(설정.red+"데스필교의 증오의 신 후보자님이셨군뇽..");
+			설정.sleep(1500);
+			System.out.println("처음뵙겠습니다. 저는 대외적으론 잡화상인으로 알려져있지만 사실 데스필교의 타락의 하수인 에빌린입니다.");
+			설정.sleep(1500);
+			System.out.println("증오의 신 후보자께선 정말 대단한 능력을 가지고 계시군요..");
+			설정.sleep(1500);
+			System.out.println("크흠.. 아무튼 저를 찾으셨으니 타락의 길은 통과입니다."+설정.exit);
+			설정.sleep(1500);
+			System.out.println(설정.purple+"엥 이렇게 쉽게?"+설정.exit);
+			설정.sleep(1500);
+			System.out.println(설정.red+"뇽뇽뇽.. 저는 강한자만 받거든요.."+설정.exit);
+			설정.sleep(1500);
+		}else if(w == 1){
+			System.out.println("데스필교...? 너 그런거 믿는거냐옹?");
+			설정.sleep(1500);
+			System.out.println("거긴 무서운 곳이다옹...");
+			설정.sleep(1500);
+			System.out.println("소문에 의하면, 거기 신도들은 무시무시한 짓도 아무렇지도 않게 한다는데..뇽덜덜..");
+			설정.sleep(1500);
+			System.out.println("ㅅ..설마 ㄴ너도 그런거냐옹!!!! 캬아악!!");
+			설정.sleep(1500);
+			System.out.println("(당신은 절대 아니라고 했다.)");
+			설정.sleep(1500);
+			System.out.println("뭐냥... 장난이라도 그쪽 얘기는 하지말라옹");
+			설정.sleep(1500);
+		}else if(w == 2) {
+			System.out.println("뭐.. 고양이가 잡화점 운영하면 안되는 법있냐옹?");
+			설정.sleep(1500);
+			System.out.println("심지어 모험가 길드놈들 접수원은 곰돌이 인형이라구옹!!");
+			설정.sleep(1500);
+			System.out.println("나는 적어도 무생물은 아니다옹 흥");
+			설정.sleep(1500);
+			System.out.println("(생각보다 쌓인게 많아 보인다...)");
+			설정.sleep(1500);
+		}else if(w==3) {
+			System.out.println("내가 좀 한 귀여움하지 뇽뇽뇽~^-^");
+			설정.sleep(1500);
+			System.out.println("좋아 너는 나를 쓰다듬어도 된다옹!");
+			설정.sleep(1500);
+			System.out.println("(당신은 잡화상인을 쓰다듬었다.)");
+			설정.sleep(1500);
+			System.out.println("(보들보들하다. 너무 귀엽다..)");
+			설정.sleep(1500);
+			System.out.println("(잡화상인이 그릉그릉거린다..)");
+			설정.sleep(1500);
+		}
+		
 	}
 }

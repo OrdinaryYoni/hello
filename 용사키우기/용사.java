@@ -11,6 +11,7 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 	private 진실의서재 서재 = new 진실의서재();
 	private 이실리아세계수 나무 = new 이실리아세계수();
 	private 마왕성 성 = new 마왕성();
+	private 데스필교 이교 = new 데스필교();
 	private int end = 0;
 	public 용사() {
 		String name = InputClass.stringInput("용사의 이름을 지어주세요! ");
@@ -64,7 +65,6 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 				화면.대장간(this,1);
 				마을.대장간(this);
 			}else if(w.equals("2")) {
-				화면.잡화점(this);
 				마을.잡화점(this);
 			}else if(w.equals("3")) {
 				화면.골목길(this,1);
@@ -76,6 +76,25 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 				마을.왕궁(this);
 			}
 		}else if(stat.getPlace().equals("플로라 마을")) {
+			화면.마을행동창2(this);
+			String w = InputClass.print();
+			if(w.equals("1")) {
+				화면.절망();
+				마을2.절망(this);
+			}else if(w.equals("2")) {
+				화면.증오();
+				마을2.증오(this);
+			}else if(w.equals("3")) {
+				화면.복수();
+				마을2.복수(this);
+			}else if(w.equals("4")) {
+				화면.단서();
+				마을2.단서(this);
+			}else if(w.equals("5")){
+				화면.열쇠();
+				마을2.열쇠(this);
+			}
+		}else if(stat.getPlace().equals("데스필교")) {
 			화면.마을행동창2(this);
 			String w = InputClass.print();
 			if(w.equals("1")) {
