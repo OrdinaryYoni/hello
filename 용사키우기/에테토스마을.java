@@ -20,8 +20,13 @@ public class 에테토스마을 {
 			화면.대장간(user, 3);
 		}else if(w.equals("3")) {
 			화면.대장간(user, 4);
+			if(user.getStat().getLevel() > 40 && user.getStat().getQuest().equals("엄숨")) user.getStat().setQuest("대장장이의 부탁");
+			else if(user.getStat().getCompleteQuest().indexOf("대장장이의 부탁") != -1) {
+				화면.대장간(user, 5);
+				//고치기
+			}
 		}else {
-			화면.대장간(user,5);
+			화면.대장간(user,6);
 			싸움(user,0);
 		}
 	}
@@ -38,13 +43,12 @@ public class 에테토스마을 {
 				String a = InputClass.print();
 				if(a.equals("1")) {
 					화면.잡화상대화(user,1);
-				}else if (a.equals("2")) {
 					if (user.getStat().getQuest().equals("타락의 길")) {
 						user.getStat().setCompleteQuest(user.getStat().getCompleteQuest()+"타락의 길 ");
 						user.getStat().setQuest("엄숨");
 					}
+				}else if (a.equals("2")) {
 					화면.잡화상대화(user,2);
-					
 				}else {
 					화면.잡화상대화(user,3);
 				}
@@ -64,6 +68,7 @@ public class 에테토스마을 {
 		if(cnt[4]==0) {
 			if(user.getStat().getCompleteQuest().indexOf("절망의 길") != -1) {
 				System.out.println(설정.back_black+설정.purple+"기다리고 있었습니다. 증오의 신이시여... 가시지요.."+설정.exit);
+				설정.sleep(1000);
 				user.getStat().setPlace("데스필교");
 			}else {
 				String w = InputClass.print();
@@ -75,8 +80,13 @@ public class 에테토스마을 {
 					}else if(a.equals("2")) {
 						화면.스레타하(user, 2);
 					}else if(a.equals("3")) {
-						화면.스레타하(user, 3);
-						user.getStat().setPlace("데스필교");
+						if(user.getStat().getJob().equals("검사")) {
+							화면.스레타하(user, 3);
+							user.getStat().setPlace("데스필교");
+						}else {
+							System.out.println(설정.back_black+설정.purple+"자격도 없는 놈이군."+설정.exit);
+							설정.sleep(1000);
+						}
 					}else 화면.스레타하(user, 89);
 				}else if(w.equals("2")) {
 					화면.골목길(user, 3);

@@ -86,6 +86,22 @@ public class 이실리아세계수 {
 			화면.처치창(mop_name, mop_exp, user);
 			user.getStat().setExp(user.getStat().getExp()+mop_exp);
 			user.getStat().레벨업();
+			if(num == 3 && user.getStat().getQuest().equals("증오의 길")) {
+				System.out.println(설정.back_green+설정.red+"이실리아... 난 너를 증오....해...");
+				설정.sleep(2000);
+				System.out.println("난 너를 믿었건만.... 나를 ㅂ..배신...해...?");
+				설정.sleep(2000);
+				System.out.println("난...마ㅅㅜ가 아ㄴ ㅣㅇ.....야..");
+				설정.sleep(2000);
+				System.out.println("ㅇㅣ ㅅㅣㄹㄹㄴ리ㅇㅁㄴ아 죽ㄴㅇㅓ버 ㄻㄴ령 그륵르르륵 그륵륵그륵그륵 (마수다..)"+설정.exit);
+				설정.sleep(2000);
+				System.out.println(설정.back_black+설정.purple+"...");
+				설정.sleep(2000);
+				System.out.println("증오는 맛있구나."+설정.exit);
+				설정.sleep(2000);
+				user.getStat().setCompleteQuest(user.getStat().getCompleteQuest()+"증오의 길 ");
+				user.getStat().setQuest("엄숨");
+			}
 			cnt[num] += 1;
 			return 1;
 		}else return 0; 

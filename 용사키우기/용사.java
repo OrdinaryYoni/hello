@@ -53,7 +53,7 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 	}
 	
 	public void 가방() {
-		화면.가방창();
+		화면.가방창(this);
 		
 	}
 	
@@ -95,17 +95,21 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 				마을2.열쇠(this);
 			}
 		}else if(stat.getPlace().equals("데스필교")) {
-			if(stat.getCompleteQuest().indexOf("죽음의 길") != -1) {
+			if(stat.getCompleteQuest().indexOf("증오의 길") != -1) {
+				이교.증오의길(this);
+			}else if(stat.getCompleteQuest().indexOf("죽음의 길") != -1) {
+				이교.죽음의길(this);
 				이교.증오의길(this);
 			}else if(stat.getCompleteQuest().indexOf("탐욕의 길") != -1) {
+				이교.탐욕의길(this);
 				이교.죽음의길(this);
 			}else if(stat.getCompleteQuest().indexOf("타락의 길") != -1) {
+				이교.타락의길(this);
 				이교.탐욕의길(this);
 			}else if(stat.getCompleteQuest().indexOf("절망의 길") != -1){
 				이교.타락의길(this);
 			}else {
 				이교.절망의길(this);
-				System.out.println(stat.getCompleteQuest().indexOf("절망의 길"));
 			}
 			
 		}else if(stat.getPlace().equals("마왕성")) {

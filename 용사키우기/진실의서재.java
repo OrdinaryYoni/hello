@@ -94,8 +94,8 @@ public class 진실의서재 {
 	
 	public void 채집(용사 user) {
 		화면.채집창(user);
-		if(user.getStat().getQuest().equals("탐욕적인 시선")) {
-			user.getStat().setCompleteQuest(user.getStat().getCompleteQuest()+"탐욕적인 시선 ");
+		if(user.getStat().getQuest().equals("탐욕의 길")) {
+			user.getStat().setCompleteQuest(user.getStat().getCompleteQuest()+"탐욕의 길 ");
 			user.getStat().setQuest("엄숨");
 		}else if(user.getStat().getQuest().equals("마왕의 모략")) {
 			user.getStat().setCompleteQuest(user.getStat().getCompleteQuest()+"마왕의 모략 ");

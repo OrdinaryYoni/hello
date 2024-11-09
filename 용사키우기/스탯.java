@@ -1,11 +1,11 @@
 package 용사키우기;
 
 public class 스탯{
-	private String[] bag = {"","","","","","","","","","","","","","","","","","","",""};
+	private String bag;
 	private String name, job, gender, skill, place, title, quest, currentWeapon, completeQuest;
-	private int hp,maxHp,mp,maxMp,level,exp,maxExp,atk,def, weaponAtk, plusAtk;
+	private int hp,maxHp,mp,maxMp,level,exp,maxExp,atk,def, weaponAtk, plusAtk, money;
 	public 스탯(String name, String gender) {
-		level = 50;
+		level = 51;
 		maxHp = 200*level;
 		place = "부서진 에스토니아의 성";
 		title = "일반인보다 약함";
@@ -20,6 +20,8 @@ public class 스탯{
 		quest = "엄숨";
 		completeQuest = "엄숨 ";
 		currentWeapon = "낡은 단검";
+		bag = "엄숨 ";
+		money = 0;
 		weaponAtk = 0;
 		def = 0;
 		this.name = name;
@@ -88,4 +90,6 @@ public class 스탯{
 	public void setCompleteQuest(String completeQuest) {this.completeQuest = completeQuest;}
 	public int getPlusAtk() {return plusAtk;}
 	public void setPlusAtk(int plusAtk) {this.plusAtk = plusAtk;}
+	public String getBag() {return bag;}
+	public void setBag(String bag) {this.bag = bag;}
 }
