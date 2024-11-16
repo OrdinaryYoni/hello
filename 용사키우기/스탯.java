@@ -92,4 +92,6 @@ public class 스탯{
 	public void setPlusAtk(int plusAtk) {this.plusAtk = plusAtk;}
 	public String getBag() {return bag;}
 	public void setBag(String bag) {this.bag = bag;}
+	public int getMoney() {return money;}
+	public void setMoney(int bag) {this.money = money;}
 }

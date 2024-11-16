@@ -12,6 +12,7 @@ public class 에테토스마을 {
 	}
 	
 	public void 대장간(용사 user) {
+		스탯 u = user.getStat();
 		String w = InputClass.print();
 		if (w.equals("1")) {
 			화면.대장간(user, 2);
@@ -19,14 +20,25 @@ public class 에테토스마을 {
 		}else if(w.equals("2")) {
 			화면.대장간(user, 3);
 		}else if(w.equals("3")) {
-			화면.대장간(user, 4);
-			if(user.getStat().getLevel() > 40 && user.getStat().getQuest().equals("엄숨")) user.getStat().setQuest("대장장이의 부탁");
-			else if(user.getStat().getCompleteQuest().indexOf("대장장이의 부탁") != -1) {
-				화면.대장간(user, 5);
-				//고치기
+			if(u.getLevel() > 40 && u.getCompleteQuest().indexOf("대장장이의 부탁") == -1) {
+				if (u.getBag().indexOf("엘리벳의 눈물") != -1) {
+					화면.대장간(user, 6);
+					u.setBag(u.getBag().replace("엘리벳의 눈물 ", ""));
+					u.setMoney(u.getMoney()+2000);
+					u.setQuest("마왕의 모략");
+					u.setCompleteQuest("대장장이의 부탁 ");
+				}else if (u.getQuest().equals("엄숨")) {
+					화면.대장간(user, 5);
+					u.setQuest("대장장이의 부탁");
+				}else {
+					System.out.println("이미 하고 있는 퀘스트가 있다...");
+					설정.sleep(1300);
+				}
+			}else {
+				화면.대장간(user, 4);
 			}
 		}else {
-			화면.대장간(user,6);
+			화면.대장간(user,7);
 			싸움(user,0);
 		}
 	}

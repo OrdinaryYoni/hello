@@ -92,5 +92,7 @@ public class 마이하스산 {
 	
 	public void 채집(용사 user) {
 		화면.채집창(user);
+		if(user.getStat().getQuest().equals("대장장이의 부탁")) user.getStat().setBag(user.getStat().getBag() + "엘리벳의 눈물 ");
+		
 	}
 }
