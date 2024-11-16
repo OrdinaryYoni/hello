@@ -5,7 +5,7 @@ public class 스탯{
 	private String name, job, gender, skill, place, title, quest, currentWeapon, completeQuest;
 	private int hp,maxHp,mp,maxMp,level,exp,maxExp,atk,def, weaponAtk, plusAtk, money;
 	public 스탯(String name, String gender) {
-		level = 51;
+		level = 1;
 		maxHp = 200*level;
 		place = "부서진 에스토니아의 성";
 		title = "일반인보다 약함";
@@ -18,9 +18,9 @@ public class 스탯{
 		atk = 10*level;
 		skill = "엄숨";
 		quest = "엄숨";
-		completeQuest = "엄숨 ";
+		completeQuest = "";
 		currentWeapon = "낡은 단검";
-		bag = "엄숨 ";
+		bag = "";
 		money = 0;
 		weaponAtk = 0;
 		def = 0;

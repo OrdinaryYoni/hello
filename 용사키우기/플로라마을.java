@@ -8,7 +8,7 @@ public class 플로라마을 {
 		npcs[1] = new NPC("엔머티", 666, 666, 666, 666, 666);
 		npcs[2] = new NPC("뤼벤", 1004, 1004, 1004, 1004, 1004);
 		npcs[3] = new NPC("프로비소", 8282, 8282, 8282, 8282, 8282);
-		npcs[4] = new NPC("노아", 1, 1, 1, 1, 1);
+		npcs[4] = new NPC("노아", 1000000, 1000000, 1000000, 1000000, 1);
 	}
 
 	public void 절망(용사 user) {
@@ -160,7 +160,7 @@ public class 플로라마을 {
 			}else {
 				System.out.println(설정.YELLOW_BACKGROUND_BRIGHT+설정.RED_BRIGHT+"어리석구나"+설정.exit);
 				설정.sleep(500);
-				싸움(user,3);
+				싸움(user,4);
 			}
 		}else System.out.println("어? 자세히보니 그냥 옛날 그림이다."); 설정.sleep(1000);
 	}
@@ -178,7 +178,6 @@ public class 플로라마을 {
 				i = IsMobAlive(num, exp, npc_hp, npc_name, user, cnt);
 				if (i == 1) {
 					cnt[num]++;
-					System.out.println(cnt[num]);
 					break;
 				}else {
 					화면.NPC공격창(npc_name,npc_hp,npc_lv,user,num);

@@ -17,11 +17,11 @@ public class 데스필교 {
 	}
 	public void 타락의길(용사 user) {
 		if(user.getStat().getCompleteQuest().indexOf("타락의 길") != -1) {
-			System.out.println("오 우리 타락의 하수인님을 찾으셨나보네요!");
+			System.out.println(설정.red+"오 우리 타락의 하수인님을 찾으셨나보네요!");
 			설정.sleep(1500);
 			System.out.println("아! 증표없이 알 수 있습니다. 우리 타락의 하수인님께선 독특한 냄새가 나시거든요~");
 			설정.sleep(1500);
-			System.out.println("다음 길로 가시죠");
+			System.out.println("다음 길로 가시죠"+설정.exit);
 			설정.sleep(1500);
 			user.getStat().setQuest("탐욕의 길");
 		}else {
@@ -30,9 +30,9 @@ public class 데스필교 {
 	}
 	public void 탐욕의길(용사 user) {
 		if(user.getStat().getCompleteQuest().indexOf("탐욕의 길") != -1) {
-			System.out.println("휴~ 드디어 냄새가 좋아졌네^^ (그 대리인 자식.. 아무한테나 냄새 뭍히지 말라니까...)");
+			System.out.println(설정.back_black+설정.back_yellow+"휴~ 드디어 냄새가 좋아졌네^^ (그 대리인 자식.. 아무한테나 냄새 뭍히지 말라니까...)");
 			설정.sleep(1500);
-			System.out.println("음 이제 가~ 너 해야할 일이 있잖아");
+			System.out.println("음 이제 가~ 너 해야할 일이 있잖아"+설정.exit);
 			설정.sleep(1500);
 			user.getStat().setQuest("죽음의 길");
 		}else {
@@ -41,10 +41,10 @@ public class 데스필교 {
 	}
 	public void 죽음의길(용사 user) {
 		if(user.getStat().getCompleteQuest().indexOf("죽음의 길") != -1) {
-			System.out.println("흠흠흠~ 이제 생명을 키울 ㅅ...ㅇ..아니, 죽음의 힘을 드리겠습니다.");
+			System.out.println(설정.green+"흠흠흠~ 이제 생명을 키울 ㅅ...ㅇ..아니, 죽음의 힘을 드리겠습니다.");
 			설정.sleep(1500);
 			user.getStat().setBag(user.getStat().getBag().replace("생명의 돌 ", ""));
-			System.out.println("이제 마지막 길만 남았군요. 열심히 하십시요.");
+			System.out.println("이제 마지막 길만 남았군요. 열심히 하십시요."+설정.exit);
 			설정.sleep(1500);
 			user.getStat().setQuest("증오의 길");
 		}else {

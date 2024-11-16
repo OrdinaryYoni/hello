@@ -239,17 +239,22 @@ public class 화면 {
 				"⠀   "+설정.yellow+"⢰⠃ ⢠⠇"+설정.exit,
 				"   ⠀"+설정.yellow+"⣇⢀⠞"+설정.exit,
 				"⠀⠀⠀⠀"+설정.red+"⚈"+설정.exit,
-				"\n\n\n\n\n\n\n\n\n\n\n\n\n",
-				"⠀⠀    "+설정.yellow+"⢀⠤⢤⡀"+설정.exit,
-				"⠀   "+설정.yellow+"⢰⠃ ⢠⠇"+설정.exit,
-				"   ⠀"+설정.yellow+"⣇⢀⠞"+설정.exit,
-				"⠀⠀⠀⠀"+설정.red+"⚈"+설정.exit,
 				};
 		for(String i:arr2) {
 			System.out.println(i);
 		}
+		설정.sleep(2000);
+		String arr3[] = {"\n\n\n\n\n\n\n\n\n\n\n\n\n",
+				"⠀⠀    "+설정.yellow+"⢀ ⠤  ⢤⡀"+설정.exit,
+				"⠀ "+설정.yellow+"⢰ ⠃     ⢠ ⠇"+설정.exit,
+				"   ⠀"+설정.yellow+"⣇ ⢀ ⠞"+설정.exit,
+				"⠀⠀⠀⠀"+설정.red+"✨"+설정.exit,
+				};
+		for(String i:arr3) {
+			System.out.println(i);
+		}
 		설정.sleep(2500);
-		String arr3[] = {설정.back_black + 설정.red +"\"이런, 내 최후의 수를 들켜버렸군... 젠자아아아아아아아아아아아아앙!!!!!\""+ 설정.exit,
+		String arr4[] = {설정.back_black + 설정.red +"\"이런, 내 최후의 수를 들켜버렸군... 젠자아아아아아아아아아아아아앙!!!!!\""+ 설정.exit,
 				"이후 마왕은 가루가 되어 사라졌습니다.",
 				"당신은 곧바로 다인의 품에 안겼습니다.",
 				설정.cyan+"\"동생아, 많이 힘들었지?\""+설정.exit,
@@ -261,11 +266,11 @@ public class 화면 {
 				설정.blue+"\"아버지, 어머니, 유모.... 그리고 엘리벳......!\""+설정.exit,
 				"당신은 예전의 에스토니아를 되찾았고 모두와 행복하게 잘 지냈습니다."
 				};
-		for(String i:arr3) {
+		for(String i:arr4) {
 			System.out.println(i);
 			설정.sleep(2500);
 		}
-		String arr4[] = {"\n\n\n\n\n\n\n\n\n\n\n\n\n",
+		String arr5[] = {"\n\n\n\n\n\n\n\n\n\n\n\n\n",
 				"              𝓣𝓱𝓮 𝓔𝓷𝓭 ",
 				"  🤴 👸   👩‍🦱        ",
 				설정.yellow+" /█\\"+설정.exit+"/█\\  /█\\        ",
@@ -276,7 +281,7 @@ public class 화면 {
 				"⊹ / >⊹            ",
 				"\n\n[Ending 4. 진정한 평화]",
 				};
-		for(String i:arr4) {
+		for(String i:arr5) {
 			System.out.println(i);
 		}
 	}
@@ -446,20 +451,18 @@ public class 화면 {
 			}
 		} else if (w == 2) {
 			String arr[] = { "\n\n\n\n\n\n\n\n\n\n\n\n\n", 
-					"여기 좋은 물건들이 들어왔다네             ",
-					"=================================", 
-					" 1.📏   2.🏹   3.🔧   4.⛏️   5.🪓 ",
+					"여기! 내가 직접 만든거니 품질이 아주 좋아!", 
 					"=================================",
-					" 6.🔨   7.🔪   8.🗡️   9.⚔️   10.🧱",
+					" 1.🪓     2.🔪      3.🗡️     4.⚔️  ",
 					"=================================", 
-					"          11.▬▬ι═══════ﺤ         ",
-					"          12.︻[]▄▅▆▇◤           ", 
+					"          5.▬▬ι═══════ﺤ         ",
+					"          6.︻[]▄▅▆▇◤           ", 
 					"=================================" };
 			for (String i : arr) {
 				System.out.println(i);
 			}
 		} else if (w == 3) {
-			System.out.println("미안하네... 난 이제 무기 강화에는 손을 땠어..");
+			System.out.println("미안하네... 난 무기 강화에는 손을 뗀지 오래되었다네..");
 			설정.sleep(1000);
 		} else if (w == 4) {
 			System.out.println("나랑 대화를 하고싶다고? 허! 애송이는 가라");
@@ -685,6 +688,86 @@ public class 화면 {
 			설정.sleep(1000);
 		}
 	}
+	
+	public static void 왕궁(용사 user, int w) {
+		String arr[] = {"\n\n\n\n\n\n\n\n\n\n\n\n\n",
+				"           "+설정.back_yellow+" "+설정.exit+"   "+설정.back_yellow+" "+설정.exit,
+				"           "+설정.back_yellow+"  "+설정.exit+" "+설정.back_yellow+"  "+설정.exit,
+				"           "+설정.back_yellow+"     "+설정.exit,
+				"         "+설정.back_blue+"         "+설정.exit,
+				"        "+설정.back_blue+"  "+설정.YELLOW_BACKGROUND_BRIGHT+" "+설정.back_black+"  "+설정.YELLOW_BACKGROUND_BRIGHT+" "+설정.back_black+"  "+설정.YELLOW_BACKGROUND_BRIGHT+" "+설정.back_blue+"  "+설정.exit,
+				"         "+설정.YELLOW_BACKGROUND_BRIGHT+"   "+설정.back_green+" "+설정.YELLOW_BACKGROUND_BRIGHT+" "+설정.back_green+" "+설정.YELLOW_BACKGROUND_BRIGHT+"   "+설정.exit,
+				"          "+설정.YELLOW_BACKGROUND_BRIGHT+"       "+설정.exit,
+				"            "+설정.YELLOW_BACKGROUND_BRIGHT+"   "+설정.exit,
+				"     "+설정.back_yellow+"       "+설정.back_green+"   "+설정.back_yellow+"       "+설정.exit,
+				"    "+설정.back_red+"       "+설정.back_white+"     "+설정.back_red+"       "+설정.exit,
+				"    "+설정.back_red+"       "+설정.back_white+"     "+설정.back_red+"       "+설정.exit,				
+				};
+		for(String i:arr) {
+			System.out.println(i);
+		}
+		if (w == 1) {
+			String arr1[] = {
+					설정.back_yellow+"흠...? 궁정마법사 셰리? 이놈의 신원을 확인해줘",
+					"뭐? 확인할 수 있는게 레벨과 이름만 가능하다고?? 쯧 도움이 안되네",
+					"어디보자.. 뭐야 "+user.getStat().getLevel()+"lv밖에 안되잖아?",
+					"니깟게 나와 대화할 수 있다고 생각하는가? 당장 꺼져라!"+설정.exit,
+					};
+			for(String i:arr1) {
+				System.out.println(i);
+				설정.sleep(2000);
+			}
+		}else if (w == 2) {
+			String arr1[] = {
+					설정.back_yellow+"흠...? 궁정마법사 셰리? 이놈의 신원을 확인해줘",
+					"뭐? 확인할 수 있는게 레벨과 이름만 가능하다고?? 쯧 도움이 안되네",
+					"어디보자.. 음? 오~ 우리나라의 용사, "+user.getStat().getName()+"이 아닌가?",
+					"무슨일로 온게냐?"+설정.exit, "당신은 그냥 보고 싶어서 왔다고 하였다.",
+					설정.back_yellow+"하하하하! 아이고 내 손주도 이렇게 애교가 많았으면 좋겠구먼...",
+					"나를 할애비라고 생각하며 자주 오거라~~", "하... 셰리, 저 놈 그 망해빠진 에스토니아의 자식이지?",
+					"참 탐나는 인재구먼... 내 양손주로 받아들일 수는 없나..?",
+					"알잖아~ 내 손주는 실패작인거.. 마력도, 검술도, 궁술도... 나라를 지킬만한 힘이 없어 쯧쯧쯧",
+					"에휴..."+설정.exit,
+					};
+			for(String i:arr1) {
+				System.out.println(i);
+				설정.sleep(2000);
+			}
+		}else if (w == 3) {
+			String arr1[] = {
+					설정.back_yellow+"흠...? 궁정마법사 셰리? 이놈의 신원을 확인해줘",
+					설정.purple+"도망가십시오 전하. 이 자에게서 엄청난 살의가 느껴집니다...",
+					설정.back_yellow+설정.black+"무...무슨...?",
+					설정.back_black+설정.purple+"감히 나의 소중한 에스토니아를....",
+					설정.back_yellow+설정.black+"윽... 이 녀석 설마...?",
+					설정.back_black+설정.purple+"너도 알고 있겠지.. 오늘 여기는 너의 무덤이 되는 동시에 에스토니아가 될 예정이다.", 
+					설정.back_yellow+설정.black+"셰리!! 빨리 저 녀석을 죽여라!!!!!!!",
+					"셰리? 왜 그래 셰리...?",
+					설정.purple+"전하... 저는 이 자를 이길 수 없습니다...",
+					"전하 빨리 제가 시간을 벌 동ㅇ..."+설정.exit,
+					"(셰리의 몸이 빠르게 잠식당한다...)",
+					설정.back_yellow+설정.black+"으...으악!!!!! 사람 살려!!!!",
+					"제발... 내 모든 것을 바칠테니 목숨만은...",
+					설정.back_black+설정.purple+"절대 그럴순 없지... 내 행복한 복수를 위해선... 피가 필요해...",
+					설정.back_yellow+설정.black+"살ㄹ",
+					설정.back_black+설정.purple+"하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하\n"
+							+ "하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하\n"
+							+ "하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하\n"
+							+ "하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하\n"
+							+ "하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하\n"
+							+ "하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하\n"
+							+ "하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하\n"
+							+ "하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하\n"
+							+ "하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하\n"
+							+ "하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하하",
+					"아주 만족스럽구나!!!! 맛있도다 맛있어!!!!"+설정.exit,
+					};
+			for(String i:arr1) {
+				System.out.println(i);
+				설정.sleep(2000);
+			}
+		}
+	}
 
 	public static void 데스필교(용사 user) {
 		String arr[] = {"\n\n\n\n\n\n\n\n\n\n\n\n\n",
@@ -738,7 +821,7 @@ public class 화면 {
 			System.out.println("힘내세요..뇽뇽뇽"+설정.exit);
 			설정.sleep(1500);
 		}else if(w==2) {
-			System.out.println(설정.back_black+설정.RED_BRIGHT+"음? 어우 타락의 냄새;;");
+			System.out.println(설정.back_black+설정.back_yellow+"음? 어우 타락의 냄새;;");
 			설정.sleep(1500);
 			System.out.println("빨리 냄새를 지워야겠어요.. 진실의 서재에 가서 빨리 탐욕을 알아오세요.. 우욱");
 			설정.sleep(1500);
@@ -753,17 +836,17 @@ public class 화면 {
 			설정.sleep(2000);
 			System.out.println("사실 탐욕은 타락을 좋아합니다ㅎㅎ"+설정.exit);
 			설정.sleep(2000);
-			System.out.println(설정.back_black+설정.RED_BRIGHT+"ㅁ..뭐라고?? 이 잡초도 키우지 못하는게?"+설정.exit);
+			System.out.println(설정.back_black+설정.back_yellow+"ㅁ..뭐라고?? 이 잡초도 키우지 못하는게?"+설정.exit);
 			설정.sleep(2000);
 			System.out.println(설정.green+"나도 키우고 싶다고요! 이 빌어먹을 죽음의 힘때문에 다 죽는다고!!");
 			설정.sleep(2000);
-			System.out.println("앗? 당신을 까먹어버렸네요.. 당신도 이 죽음의 힘을 얻어야해요.");
+			System.out.println("앗? 당신을 잊고있었네요.. 당신도 이 죽음의 힘을 얻어야해요.");
 			설정.sleep(2000);
 			System.out.println("라니아나 던전에 가서 생명의 돌을 얻어오세요."+설정.exit);
 			설정.sleep(2000);
-			System.out.println(설정.back_black+설정.RED_BRIGHT+"아하~ 죽음의 힘은 그냥 줄 수 있으면서 잡초들 키우고 싶으니까 그 돌 가져오라는 거지ㅋㅋ"+설정.exit);
+			System.out.println(설정.back_black+설정.back_yellow+"아하~ 죽음의 힘은 그냥 줄 수 있으면서 잡초들 키우고 싶으니까 그 돌 가져오라는 거지ㅋㅋ"+설정.exit);
 			설정.sleep(2000);
-			System.out.println("(이번에는 탐욕과 죽음이 싸우고 있다.. 타락은 부끄러워하고 있다..)");
+			System.out.println("(이번에는 탐욕과 죽음이 싸우고 있다.. 타락 대리는 부끄러워하고 있다..)");
 			설정.sleep(2000);
 		}else if(w==4) {
 			System.out.println(설정.back_black+설정.purple+"어머나~ 설마 모든 길을 다 갔다온거야~?");
@@ -862,15 +945,25 @@ public class 화면 {
 				}
 			}else if(user.getStat().getQuest().equals("마왕의 모략")) {
 				System.out.println(설정.blue+"마왕의 비밀? 약점이 있을지도 몰라! 읽어봐야지~"+설정.exit);
+				설정.sleep(2000);
 				System.out.println("마왕은 아주 강력한 힘을 가지고 있다.");
+				설정.sleep(2000);
 				System.out.println("마괴수들을 다루는 강력한 힘... 그러나 이뿐만이 아니다.");
+				설정.sleep(2000);
 				System.out.println("마왕은 사실, 죽음이 다가올 때쯤이면 인간 하나를 납치해온다.");
+				설정.sleep(2000);
 				System.out.println("단 조건이 있는데 바로 자신을 죽여줄 \"용사\"를 만들어야한다.");
+				설정.sleep(2000);
 				System.out.println("그래야지 새로운 몸으로 옮길때 필요한 힘을 얻을 수 있기 때문이다.");
+				설정.sleep(2000);
 				System.out.println("마왕은 옮겨갈 몸에 표식을 남기는데 좀 처럼 찾기 힘들다.");
+				설정.sleep(2000);
 				System.out.println("하지만 마괴수들은 마왕과 연결되어있다. 그리고 특히 진실의 서재에 있는 마괴수들은 \"오직 진실만을\" 말한다.");
+				설정.sleep(2000);
 				System.out.println("그러나 이미 몬스터들을 쓰러뜨렸다면, 어쩔 수 없다. 기억해라 그들의 이름을!");
+				설정.sleep(2000);
 				System.out.println("음 아주 중요한 정보를 얻었다.");
+				설정.sleep(2000);
 			}else {
 				System.out.println("근데 책이 안 펼쳐진다.. "+설정.purple+"특수한 마법"+설정.exit+"이라도 걸린 것처럼...");
 				설정.sleep(1300);
