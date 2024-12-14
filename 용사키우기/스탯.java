@@ -2,6 +2,7 @@ package 용사키우기;
 
 public class 스탯{
 	private String bag;
+	private int [] notionCnt = {0,0,0,0,0,0,0};
 	private String name, job, gender, skill, place, title, quest, currentWeapon, completeQuest;
 	private int hp,maxHp,mp,maxMp,level,exp,maxExp,atk,def, weaponAtk, plusAtk, money;
 	public 스탯(String name, String gender) {
@@ -21,7 +22,7 @@ public class 스탯{
 		completeQuest = "";
 		currentWeapon = "낡은 단검";
 		bag = "";
-		money = 0;
+		money = 100;
 		weaponAtk = 0;
 		def = 0;
 		this.name = name;
@@ -45,6 +46,14 @@ public class 스탯{
 			mp = maxMp;
 			atk = 10*level+plusAtk;
 			hp = maxHp;
+			if(level>10 && notionCnt[0] == 0) {화면.알림창(1); notionCnt[0]++;}
+			else if(level>20 && notionCnt[1] == 0) {화면.알림창(2); notionCnt[1]++;}
+			else if(level>40 && notionCnt[2] == 0) {화면.알림창(3); notionCnt[2]++;}
+			else if(level>60 && notionCnt[3] == 0) {화면.알림창(4); notionCnt[3]++;}
+			else if(level>80 && notionCnt[4] == 0) {화면.알림창(5); notionCnt[4]++;}
+			else if(level>90 && notionCnt[5] == 0) {화면.알림창(6); notionCnt[5]++;}
+			else if(level == 100 && notionCnt[6] == 0) {화면.알림창(7); notionCnt[6]++;}
+			
 		}
 	}
 	
@@ -93,5 +102,5 @@ public class 스탯{
 	public String getBag() {return bag;}
 	public void setBag(String bag) {this.bag = bag;}
 	public int getMoney() {return money;}
-	public void setMoney(int bag) {this.money = money;}
+	public void setMoney(int money) {this.money = money;}
 }

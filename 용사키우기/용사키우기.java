@@ -11,7 +11,7 @@ public class 용사키우기 {
 	{
 		System.out.println(설정.purple+"###############\n###용⋌˫키우⌝ᥣ!###\n###############\n\n\n"+설정.exit);
 		용사 user = new 용사();
-		//화면.인트로(user.getStat().getGender());
+		화면.인트로(user.getStat().getGender());
 		while(true) {
 			if (user.getEnd() > 0) {
 				엔딩(user.getEnd());
@@ -42,27 +42,14 @@ public class 용사키우기 {
 		}
 		
 	}
-	
 	void loop(용사 user) {
-		//설정.sleep(3000);
-		//튜토리얼(user.name,user.stat.level,user.stat.hp);
 		화면.메인(user);
 		String s = InputClass.print();
 		if (s.equals("1")) user.이동();
 		else if (s.equals("2")) user.가방();
 		else if (s.equals("3")) user.행동();
+		else if (s.equals("4")) 화면.설명();
 		else {System.out.println("하하핳 너 참 재미있구나!"); 설정.sleep(800);}
-	}
-	
-	private void 튜토리얼(String name, int lv, int hp) {
-		String tutorial[] = {"우선 수련할 장소로 이동하자.('1'을 입력해주세요.)",
-				"",
-				"앞에 있는 몬스터를 잡자!('3'을 입력해주세요.)",
-				"('1'을 입력해주세요.)",
-				"몬스터를 해치웠다! 50 exp와 낡은 단검을 획득했다!",
-				"잘했어! 한번 얻은 아이템을 장착해볼까?('2'를 입력해주세요.)",
-				"낡은 단검이네~! 장착해보자!(장착할 아이템명을 입력해주세요.)",
-				"왠지 더 강해진 느낌인걸~~ 앞으로 더 수련해서 마왕을 잡자!"};
 	}
 	
 	private void 엔딩(int end) {

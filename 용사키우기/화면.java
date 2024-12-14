@@ -3,15 +3,15 @@ package 용사키우기;
 public class 화면 {
 	public static void 메인(용사 user) {
 		String arr[] = { "\n\n\n\n\n\n\n\n\n\n\n\n\n", String.format("%s", user.getStat().getPlace()),
-				"           ●        ",
-				"         \\/|\\     ",
-				"          / \\      ",
+				"             ●        ",
+				"           \\/|\\     ",
+				"            / \\      ",
 				String.format(" %s lv:%d hp:%d exp:%d/%d", user.getStat().getName(), user.getStat().getLevel(),
 						user.getStat().getHp(), user.getStat().getExp(), user.getStat().getMaxExp()),
-				"┌─────────────────────┐", 
-				"│당신은 무엇을 할건가?      │", 
-				"└─────────────────────┘", 
-				"  1.이동  2.가방  3.행동 " };
+				"┌─────────────────────────┐", 
+				"│당신은 무엇을 할건가?          │", 
+				"└─────────────────────────┘", 
+				" 1.이동  2.가방  3.행동  4.설명 " };
 		for (String i : arr) {
 			System.out.println(i);
 		}
@@ -42,7 +42,13 @@ public class 화면 {
 	}
 
 	public static void 가방창(용사 user) {
-		System.out.println(user.getStat().getBag());
+		String [] bagItem = user.getStat().getBag().split("\\s");
+		int cnt = 1;
+		System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+		for(String i:bagItem) {
+			System.out.println(cnt +"."+ i);
+			cnt++;
+		}
 		설정.sleep(1500);
 	}
 
@@ -113,6 +119,7 @@ public class 화면 {
 			System.out.println(설정.blue + "오빠를 가리키더니, 오빠를 데리고 그 구멍 속으로 들어갔다." + 설정.exit);
 			설정.sleep(2500);
 			System.out.println(설정.blue + "난 그 후 마왕을 잡기 위해 그리고 나의 유일한 가족, 오빠를 구하기 위해 수련을 떠나게 되었다." + 설정.exit);
+			설정.sleep(3000);
 		} else {
 			System.out.println(설정.blue + "나는 제국의 검이라고 불리는 에스토니아 가문의 대공을 아버지로 둔 제 3소공자이었다." + 설정.exit);
 			설정.sleep(2500);
@@ -496,7 +503,7 @@ public class 화면 {
 					"눈을 떠보니 난생 처음 걸려보는 병과 함께 서쪽숲에 누워있었고 그대로 정신을 잃었답니다...",
 					"(진실의 서재는 도대체..)",
 					"아무튼 여기 사례금^^",
-					"1000골드를 받았다.."};
+					"2000골드를 받았다.."};
 			for (String i : arr) {
 				System.out.println(i);
 				설정.sleep(2000);
@@ -1169,5 +1176,56 @@ public class 화면 {
 			System.out.println("(잡화상인이 그릉그릉거린다..)");
 			설정.sleep(1500);
 		}
+	}
+
+	public static void 알림창(int i) {
+		System.out.println(설정.yellow+"새로운 장소 해금!!");
+		if(i == 1) {
+			System.out.println("- 에테토스 마을");
+			System.out.println("- 라니아나 던전");
+			System.out.println("퀘스트 해금!!");
+			System.out.println("스킬 해금!!");
+			System.out.println("상점 해금!!"+설정.exit);
+			설정.sleep(1500);
+		}else if(i == 2) {
+			System.out.println("- 절망의 고원"+설정.exit);
+			설정.sleep(1500);
+		}else if(i == 3) {
+			System.out.println("- 마이하스산");
+			System.out.println("새로운 퀘스트 해금!!");
+			System.out.println("중급 모험가 달성!!"+설정.exit);
+			설정.sleep(1500);
+		}else if(i == 4) {
+			System.out.println("- 플로라 마을");
+			System.out.println("잡화점 오픈!!");
+			System.out.println("상급 모험가 달성!!"+설정.exit);
+			설정.sleep(1500);
+		}else if(i == 5) {
+			System.out.println("- 진실의 서재");
+			System.out.println("새로운 퀘스트 해금!!");
+			System.out.println("용사 달성!!"+설정.exit);
+			설정.sleep(1500);
+		}else if(i == 6) {
+			System.out.println("- 이실리아 세계수");
+			System.out.println("새로운 퀘스트 해금!!"+설정.exit);
+			설정.sleep(1500);
+		}else {
+			System.out.println("- 마왕성");
+			System.out.println(설정.red+"이제부터 마왕을 잡으실 수 있습니다.");
+			System.out.println("마왕과의 전투는 딱 1번 치르실 수 있으며 죽으면 끝입니다."+설정.exit);
+			설정.sleep(1500);
+		}
+	}
+
+	public static void 설명() {
+		String [] arr = {
+				"용사키우기 하는 방법!!!", "첫 화면에서 이동, 가방, 행동, 설명 총 4가지의 선택지와 자신의 캐릭터와 현재있는 장소, 스펙이 보일 것이다.",
+				"우선 이동은 장소를 바꾸는 선택지이다.", "장소를 바꾸면서 더 강한 몬스터들을 사냥해서 경험치를 쌓고 여러 상황을 경험할 수 있다.",
+				"가방은 자신이 가지고 있는 물건을 보여주는 선택지이다.", "물건을 선택하여 자신의 무기로 활용할 수 있다.",
+				"행동은 자신이 현재 있는 장소에서 할 행동을 고르는 선택지이다.", "행동에는 사냥, 채집, 스탯 3가지의 선택지가 있는데,",
+				"사냥은 현재 장소에 있는 몬스터와 싸워 경험치를 얻는 선택지,"
+				};
+		System.out.println("용사키우기 하는 방법!");
+		
 	}
 }

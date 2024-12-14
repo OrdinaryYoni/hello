@@ -37,13 +37,13 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 			stat.setPlace("절망의 고원");
 		}else if(w==6 && stat.getLevel() > 40) {
 			stat.setPlace("마이하스산");
-			if (!stat.getTitle().equals("상급 모험가")) 중급자();
+			if (stat.getLevel()<61) 중급자();
 		}else if(w==7 && stat.getLevel() > 60) {
 			stat.setPlace("플로라 마을");
-			if (!stat.getTitle().equals("용사")) 숙련자();
+			if (stat.getLevel()<81) 숙련자();
 		}else if(w==8 && stat.getLevel() > 80) {
 			stat.setPlace("진실의 서재");
-			if (!stat.getTitle().equals("1000년에 한 번 나올까 말까하는 전설의 용사")) 마스터();
+			if (stat.getLevel()<100) 마스터();
 		}else if(w==9 && stat.getLevel() > 90) {
 			stat.setPlace("이실리아 세계수");
 		}else if (w==10 && stat.getLevel() >= 100) {
@@ -54,6 +54,33 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 	
 	public void 가방() {
 		화면.가방창(this);
+		String weapon = stat.getCurrentWeapon();
+		String bag = stat.getBag();
+		String [] bagItem = bag.split("\\s");
+		int w = InputClass.intInput("장착할 아이템 선택: ");
+		if(bagItem.length < w) {System.out.println("잘못된 선택입니다."); 설정.sleep(1300);}
+		else {
+			bag = bag.replace(bagItem[w-1], weapon);
+			stat.setBag(bag);
+			stat.setCurrentWeapon(bagItem[w-1]);
+			
+			if(bagItem[w-1].equals("도끼")) {
+				stat.setWeaponAtk(100);
+			}else if(bagItem[w-1].equals("식칼")) {
+				stat.setWeaponAtk(200);
+			}else if(bagItem[w-1].equals("검")) {
+				stat.setWeaponAtk(500);
+			}else if(bagItem[w-1].equals("쌍검")) {
+				stat.setWeaponAtk(600);
+			}else if(bagItem[w-1].equals("비검")) {
+				stat.setWeaponAtk(1000);
+			}else if(bagItem[w-1].equals("간지")) {
+				stat.setWeaponAtk(5000);
+			}else {
+				System.out.println("공격력 증가는 없지만 그래도 무기로 쓸 순 있을 것 같다...");
+				설정.sleep(1500);
+			}
+		}
 		
 	}
 	
@@ -134,6 +161,7 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 					나무.사냥(this);
 				}else {
 					System.out.println("잡을 몹들이 없다.");
+					설정.sleep(1500);
 				}
 			}else if(w == 2) {
 				if(stat.getPlace().equals("서쪽 숲")) {
@@ -150,6 +178,7 @@ public class 용사 extends 캐릭터 implements 스킬, 호칭 {
 					나무.채집(this);
 				}else {
 					System.out.println("여긴 어디지? 다시 돌아가야겠다.");
+					설정.sleep(1500);
 				}
 			}else if (w == 3) {
 				화면.스탯창(this);

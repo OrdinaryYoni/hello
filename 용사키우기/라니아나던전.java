@@ -92,8 +92,8 @@ public class 라니아나던전 {
 	public void 채집(용사 user) {
 		스탯 u = user.getStat();
 		화면.채집창(user);
-		if(u.getQuest().equals("죽음의 길") && u.getBag().indexOf("생명의 돌 ") == -1) {
-			u.setBag(u.getBag()+"생명의 돌 ");
+		if(u.getQuest().equals("죽음의 길") && u.getBag().indexOf("생명의돌 ") == -1) {
+			u.setBag(u.getBag()+"생명의돌 ");
 			u.setCompleteQuest(user.getStat().getCompleteQuest()+"죽음의 길 ");
 			u.setQuest("엄숨");
 		}

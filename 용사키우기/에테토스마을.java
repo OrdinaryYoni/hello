@@ -3,6 +3,7 @@ package 용사키우기;
 public class 에테토스마을 {
 	NPC[] npcs = new NPC[5];
 	int [] cnt = {0,0,0,0,0};
+	String[] mugi = {"도끼","식칼","검","쌍검","비검","간지"};
 	public 에테토스마을() {
 		npcs[0] = new NPC("대장장이", 1600, 700, 999999, 16, 3900);//이름 체력 공격력 방어력 레벨 exp
 		npcs[1] = new NPC("잡화상인", 1, 1, 1, 1, 50000);
@@ -18,18 +19,47 @@ public class 에테토스마을 {
 			if (w.equals("1")) {
 				화면.대장간(user, 2);
 				int a = InputClass.intInput("무엇을 살거냐? ");
+				String msg = "아무키나 누른후 enter해서 종료";
+				int money = 0;
 				if(a==1) {
 					System.out.println("아 그것은 나무꾼의 도끼란다~ 내가 금도끼 은도끼를 보고 따라 만들었어~");
-					System.out.println("공격력은 +100이고 ");
-					
-				}
+					msg = "공격력은 +100이고 가격은 1000원이야! 살꺼야?(y/n) ";
+					money = 1000;
+				}else if(a==2) {
+					System.out.println("아 그것은 식칼이야! 요리할 때 잘 썰려서 좋을꺼야!");
+					msg = "공격력은 +200이고 가격은 2000원이야! 살꺼야?(y/n) ";
+					money = 2000;
+				}else if(a==3) {
+					System.out.println("아 그것은 전설의 용사의 검....!의 모조품이야.");
+					msg = "공격력은 +500이고 가격은 5000원이야! 살꺼야?(y/n) ";
+					money = 5000;
+				}else if(a==4) {
+					System.out.println("아 그것은 쌍쌍바가 먹고 싶어서 만든 쌍쌍검이야.");
+					msg = "공격력은 +600이고 가격은 6000원이야! 살꺼야?(y/n) ";
+					money = 6000;
+				}else if(a==5) {
+					System.out.println("아 그것은 먼 나라에서 가져온 비검이야.");
+					msg = "공격력은 +1000이고 가격은 10000원이야! 살꺼야?(y/n) ";
+					money = 10000;
+				}else if(a==6) {
+					System.out.println("그건 그냥 멋있는 검... 간zㅣ나잖냐~");
+					msg = "공격력은 +100이고 가격은 15000원이야! 살꺼야?(y/n) ";
+					money = 15000;
+				}else System.out.println("? 그런 검도 있던가..?");
+				String b = InputClass.stringInput(msg);
+				if(b.equals("y") && user.getStat().getMoney() >= money) {
+					user.getStat().setBag(user.getStat().getBag() + mugi[a-1]);
+					user.getStat().setMoney(user.getStat().getMoney()-money);
+					System.out.println("하하하! 고맙구나!");
+				}else System.out.println("? 안 살꺼면 나가!");
+				설정.sleep(1500);
 			}else if(w.equals("2")) {
 				화면.대장간(user, 3);
 			}else if(w.equals("3")) {
 				if(u.getLevel() > 40 && u.getCompleteQuest().indexOf("대장장이의 부탁") == -1) {
-					if (u.getBag().indexOf("엘리벳의 눈물") != -1) {
+					if (u.getBag().indexOf("엘리벳의눈물") != -1) {
 						화면.대장간(user, 6);
-						u.setBag(u.getBag().replace("엘리벳의 눈물 ", ""));
+						u.setBag(u.getBag().replace("엘리벳의눈물 ", ""));
 						u.setMoney(u.getMoney()+2000);
 						u.setQuest("마왕의 모략");
 						u.setCompleteQuest("대장장이의 부탁 ");
@@ -62,6 +92,12 @@ public class 에테토스마을 {
 				if (w.equals("1")) {
 					화면.잡화점(user, 2);
 					String a = InputClass.print();
+					System.out.println("자 여기 있는 것들 다 공짜양~~~");
+					설정.sleep(1300);
+					System.out.println("(자세히 보니 다 털뭉치이다...)");
+					설정.sleep(1300);
+					System.out.println("(밖으로 가지고 나왔더니 다 풀려버렸다...)");
+					설정.sleep(1300);
 				}else if(w.equals("2")) {
 					화면.잡화점(user, 3);
 					String a = InputClass.print();
